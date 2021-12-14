@@ -18,7 +18,7 @@
     
     
       
-        <title>About - SAITEJA IRRINKI</title>
+        <title>Docker - SAITEJA IRRINKI</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about" class="md-skip">
+        <a href="#install-docker-engine-on-ubuntu-centos-with-docker-compose" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              About
+              Docker
             
           </span>
         </div>
@@ -213,12 +213,10 @@
         
   
   
-    
-  
 
 
   <li class="md-tabs__item">
-    <a href="./" class="md-tabs__link md-tabs__link--active">
+    <a href="../about/" class="md-tabs__link">
       About
     </a>
   </li>
@@ -255,13 +253,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../aws-cli/" class="md-tabs__link">
+      <a href="../aws-cli/" class="md-tabs__link md-tabs__link--active">
         DevOps
       </a>
     </li>
@@ -340,21 +340,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
         About
       </a>
-      
     </li>
   
 
@@ -480,12 +470,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -526,11 +518,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../docker-setup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Docker
       </a>
+      
     </li>
   
 
@@ -572,10 +574,53 @@
               
                 
                 
-                <h1 id="about">About<a class="headerlink" href="#about" title="Permanent link">&para;</a></h1>
-<p>This is Saiteja Irrinki Working as Build &amp; Release as a DevOps Engineer in Visualpath IT Services from Nov-2020 to TillDate. Experience in Configuration Management covering Build Management, Version Control, CodeQuality, Environment Administration, Defect Tracking, Release Management, Merging Strategies, Continous Integration and Continous Delivery, Cloud Computing, Container Orchestration, Scripting for Automation, Static Web Development, Orchestration, Technologies and Operating Systems – Linux, Windows.</p>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.32.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span> +91-9493322788</p>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.13c-.15.01-.29.06-.39.17l-1 1 2.05 2 1-1c.22-.21.22-.56 0-.77l-1.24-1.23a.557.557 0 0 0-.38-.17m-2 1.75L13 19.94V22h2.06l6.06-6.07M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7v-.89l8.24-8.22c.47-.49 1.12-.76 1.8-.76.34 0 .68.06 1 .19V6c0-1.12-.92-2-2.04-2m0 4-8 5-8-5V6l8 5 8-5"/></svg></span> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#97;&#105;&#116;&#101;&#106;&#97;&#105;&#114;&#114;&#105;&#110;&#107;&#105;&#57;&#49;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#115;&#97;&#105;&#116;&#101;&#106;&#97;&#105;&#114;&#114;&#105;&#110;&#107;&#105;&#57;&#49;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
+                <h1 id="install-docker-engine-on-ubuntu-centos-with-docker-compose">Install Docker Engine on Ubuntu &amp; CentOS with Docker-Compose<a class="headerlink" href="#install-docker-engine-on-ubuntu-centos-with-docker-compose" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+apt --help &gt;&gt;/dev/null
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span>
+   <span class="k">then</span> 
+<span class="nb">echo</span> <span class="s2">&quot; INSTALLING DOCKER IN UBUNTU&quot;</span>
+<span class="nb">echo</span>
+sudo apt update
+sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get update
+sudo apt-get -y install <span class="se">\</span>
+    apt-transport-https <span class="se">\</span>
+    ca-certificates <span class="se">\</span>
+    curl <span class="se">\</span>
+    gnupg <span class="se">\</span>
+    lsb-release
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+<span class="nb">echo</span> <span class="se">\</span>
+  <span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \</span>
+<span class="s2">  </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y  
+sudo docker run hello-world
+    <span class="k">else</span>
+<span class="nb">echo</span> <span class="s2">&quot; INSTALLING DOCKER IN CENTOS&quot;</span>
+<span class="nb">echo</span>
+sudo yum remove docker <span class="se">\</span>
+                  docker-client <span class="se">\</span>
+                  docker-client-latest <span class="se">\</span>
+                  docker-common <span class="se">\</span>
+                  docker-latest <span class="se">\</span>
+                  docker-latest-logrotate <span class="se">\</span>
+                  docker-logrotate <span class="se">\</span>
+                  docker-engine
+sudo yum install -y yum-utils
+sudo yum-config-manager <span class="se">\</span>
+    --add-repo <span class="se">\</span>
+    https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io -y   
+sudo systemctl start docker
+sudo docker run hello-world
+<span class="k">fi</span>
+<span class="nb">echo</span> <span class="s2">&quot; Installing Docker Compose&quot;</span>
+sudo curl -L <span class="s2">&quot;https://github.com/docker/compose/releases/download/1.29.2/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&quot;</span> -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+</code></pre></div>
                 
               
               
@@ -600,7 +645,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+        <a href="../aws-cli/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AWS" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -609,26 +654,11 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Home
+              AWS
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../profile_summary/" class="md-footer__link md-footer__link--next" aria-label="Next: profile" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              profile
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
