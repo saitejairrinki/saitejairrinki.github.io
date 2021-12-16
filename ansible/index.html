@@ -362,8 +362,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sample-inventory-file" class="md-nav__link">
+    Sample Inventory File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-commands" class="md-nav__link">
     Ansible Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-configuration-file" class="md-nav__link">
+    Ansible Configuration File
   </a>
   
 </li>
@@ -451,8 +465,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sample-inventory-file" class="md-nav__link">
+    Sample Inventory File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-commands" class="md-nav__link">
     Ansible Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-configuration-file" class="md-nav__link">
+    Ansible Configuration File
   </a>
   
 </li>
@@ -498,7 +526,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ansible --version
 </code></pre></div></p>
-<p>Sample Inventory File</p>
+<h2 id="sample-inventory-file">Sample Inventory File<a class="headerlink" href="#sample-inventory-file" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Inventory</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
@@ -552,13 +580,14 @@ To test the connection of All Remote Machine
 To see details about the machine 
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m setup &lt;hostname&gt;
 </code></pre></div></p>
+<h2 id="ansible-configuration-file">Ansible Configuration File<a class="headerlink" href="#ansible-configuration-file" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>vim ansible.cfg
+</code></pre></div>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Ansible Configuration File</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
-<div class="highlight"><pre><span></span><code>vim ansible.cfg
-</code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>defaults<span class="o">]</span>
 <span class="nv">host_key_checking</span><span class="o">=</span>False
 <span class="nv">inventory</span><span class="o">=</span>&lt;Inventory File Path&gt;
