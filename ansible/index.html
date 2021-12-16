@@ -376,6 +376,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#some-example-commands" class="md-nav__link">
+    Some Example Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-configuration-file" class="md-nav__link">
     Ansible Configuration File
   </a>
@@ -474,6 +481,13 @@
         <li class="md-nav__item">
   <a href="#ansible-commands" class="md-nav__link">
     Ansible Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-example-commands" class="md-nav__link">
+    Some Example Commands
   </a>
   
 </li>
@@ -585,18 +599,16 @@ To see details about the machine
 <div class="tabbed-block"></div>
 </div>
 </div>
-<p>Some Example Commands</p>
-<ul>
-<li>Copy files to Remote machines name starts with web
+<h2 id="some-example-commands">Some Example Commands<a class="headerlink" href="#some-example-commands" title="Permanent link">&para;</a></h2>
+<p>Copy files to Remote machines name starts with web
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m copy -a <span class="s2">&quot;src=index,html dest=/var/www/html/index.html&quot;</span> <span class="s1">&#39;web*&#39;</span> --become
-</code></pre></div></li>
-<li>Installing <mark>httpd</mark> in centos Remote machine 
+</code></pre></div>
+Installing <mark>httpd</mark> in centos Remote machine 
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m yum -a <span class="s2">&quot;name=httpd state=present&quot;</span> websrvgrp --become
-</code></pre></div></li>
-<li>Start &amp; Enable <mark>httpd</mark> in centos Remote machine
+</code></pre></div>
+Start &amp; Enable <mark>httpd</mark> in centos Remote machine
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m service -a <span class="s2">&quot;name=httpd state=started enabled=yes&quot;</span> websrvgrp --become
-</code></pre></div></li>
-</ul>
+</code></pre></div></p>
 <h2 id="ansible-configuration-file">Ansible Configuration File<a class="headerlink" href="#ansible-configuration-file" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>vim ansible.cfg
 </code></pre></div>
