@@ -201,58 +201,6 @@
         
   
   
-
-
-  <li class="md-tabs__item">
-    <a href=".." class="md-tabs__link">
-      Home
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="../about/" class="md-tabs__link">
-      About
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../profile_summary/" class="md-tabs__link">
-        Profile
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="../resume/" class="md-tabs__link">
-      Resume
-    </a>
-  </li>
-
-      
-        
-  
-  
     
   
 
@@ -266,18 +214,6 @@
       </a>
     </li>
   
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="../test/" class="md-tabs__link">
-      Test
-    </a>
-  </li>
 
       
     </ul>
@@ -337,151 +273,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Home
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
-        About
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          Profile
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Profile" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Profile
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../profile_summary/" class="md-nav__link">
-        profile
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../technical_skills/" class="md-nav__link">
-        skills
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../job_roles/" class="md-nav__link">
-        Job Roles
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../project/" class="md-nav__link">
-        Projects
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../resume/" class="md-nav__link">
-        Resume
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -489,7 +280,7 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -506,13 +297,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_5">
+        <label class="md-nav__link" for="__nav_1">
           DevOps
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="DevOps" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           DevOps
         </label>
@@ -600,21 +391,6 @@
           
         </ul>
       </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../test/" class="md-nav__link">
-        Test
-      </a>
     </li>
   
 
@@ -714,6 +490,28 @@
 <p class="admonition-title">Info</p>
 <p>Host level has the Highest priority , If you mention anything like username or Keyfile etc. It will take only which are mentioned in the host level.</p>
 </div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Ansible Configuration File</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code>vim ansible.cfg
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">defaults</span><span class="p">]</span><span class="w"></span>
+<span class="n">host_key_checking</span><span class="o">=</span><span class="n">False</span><span class="w"></span>
+<span class="n">inventory</span><span class="o">=</span><span class="p">.</span><span class="o">/</span><span class="n">invent</span><span class="w"></span>
+<span class="n">timeout</span><span class="o">=</span><span class="mi">20</span><span class="w"></span>
+<span class="n">log_path</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">hbadger</span><span class="p">.</span><span class="n">log</span><span class="w"></span>
+<span class="n">forks</span><span class="o">=</span><span class="mi">5</span><span class="w"></span>
+<span class="n">remote_port</span><span class="o">=</span><span class="mi">22</span><span class="w"></span>
+<span class="n">remote_user</span><span class="o">=</span><span class="n">devops</span><span class="w"></span>
+
+<span class="p">[</span><span class="n">privilege_escalation</span><span class="p">]</span><span class="w"></span>
+<span class="n">become</span><span class="o">=</span><span class="n">True</span><span class="w"></span>
+<span class="n">become_method</span><span class="o">=</span><span class="n">sudo</span><span class="w"></span>
+<span class="n">become_user</span><span class="o">=</span><span class="n">root</span><span class="w"></span>
+<span class="n">become_ask_pass</span><span class="o">=</span><span class="n">False</span><span class="w"></span>
+</code></pre></div>
                 
               
               
