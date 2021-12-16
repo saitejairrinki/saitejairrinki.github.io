@@ -580,10 +580,27 @@ To test the connection of All Remote Machine
 To see details about the machine 
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m setup &lt;hostname&gt;
 </code></pre></div></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Ad hoc Commands</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>Some Example Commands</p>
+<ul>
+<li>Copy files to Remote machines name starts with web
+<div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m copy -a <span class="s2">&quot;src=index,html dest=/var/www/html/index.html&quot;</span> <span class="s1">&#39;web*&#39;</span> --become
+</code></pre></div></li>
+<li>Installing <mark>httpd</mark> in centos Remote machine 
+<div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m yum -a <span class="s2">&quot;name=httpd state=present&quot;</span> websrvgrp --become
+</code></pre></div></li>
+<li>Start &amp; Enable <mark>httpd</mark> in centos Remote machine
+<div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m service -a <span class="s2">&quot;name=httpd state=started enabled=yes&quot;</span> websrvgrp --become
+</code></pre></div></li>
+</ul>
 <h2 id="ansible-configuration-file">Ansible Configuration File<a class="headerlink" href="#ansible-configuration-file" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>vim ansible.cfg
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Ansible Configuration File</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Ansible Configuration File</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
