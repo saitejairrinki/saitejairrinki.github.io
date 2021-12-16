@@ -559,20 +559,20 @@ To see details about the machine
 </div>
 <div class="highlight"><pre><span></span><code>vim ansible.cfg
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">defaults</span><span class="p">]</span><span class="w"></span>
-<span class="n">host_key_checking</span><span class="o">=</span><span class="n">False</span><span class="w"></span>
-<span class="n">inventory</span><span class="o">=&lt;</span><span class="n">Inventory</span><span class="w"> </span><span class="n">File</span><span class="w"> </span><span class="n">Path</span><span class="o">&gt;</span><span class="w"></span>
-<span class="n">timeout</span><span class="o">=</span><span class="mi">20</span><span class="w"></span>
-<span class="n">log_path</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">hbadger</span><span class="p">.</span><span class="n">log</span><span class="w"></span>
-<span class="n">forks</span><span class="o">=</span><span class="mi">5</span><span class="w"></span>
-<span class="n">remote_port</span><span class="o">=</span><span class="mi">22</span><span class="w"></span>
-<span class="n">remote_user</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>defaults<span class="o">]</span>
+<span class="nv">host_key_checking</span><span class="o">=</span>False
+<span class="nv">inventory</span><span class="o">=</span>&lt;Inventory File Path&gt;
+<span class="nv">timeout</span><span class="o">=</span><span class="m">20</span>
+<span class="nv">log_path</span><span class="o">=</span>/var/log/ansible-hbadger.log
+<span class="nv">forks</span><span class="o">=</span><span class="m">5</span>
+<span class="nv">remote_port</span><span class="o">=</span><span class="m">22</span>
+<span class="nv">remote_user</span><span class="o">=</span>&lt;username&gt;
 
-<span class="p">[</span><span class="n">privilege_escalation</span><span class="p">]</span><span class="w"></span>
-<span class="n">become</span><span class="o">=</span><span class="n">True</span><span class="w"></span>
-<span class="n">become_method</span><span class="o">=</span><span class="n">sudo</span><span class="w"></span>
-<span class="n">become_user</span><span class="o">=</span><span class="n">root</span><span class="w"></span>
-<span class="n">become_ask_pass</span><span class="o">=</span><span class="n">False</span><span class="w"></span>
+<span class="o">[</span>privilege_escalation<span class="o">]</span>
+<span class="nv">become</span><span class="o">=</span>True
+<span class="nv">become_method</span><span class="o">=</span>sudo
+<span class="nv">become_user</span><span class="o">=</span>root
+<span class="nv">become_ask_pass</span><span class="o">=</span>False
 </code></pre></div>
                 
               
