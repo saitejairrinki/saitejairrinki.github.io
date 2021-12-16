@@ -338,9 +338,39 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Ansible
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Ansible
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-commands" class="md-nav__link">
+    Ansible Commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -414,6 +444,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-commands" class="md-nav__link">
+    Ansible Commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -439,6 +484,8 @@
 <div class="highlight"><pre><span></span><code>sudo add-apt-repository --yes --update ppa:ansible/ansible
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo apt install ansible
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ansible --version
 </code></pre></div></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">CentOS</label></div>
 <div class="tabbed-content">
@@ -448,6 +495,8 @@
 <p><div class="highlight"><pre><span></span><code>sudo yum install epel-release
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo yum install ansible
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ansible --version
 </code></pre></div></p>
 <p>Sample Inventory File</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Inventory</label></div>
@@ -490,6 +539,19 @@
 <p class="admonition-title">Info</p>
 <p>Host level has the Highest priority , If you mention anything like username or Keyfile etc. It will take only which are mentioned in the host level.</p>
 </div>
+<h2 id="ansible-commands">Ansible Commands<a class="headerlink" href="#ansible-commands" title="Permanent link">&para;</a></h2>
+<p>To test the connection of particular Remote Machine
+<div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m ping &lt;hostname&gt;
+</code></pre></div>
+To test the connection of particular Group of Remote Machines
+<div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m ping &lt;Groupname&gt;
+</code></pre></div>
+To test the connection of All Remote Machine
+<div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m ping all
+</code></pre></div>
+To see details about the machine 
+<div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m setup &lt;hostname&gt;
+</code></pre></div></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Ansible Configuration File</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
@@ -499,12 +561,12 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">defaults</span><span class="p">]</span><span class="w"></span>
 <span class="n">host_key_checking</span><span class="o">=</span><span class="n">False</span><span class="w"></span>
-<span class="n">inventory</span><span class="o">=</span><span class="p">.</span><span class="o">/</span><span class="n">invent</span><span class="w"></span>
+<span class="n">inventory</span><span class="o">=&lt;</span><span class="n">Inventory</span><span class="w"> </span><span class="n">File</span><span class="w"> </span><span class="n">Path</span><span class="o">&gt;</span><span class="w"></span>
 <span class="n">timeout</span><span class="o">=</span><span class="mi">20</span><span class="w"></span>
 <span class="n">log_path</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">hbadger</span><span class="p">.</span><span class="n">log</span><span class="w"></span>
 <span class="n">forks</span><span class="o">=</span><span class="mi">5</span><span class="w"></span>
 <span class="n">remote_port</span><span class="o">=</span><span class="mi">22</span><span class="w"></span>
-<span class="n">remote_user</span><span class="o">=</span><span class="n">devops</span><span class="w"></span>
+<span class="n">remote_user</span><span class="o">=&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="w"></span>
 
 <span class="p">[</span><span class="n">privilege_escalation</span><span class="p">]</span><span class="w"></span>
 <span class="n">become</span><span class="o">=</span><span class="n">True</span><span class="w"></span>
