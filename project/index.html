@@ -18,7 +18,7 @@
     
     
       
-        <title>GIT - SAITEJA IRRINKI</title>
+        <title>Project - SAITEJA IRRINKI</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-cheat-sheet" class="md-skip">
+        <a href="#project-1" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GIT
+              Project
             
           </span>
         </div>
@@ -201,15 +201,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../aws-cli/" class="md-tabs__link md-tabs__link--active">
+      <a href="../aws-cli/" class="md-tabs__link">
         DevOps
       </a>
     </li>
@@ -273,14 +271,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
       
       
       
@@ -369,21 +365,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
         GIT
       </a>
-      
     </li>
   
 
@@ -411,8 +397,103 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-1" class="md-nav__link">
+    PROJECT 1
+  </a>
+  
+    <nav class="md-nav" aria-label="PROJECT 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name-vprofile" class="md-nav__link">
+    Name: Vprofile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration-2-months" class="md-nav__link">
+    Duration: 2-Months
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-devops" class="md-nav__link">
+    Role: DevOps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-git-github-maven-apache-tomcat-jenkins-linux-sonarqube-nexus-aws-ansible" class="md-nav__link">
+    Environment : Git, GitHub, Maven, Apache Tomcat, Jenkins, Linux, SonarQube, Nexus, AWS, Ansible.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roles-and-responsibilities" class="md-nav__link">
+    Roles and Responsibilities :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-2" class="md-nav__link">
+    PROJECT 2
+  </a>
+  
+    <nav class="md-nav" aria-label="PROJECT 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name-emartin" class="md-nav__link">
+    Name: Emartin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration-3-months" class="md-nav__link">
+    Duration : 3-Months
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-git-github-maven-nexus-sonarqube-jenkins-docker-kubernetes-aws-linux" class="md-nav__link">
+    Environment : Git, GitHub, Maven, Nexus, SonarQube, Jenkins, Docker, Kubernetes, AWS, Linux.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roles-and-responsibilities_1" class="md-nav__link">
+    Roles and Responsibilities :
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -425,34 +506,77 @@
               
                 
                 
-                <h1 id="git-cheat-sheet">Git Cheat Sheet<a class="headerlink" href="#git-cheat-sheet" title="Permanent link">&para;</a></h1>
-<p>GIT BASICS</p>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Usage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>git init <code>&lt;directory&gt;</code></td>
-<td>Create empty Git repo in specified directory. Run with no arguments to initialize the current directory as a git repository.</td>
-</tr>
-<tr>
-<td>git clone <code>&lt;repo&gt;</code></td>
-<td>Clone repo located at <code>&lt;repo&gt;</code> onto local machine. Original repo can be located on the local filesystem or on a remote machine via HTTP or SSH.</td>
-</tr>
-<tr>
-<td>git config user.name <code>&lt;name&gt;</code></td>
-<td>Define author name to be used for all commits in current repo. Devs commonly use --global flag to set config options for current user.</td>
-</tr>
-<tr>
-<td>git add <code>&lt;directory&gt;</code></td>
-<td>Stage all changes in <code>&lt;directory&gt;</code> for the next commit. Replace <code>&lt;directory&gt;</code> with a <code>&lt;file&gt;</code> to change a specific file.</td>
-</tr>
-</tbody>
-</table>
+                  <h1>Project</h1>
+                
+                <h2 id="project-1">PROJECT 1<a class="headerlink" href="#project-1" title="Permanent link">&para;</a></h2>
+<h4 id="name-vprofile">Name: Vprofile<a class="headerlink" href="#name-vprofile" title="Permanent link">&para;</a></h4>
+<h4 id="duration-2-months">Duration: 2-Months<a class="headerlink" href="#duration-2-months" title="Permanent link">&para;</a></h4>
+<h4 id="role-devops">Role: DevOps<a class="headerlink" href="#role-devops" title="Permanent link">&para;</a></h4>
+<h4 id="environment-git-github-maven-apache-tomcat-jenkins-linux-sonarqube-nexus-aws-ansible">Environment : Git, GitHub, Maven, Apache Tomcat, Jenkins, Linux, SonarQube, Nexus, AWS, Ansible.<a class="headerlink" href="#environment-git-github-maven-apache-tomcat-jenkins-linux-sonarqube-nexus-aws-ansible" title="Permanent link">&para;</a></h4>
+<h4 id="roles-and-responsibilities">Roles and Responsibilities :<a class="headerlink" href="#roles-and-responsibilities" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Configured Git with Jenkins and schedule jobs using POLL SCM option</li>
+<li>Installed and configured GIT and communicating with the repositories in GITHUB. Collaborate
+with different teams to deploy application code into Dev, QA, and Staging.</li>
+<li>Installing and updating the Jenkins plug-ins to achieve CI/CD.</li>
+<li>Responsible for installing Jenkins master and slave nodes.</li>
+<li>Created Jenkins CICD pipelines for continuous build &amp; deployment and
+integrated Junit and SonarQube plugins in Jenkins for automated testing and for Code quality
+check.</li>
+<li>Integrated SonarQube with Jenkins for continuous inspection of code quality and analysis with
+SonarQube scanner for Maven.</li>
+<li>Managed Sonatype Nexus repositories to download the artifacts (jar, war &amp; ear) during the build</li>
+<li>Wrote playbook manifests for deploying, configuring, and managing components.</li>
+<li>Managing the working environments through configuration management tools ansible.</li>
+<li>Working with developers and Testers to test the source code and applications through Jenkins
+plug-ins.</li>
+<li>Installation of apache, tomcat and troubleshooting web server issues.</li>
+<li>Proficient in deployment of WAR and EAR files in profiles and clustered environments.</li>
+<li>Administration and maintenance of servers using Red Hat Linux/Cento’s 6 and 7.</li>
+<li>
+<p>Installing and configuration of ansible server. *  Implemented AWS solutions using EC2,S3,EBS,ELB, Route53, Auto scaling groups</p>
+</li>
+<li>
+<p>Built servers using AWS, importing volumes, launching EC2, creating Security groups, Auto-
+scaling, Load balancers (ELBs) using Cloud formation templates &amp; AMI's using Infrastructure as</p>
+</li>
+</ul>
+<p>a Service (IaaS).
+*  Designed, built, and deployed a multitude application utilizing almost all the AWS stack
+(Including EC2, S3), focusing on high-availability, fault tolerance, and auto-scaling.
+*  Configured ELB with different launch configurations using AMI and EC2 Autoscaling groups
+*  Creating S3 buckets and S3 life cycle policies and bucket policies (Read/Write)
+*  Creating EBS Volumes and snapshots and attaching to the EC2 instances</p>
+<h2 id="project-2">PROJECT 2<a class="headerlink" href="#project-2" title="Permanent link">&para;</a></h2>
+<h4 id="name-emartin">Name: Emartin<a class="headerlink" href="#name-emartin" title="Permanent link">&para;</a></h4>
+<h4 id="duration-3-months">Duration : 3-Months<a class="headerlink" href="#duration-3-months" title="Permanent link">&para;</a></h4>
+<h4 id="environment-git-github-maven-nexus-sonarqube-jenkins-docker-kubernetes-aws-linux">Environment : Git, GitHub, Maven, Nexus, SonarQube, Jenkins, Docker, Kubernetes, AWS, Linux.<a class="headerlink" href="#environment-git-github-maven-nexus-sonarqube-jenkins-docker-kubernetes-aws-linux" title="Permanent link">&para;</a></h4>
+<h4 id="roles-and-responsibilities_1">Roles and Responsibilities :<a class="headerlink" href="#roles-and-responsibilities_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Involved in CI/CD process and integrated GIT, Nexus, SonarQube, Maven artifacts build with
+Jenkins and creating Docker image and using the Docker image to deploy over EKS
+(Kubernetes). </li>
+<li>Building and deploying various micro services in EKS. </li>
+<li>Creating and maintaining namespaces, configmaps, secrets, service, ingress, rbac in
+kubernetes. </li>
+<li>Implemented and maintained the Branching and build/ release strategies utilizing GIT. </li>
+<li>Experience with container-based deployments using Docker, working with Dockerimages,
+Docker Hub and Docker-registries and Kubernetes. </li>
+<li>Building/Maintaining Docker container clusters managed by Kubernetes Linux, Bash, GIT,
+Docker. </li>
+<li>Implemented docker-maven-plugin in maven pom to build docker images for all micro
+services and later used Docker file to build the docker images from the java jar files. </li>
+<li>Utilized Kubernetes for the runtime environment of the CI/CD system to build, test deploy. </li>
+<li>Experience in working on AWS and its services like AWS IAM, VPC, EC2, EKS, EBS, S3, ELB,
+Auto Scaling, Route 53, Cloud Front, Cloud Watch, Cloud Trail, and SNS. </li>
+<li>Experienced in Cloud automation using AWS Cloud Formation templates to create custom
+sized VPC, subnets, NAT, EC2 instances, ELB and Security groups. </li>
+<li>Experienced in creating complex IAM policies, Roles and user management for delegated access
+within AWS</li>
+<li>Identify, troubleshoot and resolve issues related to build and deploy process. </li>
+<li>Deploying Docker images in Kubernetes cluster using Yaml files and exposing the application
+to internet using service object.</li>
+</ul>
                 
               
               
@@ -473,26 +597,6 @@
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../kops/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kubernetes" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Kubernetes
-            </div>
-          </div>
-        </a>
-      
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
