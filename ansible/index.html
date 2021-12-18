@@ -383,8 +383,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-ansible-playbooks" class="md-nav__link">
-    Sample Ansible Playbooks
+  <a href="#playbook-for-creating-files-directories" class="md-nav__link">
+    Playbook For Creating Files &amp; Directories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" class="md-nav__link">
+    Creating Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine
   </a>
   
 </li>
@@ -500,8 +507,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-ansible-playbooks" class="md-nav__link">
-    Sample Ansible Playbooks
+  <a href="#playbook-for-creating-files-directories" class="md-nav__link">
+    Playbook For Creating Files &amp; Directories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" class="md-nav__link">
+    Creating Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine
   </a>
   
 </li>
@@ -623,16 +637,16 @@ Installing <mark>httpd</mark> in centos Remote machine
 Start &amp; Enable <mark>httpd</mark> in centos Remote machine
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m service -a <span class="s2">&quot;name=httpd state=started enabled=yes&quot;</span> websrvgrp --become
 </code></pre></div></p>
-<h2 id="sample-ansible-playbooks">Sample Ansible Playbooks<a class="headerlink" href="#sample-ansible-playbooks" title="Permanent link">&para;</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Ansible Playbooks should be with <mark>.yml or .yaml</mark> Extension for example <mark>vim sample.yml</mark></p>
-</div>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Playbook For Creating Files &amp; Directories</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Sample Ansible Playbooks</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Ansible Playbooks should be with <mark>.yml or .yaml</mark> Extension for example <mark>vim sample.yml</mark></p>
+</div>
+<h2 id="playbook-for-creating-files-directories">Playbook For Creating Files &amp; Directories<a class="headerlink" href="#playbook-for-creating-files-directories" title="Permanent link">&para;</a></h2>
 <p><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Creating Files &amp; Directories</span>
   <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;host&gt;</span>
   <span class="nt">become</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
@@ -650,6 +664,32 @@ Start &amp; Enable <mark>httpd</mark> in centos Remote machine
 To Execute the playbook
 <div class="highlight"><pre><span></span><code>ansible-playbook -i &lt;Inventory file path&gt; sample.yml
 </code></pre></div></p>
+<h2 id="creating-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine">Creating Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine<a class="headerlink" href="#creating-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install httpd and starting the service</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Installing the Apache package</span>
+       <span class="nt">yum</span><span class="p">:</span>
+         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+         <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+
+
+     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Starting service</span>
+       <span class="nt">service</span><span class="p">:</span>
+         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+         <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
+         <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+
+     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Copy file with owner and permissions</span>
+       <span class="nt">copy</span><span class="p">:</span>
+         <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./index.html</span>
+         <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/www/html/index.html</span>
+
+     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restarting service</span>
+       <span class="nt">service</span><span class="p">:</span>
+         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+         <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restarted</span>
+</code></pre></div>
 <h2 id="ansible-configuration-file">Ansible Configuration File<a class="headerlink" href="#ansible-configuration-file" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>vim ansible.cfg
 </code></pre></div>
