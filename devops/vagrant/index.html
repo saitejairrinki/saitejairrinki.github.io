@@ -13,19 +13,19 @@
         <meta name="author" content="Imran Teli,Aqueel">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
-        <title>Docker - SAITEJA IRRINKI</title>
+        <title>Vagrant - SAITEJA IRRINKI</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.db9e7362.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.db9e7362.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
       
     
@@ -40,7 +40,7 @@
     
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     
       
@@ -61,7 +61,7 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
   
     
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
       <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-docker-engine-docker-compose-on-ubuntu-centos" class="md-skip">
+        <a href="#vagrant" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +86,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="SAITEJA IRRINKI" class="md-header__button md-logo" aria-label="SAITEJA IRRINKI" data-md-component="logo">
+    <a href="../.." title="SAITEJA IRRINKI" class="md-header__button md-logo" aria-label="SAITEJA IRRINKI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 6h16v10H4m16 2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4c-1.11 0-2 .89-2 2v10a2 2 0 0 0 2 2H0v2h24v-2h-4z"/></svg>
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker
+              Vagrant
             
           </span>
         </div>
@@ -209,7 +209,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../vagrant/" class="md-tabs__link md-tabs__link--active">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         DevOps
       </a>
     </li>
@@ -243,7 +243,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="SAITEJA IRRINKI" class="md-nav__button md-logo" aria-label="SAITEJA IRRINKI" data-md-component="logo">
+    <a href="../.." title="SAITEJA IRRINKI" class="md-nav__button md-logo" aria-label="SAITEJA IRRINKI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 6h16v10H4m16 2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4c-1.11 0-2 .89-2 2v10a2 2 0 0 0 2 2H0v2h24v-2h-4z"/></svg>
@@ -315,11 +315,58 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../vagrant/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Vagrant
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Vagrant
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#to-bring-up-ubuntu-vm" class="md-nav__link">
+    To Bring up ubuntu VM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-bring-up-centos-vm" class="md-nav__link">
+    To Bring up CentOS VM
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -357,51 +404,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Docker
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../docker-setup/" class="md-nav__link">
         Docker
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#docker-commands" class="md-nav__link">
-    Docker Commands
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -467,8 +474,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#docker-commands" class="md-nav__link">
-    Docker Commands
+  <a href="#to-bring-up-ubuntu-vm" class="md-nav__link">
+    To Bring up ubuntu VM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-bring-up-centos-vm" class="md-nav__link">
+    To Bring up CentOS VM
   </a>
   
 </li>
@@ -486,188 +500,128 @@
               
                 
                 
-                <h1 id="install-docker-engine-docker-compose-on-ubuntu-centos">Install Docker Engine &amp; Docker-Compose on Ubuntu &amp; CentOS<a class="headerlink" href="#install-docker-engine-docker-compose-on-ubuntu-centos" title="Permanent link">&para;</a></h1>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Docker Setup</label></div>
+                <h1 id="vagrant">Vagrant<a class="headerlink" href="#vagrant" title="Permanent link">&para;</a></h1>
+<p>Create a Directory with name <mark>vagrantvms</mark>
+<div class="highlight"><pre><span></span><code>mkdir vagrantvms
+</code></pre></div>
+Change Directory to <mark>vagrantvms</mark>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> vagrantvms
+</code></pre></div></p>
+<h2 id="to-bring-up-ubuntu-vm">To Bring up ubuntu VM<a class="headerlink" href="#to-bring-up-ubuntu-vm" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
-<p>Create a file name docker_setup.sh and copy the below script
-<div class="highlight"><pre><span></span><code>vim docker_setup.sh
+<p>Create a Directory name <mark>ubuntu</mark>
+<div class="highlight"><pre><span></span><code>mkdir ubuntu 
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-apt --help &gt;&gt;/dev/null
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span>
-   <span class="k">then</span> 
-<span class="nb">echo</span> <span class="s2">&quot; INSTALLING DOCKER IN UBUNTU&quot;</span>
-<span class="nb">echo</span>
-sudo apt update
-sudo apt-get remove docker docker-engine docker.io containerd runc
-sudo apt-get update
-sudo apt-get -y install <span class="se">\</span>
-    apt-transport-https <span class="se">\</span>
-    ca-certificates <span class="se">\</span>
-    curl <span class="se">\</span>
-    gnupg <span class="se">\</span>
-    lsb-release
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-<span class="nb">echo</span> <span class="se">\</span>
-  <span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \</span>
-<span class="s2">  </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io -y  
-sudo docker run hello-world
-    <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot; INSTALLING DOCKER IN CENTOS&quot;</span>
-<span class="nb">echo</span>
-sudo yum remove docker <span class="se">\</span>
-                  docker-client <span class="se">\</span>
-                  docker-client-latest <span class="se">\</span>
-                  docker-common <span class="se">\</span>
-                  docker-latest <span class="se">\</span>
-                  docker-latest-logrotate <span class="se">\</span>
-                  docker-logrotate <span class="se">\</span>
-                  docker-engine
-sudo yum install -y yum-utils
-sudo yum-config-manager <span class="se">\</span>
-    --add-repo <span class="se">\</span>
-    https://download.docker.com/linux/centos/docker-ce.repo
-sudo yum install docker-ce docker-ce-cli containerd.io -y   
-sudo systemctl start docker
-sudo docker run hello-world
-<span class="k">fi</span>
-<span class="nb">echo</span> <span class="s2">&quot; Installing Docker Compose&quot;</span>
-sudo curl -L <span class="s2">&quot;https://github.com/docker/compose/releases/download/1.29.2/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&quot;</span> -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
+Change Directory to <mark>ubuntu</mark>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ubuntu
 </code></pre></div>
-Give Execute permission for script
-<div class="highlight"><pre><span></span><code>sudo chmod +x docker_setup.sh
+Initialize Ubuntu VM
+<div class="highlight"><pre><span></span><code>vagrant init ubuntu/bionic64 
 </code></pre></div>
-Now run the Script
-<div class="highlight"><pre><span></span><code>./docker_setup.sh
-</code></pre></div></p>
-<h2 id="docker-commands">Docker Commands<a class="headerlink" href="#docker-commands" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Docker Images</label></div>
+Now Bring up your Ubuntu VM 
+<div class="highlight"><pre><span></span><code>vagrant up
+</code></pre></div>
+Once your VM is up then login to your vm 
+<div class="highlight"><pre><span></span><code>vagrant ssh
+</code></pre></div>
+Now you can see the prompt of ubuntu machine, If you wanna exit type <mark>exit</mark></p>
+<h2 id="to-bring-up-centos-vm">To Bring up CentOS VM<a class="headerlink" href="#to-bring-up-centos-vm" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">CentOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
-<p>List all images that are locally stored with the Docker Engine
-<div class="highlight"><pre><span></span><code>docker image ls
+<p>Create a Directory name <mark>centos</mark>
+<div class="highlight"><pre><span></span><code>mkdir centos 
 </code></pre></div>
-Build an image from the Dockerfile in the current directory and tag the image
-<div class="highlight"><pre><span></span><code>docker build -t &lt;imagename&gt;:&lt;tag&gt; 
+Change Directory to <mark>centos</mark>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> centos
 </code></pre></div>
-Delete an image from the local image store
-<div class="highlight"><pre><span></span><code>docker image rm &lt;imagename&gt;:&lt;tag&gt;
-</code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Containers</label></div>
+Initialize centos VM
+<div class="highlight"><pre><span></span><code>vagrant init geerlingguy/centos7 
+</code></pre></div>
+Now Bring up your centos VM 
+<div class="highlight"><pre><span></span><code>vagrant up
+</code></pre></div>
+Once your VM is up then login to your vm 
+<div class="highlight"><pre><span></span><code>vagrant ssh
+</code></pre></div>
+Now you can see the prompt of centos machine, If you wanna exit type <mark>exit</mark></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Multi VMS Vagrantfile</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
-<p>Run a container in interactive mode:
-<div class="highlight"><pre><span></span><code>docker run -it &lt;imagename&gt;:&lt;tag&gt;
+<div class="highlight"><pre><span></span><code><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">hostmanager</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kp">true</span> 
+  <span class="n">config</span><span class="o">.</span><span class="n">hostmanager</span><span class="o">.</span><span class="n">manage_host</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="c1">### Nginx VM ###</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;web01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">web01</span><span class="o">|</span>
+    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;ubuntu/bionic64&quot;</span>
+    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;web01&quot;</span>
+    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.11&quot;</span>
+    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
+  <span class="k">end</span>
+
+<span class="c1">### tomcat vm ###</span>
+   <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;app01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">app01</span><span class="o">|</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;app01&quot;</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.12&quot;</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&quot;virtualbox&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+     <span class="n">vb</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="s2">&quot;1024&quot;</span>
+     <span class="k">end</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
+<span class="sh">#     yum update -y</span>
+<span class="sh">     yum install epel-release -y</span>
+<span class="dl">   SHELL</span>
+   <span class="k">end</span>
+
+<span class="c1">### RabbitMQ vm  ####</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;rmq01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">rmq01</span><span class="o">|</span>
+    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
+    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;rmq01&quot;</span>
+    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.16&quot;</span>
+    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
+    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
+<span class="sh">   # yum update -y</span>
+<span class="sh">    #yum install epel-release -y</span>
+<span class="sh">    # yum install wget -y</span>
+<span class="dl">    SHELL</span>
+  <span class="k">end</span> <span class="p">;</span> <span class="n">f</span>
+  <span class="o">.</span><span class="p">,</span> <span class="n">v</span><span class="o">/</span>
+<span class="c1">### Memcache vm  #### </span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;mc01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">mc01</span><span class="o">|</span>
+    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
+    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;mc01&quot;</span>
+    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.14&quot;</span>
+    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
+    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
+<span class="sh">     yum install epel-release -y</span>
+<span class="dl">    SHELL</span>
+  <span class="k">end</span>
+
+<span class="c1">### DB vm  ####</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;db01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">db01</span><span class="o">|</span>
+    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
+    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;db01&quot;</span>
+    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.15&quot;</span>
+    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
+    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
+<span class="sh">#   yum update -y</span>
+<span class="sh">    yum install epel-release -y</span>
+<span class="dl">    SHELL</span>
+  <span class="k">end</span>
+
+
+<span class="k">end</span>
 </code></pre></div>
-Run a container from the Image nginx:latest, name the running container “web” and expose port 5000 externally, mapped to port 80 inside the container in detached mode.  </p>
-<p><div class="highlight"><pre><span></span><code>docker run --name web -d -p <span class="m">5000</span>:80 nginx:latest
-</code></pre></div>
-Run a detached container in a previously created container network:
-<div class="highlight"><pre><span></span><code>docker network create &lt;mynetwork&gt;
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>docker run --name web -d --net mynetwork -p <span class="m">5000</span>:80 nginx:latest
-</code></pre></div>
-Follow the logs of a specific container:
-<div class="highlight"><pre><span></span><code>docker logs -f &lt;container name or container container-id&gt;
-</code></pre></div>
-List only active containers
-<div class="highlight"><pre><span></span><code>docker ps
-</code></pre></div>
-List all containers
-<div class="highlight"><pre><span></span><code>docker ps -a
-</code></pre></div>
-Stop a container
-<div class="highlight"><pre><span></span><code>docker stop &lt;container name or container container-id&gt;
-</code></pre></div>
-Stop a container (timeout = 1 second)
-<div class="highlight"><pre><span></span><code>docker stop -t1
-</code></pre></div>
-Remove a stopped container
-<div class="highlight"><pre><span></span><code>docker rm &lt;container name or container container-id&gt;
-</code></pre></div>
-Force stop and remove a container
-<div class="highlight"><pre><span></span><code>docker rm -f &lt;container name or container container-id&gt;
-</code></pre></div>
-Remove all containers
-<div class="highlight"><pre><span></span><code>docker rm -f <span class="k">$(</span>docker ps-aq<span class="k">)</span>
-</code></pre></div>
-Remove all stopped containers
-<div class="highlight"><pre><span></span><code>docker rm <span class="k">$(</span>docker ps -q -f “status<span class="o">=</span>exited”<span class="k">)</span>
-</code></pre></div>
-Execute a new process in an existing container:Execute and access bash inside a container
-<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -it &lt;container name or container-id&gt; bash
-</code></pre></div>
-To inspect the container
-<div class="highlight"><pre><span></span><code>docker inspect &lt;container name or container container-id&gt;
-</code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Share</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>To Establish Connection from local to Remote. login with your Dockerhub Credentials.
-<div class="highlight"><pre><span></span><code>docker login
-</code></pre></div>
-Pull an image from a registry</p>
-<p><div class="highlight"><pre><span></span><code>docker pull &lt;imagename&gt;:&lt;tag&gt;
-</code></pre></div>
-Retag a local image with a new image name and tag
-<div class="highlight"><pre><span></span><code>docker tag myimage:1.0 myrepo/myimage:2.0
-</code></pre></div>
-Push an image to a registry.
-<div class="highlight"><pre><span></span><code>docker push myrepo/myimage:2.0
-</code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Dockerfile</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>Sample Dockerfile for Deploying a Staticwebsite.</p>
-<p><div class="highlight"><pre><span></span><code>vim Dockerfile
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>FROM centos:latest
-LABEL <span class="s2">&quot;Author&quot;</span><span class="o">=</span><span class="s2">&quot;saiteja&quot;</span>
-LABEL <span class="s2">&quot;Project&quot;</span><span class="o">=</span><span class="s2">&quot;Wave&quot;</span>
-RUN yum install httpd wget unzip -y
-RUN wget https://www.tooplate.com/zip-templates/2121_wave_cafe.zip
-RUN unzip 2121_wave_cafe.zip
-RUN cp -r 2121_wave_cafe/* /var/www/html/
-CMD <span class="o">[</span><span class="s2">&quot;/usr/sbin/httpd&quot;</span>, <span class="s2">&quot;-D&quot;</span>, <span class="s2">&quot;FOREGROUND&quot;</span><span class="o">]</span>
-EXPOSE <span class="m">80</span>
-WORKDIR /var/www/html
-VOLUME /var/log/httpd
-</code></pre></div>
-Build the image from the Docker file , Here Change my Name with your registery name and Image.
-<div class="highlight"><pre><span></span><code>docker build -t saitejairrinki/wavecafe:v1 . 
-</code></pre></div>
-Run Container From the Image
-<div class="highlight"><pre><span></span><code>docker run --name wavecafe -d -p <span class="m">9699</span>:80 saitejairrinki/wavecafe:v1
-</code></pre></div>
-Now Access From the Browser, Make sure you have to allow the portnumber in my case 9699 in your security group if you are using cloud VM.
-<div class="highlight"><pre><span></span><code>Public-IPaddress:9699
-</code></pre></div></p>
-<div class="admonition tip">
-<p class="admonition-title">Docker Image</p>
-<p>You can pull my image and you can also run container from my image without creating Dockerfile.</p>
-</div>
-<div class="highlight"><pre><span></span><code>docker pull saitejairrinki/wavecafe:v1
-</code></pre></div>
-<p><div class="highlight"><pre><span></span><code>docker run --name wavecafe -d -p <span class="m">9999</span>:80 saitejairrinki/wavecafe:v1
-</code></pre></div>
-Now Access From the Browser, Make sure you have to allow the portnumber in my case 9999 in your security group if you are using cloud VM.
-<div class="highlight"><pre><span></span><code>Public-IPaddress:9999
-</code></pre></div></p>
                 
               
               
@@ -691,30 +645,15 @@ Now Access From the Browser, Make sure you have to allow the portnumber in my ca
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        
-        <a href="../ansible/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ansible" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Ansible
-            </div>
-          </div>
-        </a>
-      
       
         
-        <a href="../kops/" class="md-footer__link md-footer__link--next" aria-label="Next: Kubernetes" rel="next">
+        <a href="../aws-cli/" class="md-footer__link md-footer__link--next" aria-label="Next: AWS" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Kubernetes
+              AWS
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -821,12 +760,12 @@ Now Access From the Browser, Make sure you have to allow the portnumber in my ca
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.tabs.link", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.1e84347e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
       
-        <script src="../js/prism.js"></script>
+        <script src="../../js/prism.js"></script>
       
     
   </body>
