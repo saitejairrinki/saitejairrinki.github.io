@@ -1491,10 +1491,10 @@
                 <h1 id="aws-cli-command-line-interface">AWS CLI (Command Line Interface)<a class="headerlink" href="#aws-cli-command-line-interface" title="Permanent link">&para;</a></h1>
 <h2 id="setting-up-iam-user">Setting up IAM user<a class="headerlink" href="#setting-up-iam-user" title="Permanent link">&para;</a></h2>
 <h3 id="creating-user-with-access-key">Creating User with Access-key<a class="headerlink" href="#creating-user-with-access-key" title="Permanent link">&para;</a></h3>
-<p><img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/creating%20user.png" class="img-fluid"></p>
+<p><img alt="image" src="../img/creating user.png" /></p>
 <h3 id="set-permissions-attaching-policies">Set permissions &amp; Attaching Policies<a class="headerlink" href="#set-permissions-attaching-policies" title="Permanent link">&para;</a></h3>
-<p><img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/Attaching%20policies.png" class="img-fluid">
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/User%20added.png" class="img-fluid"></p>
+<p><img alt="image" src="../img/Attaching policies.png" />
+<img alt="image" src="../img/User added.png" /></p>
 <h3 id="installing-aws-cli">Installing AWS-CLI<a class="headerlink" href="#installing-aws-cli" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>sudo -i
 </code></pre></div>
@@ -1502,23 +1502,23 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>apt install awscli -y
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/installing%20Aws-cli.png" class="img-fluid"></p>
+<img alt="image" src="../img/installing Aws-cli.png" /></p>
 <h3 id="configure-aws-cli-with-iam-user-credentials-with-specific-region">Configure AWS CLI with IAM user Credentials with specific Region<a class="headerlink" href="#configure-aws-cli-with-iam-user-credentials-with-specific-region" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws configure
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/aws%20configure.png" class="img-fluid">
+<img alt="image" src="../img/aws configure.png" />
 Once it is done try some aws cli commands like <mark>aws s3 ls</mark> If u have any buckets in your s3 it will list</p>
 <h2 id="ec2-elastic-compute-cloud">EC2 – Elastic Compute Cloud<a class="headerlink" href="#ec2-elastic-compute-cloud" title="Permanent link">&para;</a></h2>
 <h3 id="create-a-key-pair">Create a key pair<a class="headerlink" href="#create-a-key-pair" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-key-pair --key-name &lt;keypair-Name&gt; --query <span class="s1">&#39;KeyMaterial&#39;</span> --output text &gt; &lt;keypair-Name.pem&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20keypair.png" class="img-fluid">
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20keypair%20output.png" class="img-fluid"></p>
+<img alt="image" src="../img/create keypair.png" />
+<img alt="image" src="../img/create keypair output.png" /></p>
 <h3 id="delete-a-key-pair">Delete a key pair<a class="headerlink" href="#delete-a-key-pair" title="Permanent link">&para;</a></h3>
 <p>To delete a key pair, run the aws ec2 delete-key-pair command, substituting MyKeyPair with the name of the pair to delete.
 <div class="highlight"><pre><span></span><code>aws ec2 delete-key-pair --key-name &lt;keypair-Name&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/delete%20keypair.png" class="img-fluid"></p>
+<img alt="image" src="../img/delete keypair.png" /></p>
 <h3 id="create-a-security-group-adding-inbound-rules">Create a Security Group &amp; Adding Inbound rules<a class="headerlink" href="#create-a-security-group-adding-inbound-rules" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-security-group --group-name &lt;security grp Name&gt; --description <span class="s2">&quot;&lt;Description&gt;&quot;</span>
 </code></pre></div>
@@ -1528,46 +1528,46 @@ Once it is done try some aws cli commands like <mark>aws s3 ls</mark> If u have 
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>aws ec2 authorize-security-group-ingress --group-id &lt;security grp Id&gt;--protocol tcp --port <span class="m">22</span>-8000 --cidr <span class="m">0</span>.0.0.0/0 
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/creating%20sg.png" class="img-fluid">
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/creating%20sg%20output.png" class="img-fluid">
+<img alt="image" src="../img/creating sg.png" />
+<img alt="image" src="../img/creating sg output.png" />
 To view the initial information for my-sg, run the aws ec2 describe-security-groups command. For an EC2-Classic security group, you can reference it by its name.
 <div class="highlight"><pre><span></span><code>aws ec2 describe-security-groups --group-names &lt;security grp Name&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/describe%20sg.png" class="img-fluid"></p>
+<img alt="image" src="../img/describe sg.png" /></p>
 <h3 id="delete-your-security-group">Delete your security group<a class="headerlink" href="#delete-your-security-group" title="Permanent link">&para;</a></h3>
 <p>The following command example deletes the EC2-Classic security group named.
 <div class="highlight"><pre><span></span><code>aws ec2 delete-security-group --group-name &lt;security grp Name&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/delete%20sg.png" class="img-fluid"></p>
+<img alt="image" src="../img/delete sg.png" /></p>
 <h3 id="launch-instance">Launch Instance<a class="headerlink" href="#launch-instance" title="Permanent link">&para;</a></h3>
 <p>You can use the following command to launch a t2.micro instance in EC2-Classic. Replace the italicized parameter values with your own.
 You can get the ami Id’s from documentation or console for your required Instance.
 <div class="highlight"><pre><span></span><code> aws ec2 run-instances --image-id &lt;ami-Id&gt; --count <span class="m">1</span> --instance-type &lt;type&gt; --key-name &lt;keypair-Name&gt; --security-groups &lt;security grp Name&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/launch%20instance1.png" class="img-fluid"></p>
+<img alt="image" src="../img/launch instance1.png" /></p>
 <h3 id="add-a-tag-to-your-instance">Add a tag to your Instance<a class="headerlink" href="#add-a-tag-to-your-instance" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-tags --resources &lt;Instance-Id&gt;--tags <span class="nv">Key</span><span class="o">=</span>Name,Value<span class="o">=</span>&lt;value&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/add%20tag%20to%20instance.png" class="img-fluid"></p>
+<img alt="image" src="../img/add tag to instance.png" /></p>
 <h3 id="terminate-your-instance">Terminate your Instance<a class="headerlink" href="#terminate-your-instance" title="Permanent link">&para;</a></h3>
 <p>To delete an instance, you use the command aws ec2 terminate-instances to delete it.
 <div class="highlight"><pre><span></span><code>aws ec2 terminate-instances --instance-ids &lt;Instance-Id&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/terminate%20instance.png" class="img-fluid"></p>
+<img alt="image" src="../img/terminate instance.png" /></p>
 <h3 id="create-launch-template">Create Launch Template<a class="headerlink" href="#create-launch-template" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-launch-template --launch-template-name &lt;Name&gt;<span class="s2">&quot;:[{&quot;</span>AssociatePublicIpAddress<span class="s2">&quot;:true,&quot;</span>DeviceIndex<span class="s2">&quot;:0,&quot;</span>Ipv6AddressCount<span class="s2">&quot;:1,&quot;</span>SubnetId<span class="s2">&quot;:&quot;</span>pe<span class="s2">&quot;:&quot;</span>&lt;Instance type<span class="s2">&quot;,&quot;</span>TagSpecifications<span class="s2">&quot;:[{&quot;</span>ResourceType<span class="s2">&quot;:&quot;</span>instance<span class="s2">&quot;,&quot;</span> Tags<span class="s2">&quot;:[{&quot;</span>Key<span class="s2">&quot;:&quot;</span>Name<span class="s2">&quot;,&quot;</span>Value<span class="s2">&quot;:&quot;</span>&lt;value&gt;<span class="s2">&quot;}]}]}&#39;</span>
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20launch%20template.png" class="img-fluid">
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20launch%20template%20output.png" class="img-fluid"></p>
+<img alt="image" src="../img/create launch template.png" />
+<img alt="image" src="../img/create launch template output.png" /></p>
 <h3 id="delete-launch-template">Delete Launch Template<a class="headerlink" href="#delete-launch-template" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 delete-launch-template --launch-template-id &lt; template id&gt;  --region &lt;region&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/delete%20launch%20template.png" class="img-fluid"></p>
+<img alt="image" src="../img/delete launch template.png" /></p>
 <h3 id="creating-auto-scaling-group">Creating Auto-Scaling group<a class="headerlink" href="#creating-auto-scaling-group" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws autoscaling create-auto-scaling-group --auto-scaling-group-name &lt;Name&gt;  --launch-LaunchTemplateId<span class="o">=</span>&lt;template – id &gt; --min-size <span class="m">2</span> --max-size <span class="m">5</span> --vpc-zone-identifier <span class="s2">&quot;subnet1-id,subnet2-id,subnet3-id&quot;</span>
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/craete%20auto%20scaling%20grp.png" class="img-fluid">
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/Autoscaling%20grp%20output.PNG" class="img-fluid"></p>
+<img alt="image" src="../img/craete auto scaling grp.png" />
+<img alt="image" src="../img/Autoscaling grp output.PNG" /></p>
 <h3 id="delete-your-auto-scaling-group">Delete your Auto-Scaling Group<a class="headerlink" href="#delete-your-auto-scaling-group" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>aws autoscaling delete-auto-scaling-group --auto-scaling-group-name &lt; Auto -Scaling group Name &gt;
 </code></pre></div>
@@ -1576,15 +1576,15 @@ You can get the ami Id’s from documentation or console for your required Insta
 <p>To create an empty General Purpose SSD (gp2) volume
 <div class="highlight"><pre><span></span><code>aws ec2 create-volume --volume-type &lt;volume type&gt; --size &lt;size <span class="k">in</span> number&gt; --availability-zone &lt;zone&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/craete%20ebs%20volume.png" class="img-fluid"></p>
+<img alt="image" src="../img/craete ebs volume.png" /></p>
 <h3 id="to-create-an-encrypted-volume">To create an encrypted volume<a class="headerlink" href="#to-create-an-encrypted-volume" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-volume --volume-type &lt;volume type&gt; --size &lt;size <span class="k">in</span> number&gt;  --encrypted --availability-zone &lt;zone&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/encrypt%20ebs%20volume.png" class="img-fluid"></p>
+<img alt="image" src="../img/encrypt ebs volume.png" /></p>
 <h3 id="to-create-a-volume-with-tags">To create a volume with tags<a class="headerlink" href="#to-create-a-volume-with-tags" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-tags --resources &lt;volume-id&gt; --tags <span class="nv">Key</span><span class="o">=</span>Name,Value<span class="o">=</span>&lt;value&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/creating%20volume%20output.PNG" class="img-fluid"></p>
+<img alt="image" src="../img/creating volume output.PNG" /></p>
 <h3 id="to-delete-a-volume">To Delete a Volume<a class="headerlink" href="#to-delete-a-volume" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>aws ec2 delete-volume --volume-id &lt;volume Id&gt;
 </code></pre></div>
@@ -1596,16 +1596,16 @@ You can get the ami Id’s from documentation or console for your required Insta
 <p>This example command creates a snapshot of the volume with a volume ID of <volume Id> and a short description to identify the snapshot.
 <div class="highlight"><pre><span></span><code>aws ec2 create-snapshot --volume-id &lt;volume Id&gt; --description <span class="s2">&quot;&lt;Description&gt;&quot;</span>
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20snapshot.png" class="img-fluid"></p>
+<img alt="image" src="../img/create snapshot.png" /></p>
 <h3 id="to-create-a-snapshot-with-tags">To create a snapshot with tags<a class="headerlink" href="#to-create-a-snapshot-with-tags" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-snapshot --volume-id &lt;volume Id&gt; --description <span class="s1">&#39;Prod backup&#39;</span> --tag-specifications <span class="s1">&#39;ResourceType=snapshot,Tags=[{Key=Name,Value=&lt;value&gt;},{Key=Database,Value=Mysql}]&#39;</span>
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20snapshot%20with%20tags.png" class="img-fluid"></p>
+<img alt="image" src="../img/create snapshot with tags.png" /></p>
 <h3 id="to-allocate-an-elastic-ip-address-for-ec2-classic">To allocate an Elastic IP address for EC2-Classic<a class="headerlink" href="#to-allocate-an-elastic-ip-address-for-ec2-classic" title="Permanent link">&para;</a></h3>
 <p>The following allocate-address example allocates an Elastic IP address to use with an instance in EC2-Classic.
 <div class="highlight"><pre><span></span><code>aws ec2 allocate-address
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/allocate%20EIP.png" class="img-fluid"></p>
+<img alt="image" src="../img/allocate EIP.png" /></p>
 <h2 id="elb-elastic-load-balancer">ELB – Elastic Load Balancer<a class="headerlink" href="#elb-elastic-load-balancer" title="Permanent link">&para;</a></h2>
 <h3 id="create-load-balancer">Create-load-balancer<a class="headerlink" href="#create-load-balancer" title="Permanent link">&para;</a></h3>
 <h3 id="to-create-an-application-load-balancer">To create an Application load balancer<a class="headerlink" href="#to-create-an-application-load-balancer" title="Permanent link">&para;</a></h3>
@@ -1616,53 +1616,53 @@ You can get the ami Id’s from documentation or console for your required Insta
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>aws elbv2 create-load-balancer --name &lt;Load balancer Name&gt;--type &lt;type&gt; --subnets &lt;subnet-Id&gt; &lt;subnet-Id&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20app%20ELB.png" class="img-fluid"></p>
+<img alt="image" src="../img/create app ELB.png" /></p>
 <h3 id="to-create-an-network-load-balancer">To create an Network load balancer<a class="headerlink" href="#to-create-an-network-load-balancer" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws elbv2 create-load-balancer --name &lt;Load balancer Name&gt;--type &lt;type&gt; --subnets &lt;subnet-Id&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20ntw%20ELB.png" class="img-fluid">
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20elb%20output.png" class="img-fluid"></p>
+<img alt="image" src="../img/create ntw ELB.png" />
+<img alt="image" src="../img/create elb output.png" /></p>
 <h3 id="to-register-instances-with-a-load-balancer">To register instances with a load balancer<a class="headerlink" href="#to-register-instances-with-a-load-balancer" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>aws elb register-instances-with-load-balancer --load-balancer-name &lt;Load balancer Name&gt; --instances &lt;Instance-Id&gt;
 </code></pre></div>
 <h3 id="to-delete-a-specific-load-balancer">To Delete a Specific Load balancer<a class="headerlink" href="#to-delete-a-specific-load-balancer" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws elbv2 delete-load-balancer --load-balancer-arn &lt;arn end point&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/delete%20specific%20load%20balancer.png" class="img-fluid"></p>
+<img alt="image" src="../img/delete specific load balancer.png" /></p>
 <h2 id="rds-relational-database-service">RDS - Relational Database Service<a class="headerlink" href="#rds-relational-database-service" title="Permanent link">&para;</a></h2>
 <h3 id="create-db-instance">Create-db-Instance<a class="headerlink" href="#create-db-instance" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code> aws rds create-db-instance --db-instance-identifier &lt;db - Name&gt; --db-instance-class &lt;db.type&gt; --engine &lt;Database Engine&gt;  --master-username &lt;username&gt; --master-user-password &lt;password&gt; --allocated-storage &lt;storage <span class="k">in</span> numbers&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20rds.png" class="img-fluid">
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20rds%20output.png" class="img-fluid"></p>
+<img alt="image" src="../img/create rds.png" />
+<img alt="image" src="../img/create rds output.png" /></p>
 <h3 id="to-delete-your-db-instance">To delete your db-Instance<a class="headerlink" href="#to-delete-your-db-instance" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws rds delete-db-instance --db-instance-identifier &lt;db - Name&gt; --final-db-snapshot-identifier &lt;db - Name&gt;-final-snap
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/delete%20rds.png" class="img-fluid"></p>
+<img alt="image" src="../img/delete rds.png" /></p>
 <h2 id="s3-simple-storage-service">S3 – Simple Storage Service<a class="headerlink" href="#s3-simple-storage-service" title="Permanent link">&para;</a></h2>
 <h3 id="list-buckets-objects">List Buckets &amp; Objects<a class="headerlink" href="#list-buckets-objects" title="Permanent link">&para;</a></h3>
 <p>To list your buckets, folders, or objects, use the <mark>s3 ls</mark> command. Using the command without a target or options lists all buckets.
 <div class="highlight"><pre><span></span><code>aws s3 ls
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/aws%20s3%20ls.png" class="img-fluid">
+<img alt="image" src="../img/aws s3 ls.png" />
 <div class="highlight"><pre><span></span><code>aws s3 ls s3://&lt;bucket name&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/s3%20ls%20bucketname.png" class="img-fluid"></p>
+<img alt="image" src="../img/s3 ls bucketname.png" /></p>
 <h3 id="create-a-bucket">Create a bucket<a class="headerlink" href="#create-a-bucket" title="Permanent link">&para;</a></h3>
 <p>Use the <mark>s3 mb</mark> command to make a bucket. Bucket names must be <mark>globally unique</mark> (unique across all of Amazon S3) and should be DNS compliant.
 <div class="highlight"><pre><span></span><code>aws s3 mb s3:// &lt;bucket name&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/s3%20make%20bucket.png" class="img-fluid">
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/s3%20make%20bucket%20output.png" class="img-fluid"></p>
+<img alt="image" src="../img/s3 make bucket.png" />
+<img alt="image" src="../img/s3 make bucket output.png" /></p>
 <h3 id="copy-objects">Copy objects<a class="headerlink" href="#copy-objects" title="Permanent link">&para;</a></h3>
 <p>Use the <mark>s3 cp</mark> command to copy objects from a bucket or a local directory
 <div class="highlight"><pre><span></span><code>aws s3 cp &lt;file&gt; s3:// &lt;bucket name&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/s3%20cp%20files%20to%20bucket.png" class="img-fluid">
+<img alt="image" src="../img/s3 cp files to bucket.png" />
 <div class="highlight"><pre><span></span><code>aws s3 cp s3://&lt;<span class="nb">source</span> bucket/file&gt; s3://&lt;destination-bucket&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/s3%20cp%20src%20%20to%20dest.png" class="img-fluid">
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/s3%20cp%20output.png" class="img-fluid"></p>
+<img alt="image" src="../img/s3 cp src  to dest.png" />
+<img alt="image" src="../img/s3 cp output.png" /></p>
 <h3 id="move-objects">Move objects<a class="headerlink" href="#move-objects" title="Permanent link">&para;</a></h3>
 <p>Use the <mark>s3 mv</mark> command to move objects from a bucket or a local directory.
 <div class="highlight"><pre><span></span><code>aws s3 mv &lt;<span class="nb">local</span> file&gt; s3:// &lt;bucket name&gt; 
@@ -1672,11 +1672,11 @@ You can get the ami Id’s from documentation or console for your required Insta
 <h3 id="sync-objects">Sync Objects<a class="headerlink" href="#sync-objects" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws s3 sync . s3://&lt;bucket name&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/s3%20sync.png" class="img-fluid"></p>
+<img alt="image" src="../img/s3 sync.png" /></p>
 <h3 id="delete-objects">Delete Objects<a class="headerlink" href="#delete-objects" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws s3 rm s3://&lt;bucket name/file&gt; --recursive
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/s3%20rm.png" class="img-fluid"></p>
+<img alt="image" src="../img/s3 rm.png" /></p>
 <h3 id="empty-bucket">Empty Bucket<a class="headerlink" href="#empty-bucket" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>aws s3 rm s3://&lt;bucket name&gt; --recursive
 </code></pre></div>
@@ -1688,38 +1688,39 @@ You can get the ami Id’s from documentation or console for your required Insta
 <h3 id="create-a-vpc-with-a-1000016-cidr-block-using-the-following-create-vpc-command">Create a VPC with a <mark>10.0.0.0/16</mark> CIDR block using the following create-vpc command.<a class="headerlink" href="#create-a-vpc-with-a-1000016-cidr-block-using-the-following-create-vpc-command" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-vpc --cidr-block &lt;Ip address&gt; --query Vpc.VpcId --output text
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20vpc.png" class="img-fluid"></p>
+<img alt="image" src="../img/create vpc.png" /></p>
 <h3 id="using-the-vpc-id-from-the-previous-step-create-a-subnet-with-a-1001024-cidr-block-using-the-following-create-subnet-command">Using the VPC ID from the previous step, create a subnet with a <mark>10.0.1.0/24</mark> CIDR block using the following create-subnet command.<a class="headerlink" href="#using-the-vpc-id-from-the-previous-step-create-a-subnet-with-a-1001024-cidr-block-using-the-following-create-subnet-command" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-subnet --vpc-id &lt;vpc - Id&gt;--cidr-block &lt;Ip address&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20subnet1.png" class="img-fluid"></p>
+<img alt="image" src="../img/create subnet1.png" /></p>
 <h3 id="create-a-second-subnet-in-your-vpc-with-a-1002024-cidr-block">Create a second subnet in your VPC with a <mark>10.0.2.0/24</mark> CIDR block.<a class="headerlink" href="#create-a-second-subnet-in-your-vpc-with-a-1002024-cidr-block" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-subnet --vpc-id &lt;vpc - Id&gt;--cidr-block &lt;Ip address&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/creating%20subnet%202.png" class="img-fluid"></p>
+<img alt="image" src="../img/creating subnet 2.png" /></p>
 <h3 id="create-an-internet-gateway-using-the-following-create-internet-gateway-command">Create an internet gateway using the following create-internet-gateway command.<a class="headerlink" href="#create-an-internet-gateway-using-the-following-create-internet-gateway-command" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-internet-gateway --query InternetGateway.InternetGatewayId --output text
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/vpc%20igw.png" class="img-fluid"></p>
+<img alt="image" src="../img/vpc igw.png" /></p>
+<p><img alt="image" src="../img/vpc igw.png" /></p>
 <h3 id="using-the-id-from-the-previous-step-attach-the-internet-gateway-to-your-vpc-using-the-following-attach-internet-gateway-command">Using the ID from the previous step, attach the internet gateway to your VPC using the following attach-internet-gateway command.<a class="headerlink" href="#using-the-id-from-the-previous-step-attach-the-internet-gateway-to-your-vpc-using-the-following-attach-internet-gateway-command" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>aws ec2 attach-internet-gateway --vpc-id &lt;vpc - Id&gt;--internet-gateway-id &lt;IGW - Id&gt;
 </code></pre></div>
 <h3 id="create-a-custom-route-table-for-your-vpc-using-the-following-create-route-table-command">Create a custom route table for your VPC using the following create-route-table command.<a class="headerlink" href="#create-a-custom-route-table-for-your-vpc-using-the-following-create-route-table-command" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-route-table --vpc-id &lt;vpc - Id&gt;--query RouteTable.RouteTableId --output text
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/vpc%20routetable.png" class="img-fluid"></p>
+<img alt="image" src="../img/vpc routetable.png" /></p>
 <h3 id="create-a-route-in-the-route-table-that-points-all-traffic-00000-to-the-internet-gateway-using-the-following-create-route-command">Create a route in the route table that points all traffic (0.0.0.0/0) to the internet gateway using the following create-route command.<a class="headerlink" href="#create-a-route-in-the-route-table-that-points-all-traffic-00000-to-the-internet-gateway-using-the-following-create-route-command" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 create-route --route-table-id &lt;route table - Id&gt;--destination-cidr-block <span class="m">0</span>.0.0.0/0 --gateway-id &lt;Igw - Id&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/igw%20routetable.png" class="img-fluid"></p>
+<img alt="image" src="../img/igw routetable.png" /></p>
 <h3 id="you-can-describe-the-route-table-using-the-following-describe-route-tables-command">You can describe the route table using the following describe-route-tables command.<a class="headerlink" href="#you-can-describe-the-route-table-using-the-following-describe-route-tables-command" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 describe-route-tables --route-table-id &lt;route table - Id&gt;
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/describe%20routetable.png" class="img-fluid"></p>
+<img alt="image" src="../img/describe routetable.png" /></p>
 <h3 id="the-route-table-is-currently-not-associated-with-any-subnet-you-need-to-associate-it-with-a-subnet-in-your-vpc-so-that-traffic-from-that-subnet-is-routed-to-the-internet-gateway">The route table is currently not associated with any subnet. You need to associate it with a subnet in your VPC so that traffic from that subnet is routed to the internet gateway.<a class="headerlink" href="#the-route-table-is-currently-not-associated-with-any-subnet-you-need-to-associate-it-with-a-subnet-in-your-vpc-so-that-traffic-from-that-subnet-is-routed-to-the-internet-gateway" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws ec2 describe-subnets --filters <span class="s2">&quot;Name=vpc-id,Values=&lt;vpc –Id&gt;  --query &quot;</span>Subnets<span class="o">[</span>*<span class="o">]</span>.<span class="o">{</span>ID:SubnetId,CIDR:CidrBlock<span class="o">}</span><span class="s2">&quot;</span>
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/describe%20subnets.png" class="img-fluid"></p>
+<img alt="image" src="../img/describe subnets.png" /></p>
 <h3 id="you-can-choose-which-subnet-to-associate-with-the-custom-route-table-for-example-subnet-0c312202b3f26703a-and-associate-it-using-the-associate-route-table-command-this-subnet-is-your-public-subnet">You can choose which subnet to associate with the custom route table, for example, subnet-0c312202b3f26703a, and associate it using the associate-route-table command. This subnet is your public subnet.<a class="headerlink" href="#you-can-choose-which-subnet-to-associate-with-the-custom-route-table-for-example-subnet-0c312202b3f26703a-and-associate-it-using-the-associate-route-table-command-this-subnet-is-your-public-subnet" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>aws ec2 associate-route-table  --subnet-id &lt;subnet-Id&gt; --route-table-id &lt;route table - Id&gt;
 </code></pre></div>
@@ -1743,8 +1744,8 @@ You can get the ami Id’s from documentation or console for your required Insta
 <h3 id="creating-alarm">Creating Alarm<a class="headerlink" href="#creating-alarm" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws cloudwatch put-metric-alarm --alarm-name &lt;Alarm name&gt; --alarm-description <span class="s2">&quot;&lt;Description&gt;&quot;</span> --metric-name &lt;Metric&gt; --namespace AWS/EC2 --statistic Average --period <span class="m">300</span> --threshold &lt;<span class="m">70</span>&gt; --comparison-operator &lt;GreaterThanThreshold&gt;  --dimensions <span class="s2">&quot;Name=InstanceId,Value=&lt;Id&gt;&quot;</span> --evaluation-periods <span class="m">2</span> --alarm-actions &lt;SNS – arn &gt; --unit Percent 
 </code></pre></div>
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20alarm.png" class="img-fluid">
-<img src="https://raw.githubusercontent.com/saitejairrinki/Decoding-DevOps/master/img/create%20alarm%20output.png" class="img-fluid"></p>
+<img alt="image" src="../img/create alarm.png" />
+<img alt="image" src="../img/create alarm output.png" /></p>
 <h3 id="delete-your-alarm">Delete Your Alarm<a class="headerlink" href="#delete-your-alarm" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>aws cloudwatch delete-alarms --alarm-names &lt;Alarm name&gt; 
 </code></pre></div>
