@@ -551,6 +551,77 @@ Once your VM is up then login to your vm
 <div class="highlight"><pre><span></span><code>vagrant ssh
 </code></pre></div>
 Now you can see the prompt of centos machine, If you wanna exit type <mark>exit</mark></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Multi VMS Vagrantfile</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">hostmanager</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kp">true</span> 
+  <span class="n">config</span><span class="o">.</span><span class="n">hostmanager</span><span class="o">.</span><span class="n">manage_host</span> <span class="o">=</span> <span class="kp">true</span>
+
+<span class="c1">### Nginx VM ###</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;web01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">web01</span><span class="o">|</span>
+    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;ubuntu/bionic64&quot;</span>
+    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;web01&quot;</span>
+    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.11&quot;</span>
+    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
+  <span class="k">end</span>
+
+<span class="c1">### tomcat vm ###</span>
+   <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;app01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">app01</span><span class="o">|</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;app01&quot;</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.12&quot;</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&quot;virtualbox&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+     <span class="n">vb</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="s2">&quot;1024&quot;</span>
+     <span class="k">end</span>
+    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
+<span class="sh">#     yum update -y</span>
+<span class="sh">     yum install epel-release -y</span>
+<span class="dl">   SHELL</span>
+   <span class="k">end</span>
+
+<span class="c1">### RabbitMQ vm  ####</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;rmq01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">rmq01</span><span class="o">|</span>
+    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
+    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;rmq01&quot;</span>
+    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.16&quot;</span>
+    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
+    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
+<span class="sh">   # yum update -y</span>
+<span class="sh">    #yum install epel-release -y</span>
+<span class="sh">    # yum install wget -y</span>
+<span class="dl">    SHELL</span>
+  <span class="k">end</span> <span class="p">;</span> <span class="n">f</span>
+  <span class="o">.</span><span class="p">,</span> <span class="n">v</span><span class="o">/</span>
+<span class="c1">### Memcache vm  #### </span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;mc01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">mc01</span><span class="o">|</span>
+    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
+    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;mc01&quot;</span>
+    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.14&quot;</span>
+    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
+    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
+<span class="sh">     yum install epel-release -y</span>
+<span class="dl">    SHELL</span>
+  <span class="k">end</span>
+
+<span class="c1">### DB vm  ####</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;db01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">db01</span><span class="o">|</span>
+    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
+    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;db01&quot;</span>
+    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.15&quot;</span>
+    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
+    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
+<span class="sh">#   yum update -y</span>
+<span class="sh">    yum install epel-release -y</span>
+<span class="dl">    SHELL</span>
+  <span class="k">end</span>
+
+
+<span class="k">end</span>
+</code></pre></div>
                 
               
               
