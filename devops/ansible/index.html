@@ -598,11 +598,9 @@
 
 <h1 id="ansible">Ansible<a class="headerlink" href="#ansible" title="Permanent link">&para;</a></h1>
 <p>Installing Ansible</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu</label><label for="__tabbed_1_2">CentOS</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
+<div class="tabbed-block">
 <p><div class="highlight"><pre><span></span><code>sudo apt update
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo apt install software-properties-common
@@ -613,19 +611,19 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ansible --version
 </code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">CentOS</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
 </div>
-</div>
+<div class="tabbed-block">
 <p><div class="highlight"><pre><span></span><code>sudo yum install epel-release
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo yum install ansible
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ansible --version
 </code></pre></div></p>
+</div>
+</div>
+</div>
 <h2 id="sample-inventory-file">Sample Inventory File<a class="headerlink" href="#sample-inventory-file" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Inventory</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Inventory</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
@@ -678,12 +676,12 @@ To test the connection of All Remote Machine
 To see details about the machine 
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m setup &lt;hostname&gt;
 </code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Ad hoc Commands</label></div>
+<h2 id="some-example-ad-hoc-commands">Some Example Ad hoc Commands<a class="headerlink" href="#some-example-ad-hoc-commands" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Ad hoc Commands</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
-<h2 id="some-example-ad-hoc-commands">Some Example Ad hoc Commands<a class="headerlink" href="#some-example-ad-hoc-commands" title="Permanent link">&para;</a></h2>
 <p>Copy files to Remote machines name starts with web
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m copy -a <span class="s2">&quot;src=index,html dest=/var/www/html/index.html&quot;</span> <span class="s1">&#39;web*&#39;</span> --become
 </code></pre></div>
@@ -693,16 +691,16 @@ Installing <mark>httpd</mark> in centos Remote machine
 Start &amp; Enable <mark>httpd</mark> in centos Remote machine
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m service -a <span class="s2">&quot;name=httpd state=started enabled=yes&quot;</span> websrvgrp --become
 </code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Sample Ansible Playbooks</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Ansible Playbooks should be with <mark>.yml or .yaml</mark> Extension for example <mark>vim sample.yml</mark></p>
 </div>
 <h2 id="playbook-for-creating-files-directories">Playbook For Creating Files &amp; Directories<a class="headerlink" href="#playbook-for-creating-files-directories" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Sample Ansible Playbooks</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
 <p><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Creating Files &amp; Directories</span>
   <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;host&gt;</span>
   <span class="nt">become</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
@@ -753,7 +751,7 @@ To Execute the playbook
 </div>
 <div class="highlight"><pre><span></span><code>vim ansible.cfg
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Ansible Configuration File</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Ansible Configuration File</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
@@ -763,7 +761,6 @@ To Execute the playbook
 <span class="nv">inventory</span><span class="o">=</span>&lt;Inventory File Path&gt;
 <span class="nv">timeout</span><span class="o">=</span><span class="m">20</span>
 <span class="nv">log_path</span><span class="o">=</span>/var/log/ansible-hbadger.log
-<span class="nv">forks</span><span class="o">=</span><span class="m">5</span>
 <span class="nv">remote_port</span><span class="o">=</span><span class="m">22</span>
 <span class="nv">remote_user</span><span class="o">=</span>&lt;username&gt;
 
