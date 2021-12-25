@@ -17,7 +17,7 @@
     
     
       
-        <title>Vagrant - SAITEJA IRRINKI</title>
+        <title>Jenkins - SAITEJA IRRINKI</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vagrant" class="md-skip">
+        <a href="#jenkins" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vagrant
+              Jenkins
             
           </span>
         </div>
@@ -209,15 +209,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../vagrant/" class="md-tabs__link">
         DevOps
       </a>
     </li>
@@ -295,14 +293,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
@@ -339,59 +335,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Vagrant
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../vagrant/" class="md-nav__link">
         Vagrant
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#to-bring-up-ubuntu-vm" class="md-nav__link">
-    To Bring up ubuntu VM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-bring-up-centos-vm" class="md-nav__link">
-    To Bring up CentOS VM
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -507,28 +455,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#to-bring-up-ubuntu-vm" class="md-nav__link">
-    To Bring up ubuntu VM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-bring-up-centos-vm" class="md-nav__link">
-    To Bring up CentOS VM
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -540,139 +466,7 @@
               
                 
 
-<h1 id="vagrant">Vagrant<a class="headerlink" href="#vagrant" title="Permanent link">&para;</a></h1>
-<details class="info">
-<summary>Requirements</summary>
-<ul>
-<li>
-<p>Virtualbox</p>
-</li>
-<li>
-<p>Vagrant</p>
-</li>
-</ul>
-</details>
-<p>Create a Directory with name <mark>vagrantvms</mark>
-<div class="highlight"><pre><span></span><code>mkdir vagrantvms
-</code></pre></div>
-Change Directory to <mark>vagrantvms</mark>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> vagrantvms
-</code></pre></div></p>
-<h2 id="to-bring-up-ubuntu-vm">To Bring up ubuntu VM<a class="headerlink" href="#to-bring-up-ubuntu-vm" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>Create a Directory name <mark>ubuntu</mark>
-<div class="highlight"><pre><span></span><code>mkdir ubuntu 
-</code></pre></div>
-Change Directory to <mark>ubuntu</mark>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ubuntu
-</code></pre></div>
-Initialize Ubuntu VM
-<div class="highlight"><pre><span></span><code>vagrant init ubuntu/bionic64 
-</code></pre></div>
-Now Bring up your Ubuntu VM 
-<div class="highlight"><pre><span></span><code>vagrant up
-</code></pre></div>
-Once your VM is up then login to your vm 
-<div class="highlight"><pre><span></span><code>vagrant ssh
-</code></pre></div>
-Now you can see the prompt of ubuntu machine, If you wanna exit type <mark>exit</mark></p>
-<h2 id="to-bring-up-centos-vm">To Bring up CentOS VM<a class="headerlink" href="#to-bring-up-centos-vm" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">CentOS</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>Create a Directory name <mark>centos</mark>
-<div class="highlight"><pre><span></span><code>mkdir centos 
-</code></pre></div>
-Change Directory to <mark>centos</mark>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> centos
-</code></pre></div>
-Initialize centos VM
-<div class="highlight"><pre><span></span><code>vagrant init geerlingguy/centos7 
-</code></pre></div>
-Now Bring up your centos VM 
-<div class="highlight"><pre><span></span><code>vagrant up
-</code></pre></div>
-Once your VM is up then login to your vm 
-<div class="highlight"><pre><span></span><code>vagrant ssh
-</code></pre></div>
-Now you can see the prompt of centos machine, If you wanna exit type <mark>exit</mark></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Multi VMS Vagrantfile</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<div class="highlight"><pre><span></span><code><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">hostmanager</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kp">true</span> 
-  <span class="n">config</span><span class="o">.</span><span class="n">hostmanager</span><span class="o">.</span><span class="n">manage_host</span> <span class="o">=</span> <span class="kp">true</span>
-
-<span class="c1">### Nginx VM ###</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;web01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">web01</span><span class="o">|</span>
-    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;ubuntu/bionic64&quot;</span>
-    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;web01&quot;</span>
-    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.11&quot;</span>
-    <span class="n">web01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
-  <span class="k">end</span>
-
-<span class="c1">### tomcat vm ###</span>
-   <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;app01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">app01</span><span class="o">|</span>
-    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
-    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;app01&quot;</span>
-    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.12&quot;</span>
-    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
-    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="s2">&quot;virtualbox&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">vb</span><span class="o">|</span>
-     <span class="n">vb</span><span class="o">.</span><span class="n">memory</span> <span class="o">=</span> <span class="s2">&quot;1024&quot;</span>
-     <span class="k">end</span>
-    <span class="n">app01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
-<span class="sh">#     yum update -y</span>
-<span class="sh">     yum install epel-release -y</span>
-<span class="dl">   SHELL</span>
-   <span class="k">end</span>
-
-<span class="c1">### RabbitMQ vm  ####</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;rmq01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">rmq01</span><span class="o">|</span>
-    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
-    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;rmq01&quot;</span>
-    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.16&quot;</span>
-    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
-    <span class="n">rmq01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
-<span class="sh">   # yum update -y</span>
-<span class="sh">    #yum install epel-release -y</span>
-<span class="sh">    # yum install wget -y</span>
-<span class="dl">    SHELL</span>
-  <span class="k">end</span> <span class="p">;</span> <span class="n">f</span>
-  <span class="o">.</span><span class="p">,</span> <span class="n">v</span><span class="o">/</span>
-<span class="c1">### Memcache vm  #### </span>
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;mc01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">mc01</span><span class="o">|</span>
-    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
-    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;mc01&quot;</span>
-    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.14&quot;</span>
-    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
-    <span class="n">mc01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
-<span class="sh">     yum install epel-release -y</span>
-<span class="dl">    SHELL</span>
-  <span class="k">end</span>
-
-<span class="c1">### DB vm  ####</span>
-  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s2">&quot;db01&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">db01</span><span class="o">|</span>
-    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;geerlingguy/centos7&quot;</span>
-    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;db01&quot;</span>
-    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s2">&quot;private_network&quot;</span><span class="p">,</span> <span class="ss">ip</span><span class="p">:</span> <span class="s2">&quot;192.168.33.15&quot;</span>
-    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s2">&quot;../vprofile-code&quot;</span><span class="p">,</span> <span class="s2">&quot;/vprofile-vm-data&quot;</span>
-    <span class="n">db01</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="dl">SHELL</span>
-<span class="sh">#   yum update -y</span>
-<span class="sh">    yum install epel-release -y</span>
-<span class="dl">    SHELL</span>
-  <span class="k">end</span>
-
-
-<span class="k">end</span>
-</code></pre></div>
+<h1 id="jenkins">Jenkins<a class="headerlink" href="#jenkins" title="Permanent link">&para;</a></h1>
 
               
             </article>
@@ -687,41 +481,6 @@ Now you can see the prompt of centos machine, If you wanna exit type <mark>exit<
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Home
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../shellscripting/" class="md-footer__link md-footer__link--next" aria-label="Next: Shell Scripting" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Shell Scripting
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
