@@ -518,15 +518,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#to-bring-up-ubuntu-vm" class="md-nav__link">
-    To Bring up ubuntu VM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-bring-up-centos-vm" class="md-nav__link">
-    To Bring up CentOS VM
+  <a href="#to-bring-up-vm" class="md-nav__link">
+    To Bring up VM
   </a>
   
 </li>
@@ -657,15 +650,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#to-bring-up-ubuntu-vm" class="md-nav__link">
-    To Bring up ubuntu VM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-bring-up-centos-vm" class="md-nav__link">
-    To Bring up CentOS VM
+  <a href="#to-bring-up-vm" class="md-nav__link">
+    To Bring up VM
   </a>
   
 </li>
@@ -701,12 +687,10 @@
 Change Directory to <mark>vagrantvms</mark>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> vagrantvms
 </code></pre></div></p>
-<h2 id="to-bring-up-ubuntu-vm">To Bring up ubuntu VM<a class="headerlink" href="#to-bring-up-ubuntu-vm" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu</label></div>
+<h2 id="to-bring-up-vm">To Bring up VM<a class="headerlink" href="#to-bring-up-vm" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu</label><label for="__tabbed_1_2">CentOS</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
+<div class="tabbed-block">
 <p>Create a Directory name <mark>ubuntu</mark>
 <div class="highlight"><pre><span></span><code>mkdir ubuntu 
 </code></pre></div>
@@ -723,12 +707,8 @@ Once your VM is up then login to your vm
 <div class="highlight"><pre><span></span><code>vagrant ssh
 </code></pre></div>
 Now you can see the prompt of ubuntu machine, If you wanna exit type <mark>exit</mark></p>
-<h2 id="to-bring-up-centos-vm">To Bring up CentOS VM<a class="headerlink" href="#to-bring-up-centos-vm" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">CentOS</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
 </div>
-</div>
+<div class="tabbed-block">
 <p>Create a Directory name <mark>centos</mark>
 <div class="highlight"><pre><span></span><code>mkdir centos 
 </code></pre></div>
@@ -745,7 +725,14 @@ Once your VM is up then login to your vm
 <div class="highlight"><pre><span></span><code>vagrant ssh
 </code></pre></div>
 Now you can see the prompt of centos machine, If you wanna exit type <mark>exit</mark></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Multi VMS Vagrantfile</label></div>
+</div>
+</div>
+</div>
+<details class="tip" open="open">
+<summary>To Init Specific Vagrant box</summary>
+<p><a href="https://app.vagrantup.com/boxes/search">https://app.vagrantup.com/boxes/search</a></p>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Multi VMS Vagrantfile</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
