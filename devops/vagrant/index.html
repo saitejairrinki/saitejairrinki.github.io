@@ -518,6 +518,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installing-virtualbox-in-the-host-machine" class="md-nav__link">
+    Installing Virtualbox in the Host Machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-vagrant-in-the-host-machine" class="md-nav__link">
+    Installing Vagrant in the Host Machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-common-directory-for-all-vms" class="md-nav__link">
+    Creating a Common Directory for all VM's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#to-bring-up-vm" class="md-nav__link">
     To Bring up VM
   </a>
@@ -650,6 +671,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installing-virtualbox-in-the-host-machine" class="md-nav__link">
+    Installing Virtualbox in the Host Machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-vagrant-in-the-host-machine" class="md-nav__link">
+    Installing Vagrant in the Host Machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-common-directory-for-all-vms" class="md-nav__link">
+    Creating a Common Directory for all VM's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#to-bring-up-vm" class="md-nav__link">
     To Bring up VM
   </a>
@@ -670,17 +712,46 @@
                 
 
 <h1 id="vagrant">Vagrant<a class="headerlink" href="#vagrant" title="Permanent link">&para;</a></h1>
-<details class="info">
+<details class="info" open="open">
 <summary>Requirements</summary>
-<ul>
-<li>
 <p>Virtualbox</p>
-</li>
-<li>
 <p>Vagrant</p>
-</li>
-</ul>
 </details>
+<h2 id="installing-virtualbox-in-the-host-machine">Installing Virtualbox in the Host Machine<a class="headerlink" href="#installing-virtualbox-in-the-host-machine" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Windows</label><label for="__tabbed_1_2">Ubuntu Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Download link
+<div class="highlight"><pre><span></span><code><span class="nl">https</span><span class="p">:</span><span class="c1">//download.virtualbox.org/virtualbox/6.1.30/VirtualBox-6.1.30-148432-Win.exe</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Through Command line 
+<div class="highlight"><pre><span></span><code>sudo apt update
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo apt install virtualbox
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="installing-vagrant-in-the-host-machine">Installing Vagrant in the Host Machine<a class="headerlink" href="#installing-vagrant-in-the-host-machine" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Windows</label><label for="__tabbed_2_2">Ubuntu Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Download link
+<div class="highlight"><pre><span></span><code><span class="nl">https</span><span class="p">:</span><span class="c1">//www.vagrantup.com/downloads</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Through Command line 
+<div class="highlight"><pre><span></span><code>sudo apt update
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo apt install vagrant
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h2 id="creating-a-common-directory-for-all-vms">Creating a Common Directory for all VM's<a class="headerlink" href="#creating-a-common-directory-for-all-vms" title="Permanent link">&para;</a></h2>
 <p>Create a Directory with name <mark>vagrantvms</mark>
 <div class="highlight"><pre><span></span><code>mkdir vagrantvms
 </code></pre></div>
@@ -688,7 +759,7 @@ Change Directory to <mark>vagrantvms</mark>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> vagrantvms
 </code></pre></div></p>
 <h2 id="to-bring-up-vm">To Bring up VM<a class="headerlink" href="#to-bring-up-vm" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu</label><label for="__tabbed_1_2">CentOS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Ubuntu</label><label for="__tabbed_3_2">CentOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Create a Directory name <mark>ubuntu</mark>
@@ -732,7 +803,7 @@ Now you can see the prompt of centos machine, If you wanna exit type <mark>exit<
 <summary>To Init Specific Vagrant box</summary>
 <p><a href="https://app.vagrantup.com/boxes/search">https://app.vagrantup.com/boxes/search</a></p>
 </details>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Multi VMS Vagrantfile</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Multi VMS Vagrantfile</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
