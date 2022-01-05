@@ -906,6 +906,54 @@ Now Access From the Browser, Make sure you have to allow the portnumber in my ca
 Now Access From the Browser, Make sure you have to allow the portnumber in my case 9999 in your security group if you are using cloud VM.
 <div class="highlight"><pre><span></span><code>Public-IPaddress:9999
 </code></pre></div></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Docker Volume</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>Creating a Seperate Directory to Store Container data</p>
+<p><div class="highlight"><pre><span></span><code>mkdir mountbind
+</code></pre></div>
+Now link your Directory while running the container
+<div class="highlight"><pre><span></span><code>docker run --name db01 -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret123 -p <span class="m">3300</span>:3306 -v /root/mountbind:/var/lib/mysql -d mysql:5.7
+</code></pre></div>
+Now do ls to the Directory there you can see the containers data
+<div class="highlight"><pre><span></span><code>ls mountbind
+</code></pre></div>
+Creating docker Volume , use the below command to see all the available options of docker volume
+<div class="highlight"><pre><span></span><code>docker volume --help
+</code></pre></div>
+Creating a new docker volume with name <mark>datadb</mark>
+<div class="highlight"><pre><span></span><code>docker volume create datadb
+</code></pre></div>
+Now run your container with that volume
+<div class="highlight"><pre><span></span><code>docker run --name db02 -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret123 -p <span class="m">3301</span>:3306 -v datadb:/var/lib/mysql -d mysql:5.7
+</code></pre></div>
+Now check 
+<div class="highlight"><pre><span></span><code>ls /var/lib/docker/volumes/datadb/_data/
+</code></pre></div>
+Now for testing Create any file with anyname of your choice, here im creating a file with name milkyway
+<div class="highlight"><pre><span></span><code>touch /var/lib/docker/volumes/datadb/_data/milkyway
+</code></pre></div>
+Now Login into the container and Verify your file.
+<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -it db02 /bin/bash
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ls /var/lib/mysql/
+</code></pre></div>
+Now exit from the container
+<div class="highlight"><pre><span></span><code>exit
+</code></pre></div>
+If you want to access mysql database with mysql client then follow the below steps</p>
+<p><div class="highlight"><pre><span></span><code>sudo apt update
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo apt install mysql-client
+</code></pre></div>
+Now fetch the container IP by doing Docker Inspect
+<div class="highlight"><pre><span></span><code>docker inspect db02 <span class="p">|</span>grep -i ipaddress
+</code></pre></div>
+Now Connect with that IP
+<div class="highlight"><pre><span></span><code>mysql -h <span class="m">172</span>.17.0.4 -u root -psecret123
+</code></pre></div></p>
 
               
             </article>
