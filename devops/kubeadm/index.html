@@ -17,7 +17,7 @@
     
     
       
-        <title>KOPS - SAITEJA IRRINKI</title>
+        <title>Kubeadm - SAITEJA IRRINKI</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-kubernetes-cluster-with-kops" class="md-skip">
+        <a href="#kubeadm" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              KOPS
+              Kubeadm
             
           </span>
         </div>
@@ -602,6 +602,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../kops/" class="md-nav__link">
+        KOPS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -614,12 +628,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          KOPS
+          Kubeadm
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        KOPS
+        Kubeadm
       </a>
       
         
@@ -638,16 +652,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-kubectl-binary-with-curl-on-linux" class="md-nav__link">
-    Install kubectl binary with curl on Linux
+  <a href="#preparing-the-master-and-worker-nodes-for-kubeadm" class="md-nav__link">
+    Preparing the Master and Worker nodes for kubeadm
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparing the Master and Worker nodes for kubeadm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-docker" class="md-nav__link">
+    Installing Docker:
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-kubernetes-with-kops" class="md-nav__link">
-    Installing Kubernetes with kops
+        
+          <li class="md-nav__item">
+  <a href="#installing-kubeadm-kublet-and-kubectl" class="md-nav__link">
+    Installing kubeadm, kublet, and kubectl:
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -655,20 +682,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../kubeadm/" class="md-nav__link">
-        Kubeadm
-      </a>
     </li>
   
 
@@ -714,16 +727,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-kubectl-binary-with-curl-on-linux" class="md-nav__link">
-    Install kubectl binary with curl on Linux
+  <a href="#preparing-the-master-and-worker-nodes-for-kubeadm" class="md-nav__link">
+    Preparing the Master and Worker nodes for kubeadm
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparing the Master and Worker nodes for kubeadm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-docker" class="md-nav__link">
+    Installing Docker:
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-kubernetes-with-kops" class="md-nav__link">
-    Installing Kubernetes with kops
+        
+          <li class="md-nav__item">
+  <a href="#installing-kubeadm-kublet-and-kubectl" class="md-nav__link">
+    Installing kubeadm, kublet, and kubectl:
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -740,58 +766,106 @@
               
                 
 
-<h1 id="creating-kubernetes-cluster-with-kops">Creating Kubernetes Cluster with KOPS<a class="headerlink" href="#creating-kubernetes-cluster-with-kops" title="Permanent link">&para;</a></h1>
-<p>Install AWS CLI 
-<div class="highlight"><pre><span></span><code>apt update <span class="o">&amp;&amp;</span> apt install awscli -y
-</code></pre></div>
-Configure AWS CLI with IAM user Credentials with specific Region 
-<div class="highlight"><pre><span></span><code>aws configure
-</code></pre></div></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you are using AWS Instance better to use IAM Role than Creating User with Access-key</p>
+<h1 id="kubeadm">Kubeadm<a class="headerlink" href="#kubeadm" title="Permanent link">&para;</a></h1>
+<details class="info" open="open">
+<summary>For this activity, deploy minimum 2 AWS instances with the Security groups</summary>
+<p>All traffic is enabled between the instances </p>
+</details>
+<table>
+<thead>
+<tr>
+<th>Node Name</th>
+<th>Instance Details</th>
+<th>Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Master Node</td>
+<td>-t2.medium</td>
+<td>4GB Ram , 2 CPU</td>
+</tr>
+<tr>
+<td>Worker Node</td>
+<td>-t2.micro</td>
+<td>1GB Ram , 1 CPU</td>
+</tr>
+</tbody>
+</table>
+<h2 id="preparing-the-master-and-worker-nodes-for-kubeadm">Preparing the Master and Worker nodes for kubeadm<a class="headerlink" href="#preparing-the-master-and-worker-nodes-for-kubeadm" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Execute the below Commands on both Master &amp; Worker Nodes</p>
+<p>Change the hostname for nodes as master &amp; worker</p>
 </div>
-<p>Check Whether AWS CLI Commands Working or not 
-<div class="highlight"><pre><span></span><code>aws s3 ls
+<h3 id="installing-docker">Installing Docker:<a class="headerlink" href="#installing-docker" title="Permanent link">&para;</a></h3>
+<p>Add the Docker repository key and Docker repository.
+<div class="highlight"><pre><span></span><code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> apt-key add -
+add-apt-repository <span class="se">\</span>
+<span class="s2">&quot;deb https://download.docker.com/linux/</span><span class="k">$(</span>. /etc/os-release<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$ID</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2"> \</span>
+<span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \</span>
+<span class="s2">stable&quot;</span>
 </code></pre></div>
-Generate SSH Keys
-<div class="highlight"><pre><span></span><code>ssh-keygen
+Update the list of packages and install the docker</p>
+<p><div class="highlight"><pre><span></span><code>apt-get update
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>apt-get install -y docker-ce
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;{&quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;]}&#39;</span> <span class="p">|</span> sudo tee /etc/docker/daemon.json
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>systemctl daemon-reload
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>systemctl restart docker
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>systemctl <span class="nb">enable</span> docker
 </code></pre></div></p>
-<h2 id="install-kubectl-binary-with-curl-on-linux">Install kubectl binary with curl on Linux<a class="headerlink" href="#install-kubectl-binary-with-curl-on-linux" title="Permanent link">&para;</a></h2>
-<p>Download the latest release with the command:
-<div class="highlight"><pre><span></span><code>curl -LO <span class="s2">&quot;https://dl.k8s.io/release/</span><span class="k">$(</span>curl -L -s https://dl.k8s.io/release/stable.txt<span class="k">)</span><span class="s2">/bin/linux/amd64/kubectl&quot;</span>
+<h3 id="installing-kubeadm-kublet-and-kubectl">Installing kubeadm, kublet, and kubectl:<a class="headerlink" href="#installing-kubeadm-kublet-and-kubectl" title="Permanent link">&para;</a></h3>
+<p>Add the Google repository key and Google repository</p>
+<p><div class="highlight"><pre><span></span><code>curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg <span class="p">|</span> apt-key add -
 </code></pre></div>
-Install kubectl
-<div class="highlight"><pre><span></span><code>sudo install -o root -g root -m <span class="m">0755</span> kubectl /usr/local/bin/kubectl
+<div class="highlight"><pre><span></span><code>vim /etc/apt/sources.list.d/kubernetes.list
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl version --client
+<div class="highlight"><pre><span></span><code>deb http://apt.kubernetes.io kubernetes-xenial main
+</code></pre></div>
+Update the list of packages. And install kubelet, kubeadm and kubectl.</p>
+<p><div class="highlight"><pre><span></span><code>apt-get update 
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>apt-get install kubelet kubeadm kubectl -y
+</code></pre></div>
+Disable the swap.</p>
+<div class="highlight"><pre><span></span><code>swapoff -a
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Setup Master Node to Connect with Worker Nodes</p>
+</div>
+<p><div class="highlight"><pre><span></span><code>sed -i <span class="s1">&#39;/ swap / s/^/#/&#39;</span> /etc/fstab
+</code></pre></div>
+<div class="highlight"><pre><span></span><code> <span class="nb">echo</span> <span class="nv">NODENAME</span><span class="o">=</span><span class="k">$(</span>hostname -s<span class="k">)</span>
 </code></pre></div></p>
-<h2 id="installing-kubernetes-with-kops">Installing Kubernetes with kops<a class="headerlink" href="#installing-kubernetes-with-kops" title="Permanent link">&para;</a></h2>
-<p>Download the latest release with the command:</p>
-<div class="highlight"><pre><span></span><code>curl -LO https://github.com/kubernetes/kops/releases/download/<span class="k">$(</span>curl -s https://api.github.com/repos/kubernetes/kops/releases/lates <span class="p">|</span> grep tag_name <span class="p">|</span> cut -d <span class="s1">&#39;&quot;&#39;</span> -f <span class="m">4</span><span class="k">)</span>/kops-linux-amd64
+<p>Now Create a Directory Name <mark>.kube</mark> in the master node home directory
+<div class="highlight"><pre><span></span><code>mkdir .kube
 </code></pre></div>
-<p>Make the kops binary executable
-<div class="highlight"><pre><span></span><code>chmod +x kops-linux-amd64
+Copy the Default conf file to the .kube directory
+<div class="highlight"><pre><span></span><code>cp /etc/kubernetes/admin.conf .kube/config
 </code></pre></div>
-Move the kops binary in to your PATH.
-<div class="highlight"><pre><span></span><code>sudo mv kops-linux-amd64 /usr/local/bin/kops
+Replace the Ip address with your Instance Private Ip Address and set pod Network 
+<div class="highlight"><pre><span></span><code>kubeadm init --apiserver-advertise-address<span class="o">=</span><span class="m">172</span>.31.85.246  --apiserver-cert-extra-sans<span class="o">=</span><span class="m">172</span>.31.85.246  --pod-network-cidr<span class="o">=</span><span class="m">10</span>.0.0.0/16 
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kops
+After Executing <mark>kubeadm init</mark> command you will get one command as output that need to execute on <mark>worker nodes</mark>
+<div class="highlight"><pre><span></span><code>kubeadm join <span class="m">172</span>.31.85.246:6443 --token n6v08z.53b057pfwnj8mq10         --discovery-token-ca-cert-hash sha256:9e8a38ddfc46c41ecb3317db9fc2145f70bddbdd2c6b8091fbdbab18e1dbcb19 
+</code></pre></div>
+Configuring the Calico
+<div class="highlight"><pre><span></span><code>kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+</code></pre></div>
+Now check Kubectl commands
+<div class="highlight"><pre><span></span><code>kubectl get node
+</code></pre></div>
+Now test the cluster </p>
+<p><div class="highlight"><pre><span></span><code>kubectl run pod --image<span class="o">=</span>nginx
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>kubectl get pod
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>kubectl get pod -o wide
 </code></pre></div></p>
-<h1 id="creating-k8s-cluster-with-kops">Creating K8s Cluster with KOPS<a class="headerlink" href="#creating-k8s-cluster-with-kops" title="Permanent link">&para;</a></h1>
-<h2 id="kops-commands-to-setup-k8s-cluster-">Kops commands to setup k8s cluster:-<a class="headerlink" href="#kops-commands-to-setup-k8s-cluster-" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code>kops create cluster --name<span class="o">=</span>saiteja.irrinki.xyz --state<span class="o">=</span>s3://&lt;s3 bucket&gt; --zones<span class="o">=</span>ap-south-1a,ap-south-1b --node-count<span class="o">=</span><span class="m">2</span> --node-size<span class="o">=</span>t2.micro --master-size<span class="o">=</span>t2.micro --dns-zone<span class="o">=</span>saiteja.irrinki.xyz --node-volume-size<span class="o">=</span><span class="m">8</span> --master-volume-size<span class="o">=</span><span class="m">8</span>
-</code></pre></div>
-It will create configuration of kops
-<div class="highlight"><pre><span></span><code>kops update cluster --name<span class="o">=</span>saiteja.irrinki.xyz --state<span class="o">=</span>s3://&lt;s3 bucket&gt; --yes --admin
-</code></pre></div>
-It will create kopsdata in S3 bucket. It start creating a cluster &amp; it takes 10 mins
-<div class="highlight"><pre><span></span><code><span class="n">kops</span><span class="w"> </span><span class="n">validate</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">saiteja</span><span class="p">.</span><span class="n">irrinki</span><span class="p">.</span><span class="n">xyz</span><span class="w"> </span><span class="o">--</span><span class="n">state</span><span class="o">=</span><span class="nl">s3</span><span class="p">:</span><span class="c1">//&lt;s3 bucket&gt;</span>
-</code></pre></div>
-It shows ur cluster is ready</p>
-<p>To Delete Cluster</p>
-<div class="highlight"><pre><span></span><code><span class="n">kops</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">saiteja</span><span class="p">.</span><span class="n">irrinki</span><span class="p">.</span><span class="n">xyz</span><span class="w"> </span><span class="o">--</span><span class="n">state</span><span class="o">=</span><span class="nl">s3</span><span class="p">:</span><span class="c1">//&lt;s3 bucket&gt; --yes </span>
-</code></pre></div>
 
               
             </article>
@@ -810,7 +884,7 @@ It shows ur cluster is ready</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../docker-setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker" rel="prev">
+        <a href="../kops/" class="md-footer__link md-footer__link--prev" aria-label="Previous: KOPS" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -819,26 +893,11 @@ It shows ur cluster is ready</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Docker
+              KOPS
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../kubeadm/" class="md-footer__link md-footer__link--next" aria-label="Next: Kubeadm" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Kubeadm
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
