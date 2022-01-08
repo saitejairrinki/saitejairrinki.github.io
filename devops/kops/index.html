@@ -768,8 +768,10 @@ Install kubectl
 </code></pre></div></p>
 <h2 id="installing-kubernetes-with-kops">Installing Kubernetes with kops<a class="headerlink" href="#installing-kubernetes-with-kops" title="Permanent link">&para;</a></h2>
 <p>Download the latest release with the command:</p>
-<div class="highlight"><pre><span></span><code>curl -LO https://github.com/kubernetes/kops/releases/download/<span class="k">$(</span>curl -s https://api.github.com/repos/kubernetes/kops/releases/lates <span class="p">|</span> grep tag_name <span class="p">|</span> cut -d <span class="s1">&#39;&quot;&#39;</span> -f <span class="m">4</span><span class="k">)</span>/kops-linux-amd64
+<p><div class="highlight"><pre><span></span><code>curl -LO https://github.com/kubernetes/kops/releases/download/<span class="k">$(</span>curl -s https://api.github.com/repos/kubernetes/kops/releases/latest <span class="p">|</span> grep tag_name <span class="p">|</span> cut -d <span class="s1">&#39;&quot;&#39;</span> -f <span class="m">4</span><span class="k">)</span>/kops-linux-amd64
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>curl -LO https://github.com/kubernetes/kops/releases/download/v1.20.0/kops-linux-amd64
+</code></pre></div></p>
 <p>Make the kops binary executable
 <div class="highlight"><pre><span></span><code>chmod +x kops-linux-amd64
 </code></pre></div>
