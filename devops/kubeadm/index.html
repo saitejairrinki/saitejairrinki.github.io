@@ -849,10 +849,9 @@ Now Create a Directory Name <mark>.kube</mark> in the master node home directory
 Copy the Default conf file to the .kube directory
 <div class="highlight"><pre><span></span><code>cp /etc/kubernetes/admin.conf .kube/config
 </code></pre></div>
-Replace the Ip address with your Instance Private Ip Address and set pod Network 
-<div class="highlight"><pre><span></span><code>After <span class="nv">Executing</span> <span class="o">==</span>kubeadm <span class="nv">init</span><span class="o">==</span> <span class="nb">command</span> you will get one <span class="nb">command</span> as output that need to execute <span class="nv">on</span> <span class="o">==</span>worker <span class="nv">nodes</span><span class="o">==</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>kubeadm join <span class="m">172</span>.31.85.246:6443 --token n6v08z.53b057pfwnj8mq10         --discovery-token-ca-cert-hash sha256:9e8a38ddfc46c41ecb3317db9fc2145f70bddbdd2c6b8091fbdbab18e1dbcb19 
+Replace the Ip address with your Instance Private Ip Address and set pod Network </p>
+<p>After Executing <mark>kubeadm init</mark> command you will get one command as output that need to execute on <mark>worker nodes</mark></p>
+<p><div class="highlight"><pre><span></span><code>kubeadm join <span class="m">172</span>.31.85.246:6443 --token n6v08z.53b057pfwnj8mq10         --discovery-token-ca-cert-hash sha256:9e8a38ddfc46c41ecb3317db9fc2145f70bddbdd2c6b8091fbdbab18e1dbcb19 
 </code></pre></div>
 Configuring the Calico
 <div class="highlight"><pre><span></span><code>kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
