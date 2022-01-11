@@ -581,6 +581,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scp-commands" class="md-nav__link">
+    SCP Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-inventory-file" class="md-nav__link">
     Sample Inventory File
   </a>
@@ -754,6 +761,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scp-commands" class="md-nav__link">
+    SCP Commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-inventory-file" class="md-nav__link">
     Sample Inventory File
   </a>
@@ -834,6 +848,21 @@
 </code></pre></div></p>
 </div>
 </div>
+</div>
+<h2 id="scp-commands">SCP Commands<a class="headerlink" href="#scp-commands" title="Permanent link">&para;</a></h2>
+<p>To Copy files From Localmachine to Remotemachine
+<div class="highlight"><pre><span></span><code>scp -i &lt;private-key-file-path&gt; &lt;files to copy&gt; &lt;user&gt;@&lt;IP&gt;:&lt;Remote-machine-path&gt;
+</code></pre></div></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>scp -i Downloads/control.pem sample.txt ubuntu@54.165.128.104:/home/ubuntu/</p>
+</div>
+<p>To Copy Files from Remotemachine to Localmachine
+<div class="highlight"><pre><span></span><code>scp -i &lt;private-key-file-path&gt; &lt;user&gt;@&lt;IP&gt;:&lt;remote-files-path&gt; &lt;Localmachine-path&gt;
+</code></pre></div></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>scp -i Downloads/control.pem ubuntu@54.165.128.104:/home/ubuntu/sample.txt Desktop/</p>
 </div>
 <h2 id="sample-inventory-file">Sample Inventory File<a class="headerlink" href="#sample-inventory-file" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Inventory</label></div>
