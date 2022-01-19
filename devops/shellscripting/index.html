@@ -912,30 +912,34 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">#!/bin/bash</span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">net</span><span class="o">-</span><span class="n">tools</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">apache2</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"></span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">net</span><span class="o">-</span><span class="n">tools</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">figlet</span><span class="w"> </span><span class="n">apache2</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">apache2</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">apache2</span><span class="w"></span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">webfiles</span><span class="w"></span>
-<span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">webfiles</span><span class="w"></span>
+<span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">webfiles</span><span class="w"></span>
+<span class="n">cd</span><span class="w"> </span><span class="n">webfiles</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="c1">//www.tooplate.com/zip-templates/2118_chilling_cafe.zip</span>
 <span class="n">unzip</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="p">.</span><span class="n">zip</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="cm">/* /var/www/html/</span>
-<span class="cm">sudo rm -r /tmp/webfiles</span>
+<span class="cm">cd ..</span>
+<span class="cm">rm -rf webfiles</span>
 <span class="cm">sudo systemctl restart apache2</span>
+<span class="cm">figlet done</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">#!/bin/bash</span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">yum</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">net</span><span class="o">-</span><span class="n">tools</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">httpd</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"></span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">yum</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">net</span><span class="o">-</span><span class="n">tools</span><span class="w"> </span><span class="n">figlet</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">httpd</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">httpd</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">httpd</span><span class="w"></span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">webfiles</span><span class="w"></span>
-<span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">webfiles</span><span class="w"></span>
+<span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">webfiles</span><span class="w"></span>
+<span class="n">cd</span><span class="w"> </span><span class="n">webfiles</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="c1">//www.tooplate.com/zip-templates/2118_chilling_cafe.zip</span>
 <span class="n">unzip</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="p">.</span><span class="n">zip</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="cm">/* /var/www/html/</span>
-<span class="cm">sudo rm -r /tmp/webfiles</span>
+<span class="cm">cd ..</span>
+<span class="cm">rm -rf webfiles</span>
 <span class="cm">sudo systemctl restart httpd</span>
+<span class="cm">figlet done</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -948,15 +952,15 @@
 <span class="kt">FILE</span><span class="o">=</span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="w"></span>
 <span class="n">echo</span><span class="w"> </span><span class="s">&quot;  Installing the Services &amp; Extractors&quot;</span><span class="w"></span>
 <span class="n">echo</span><span class="w"></span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">$PKG</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">$SRV</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span><span class="w"></span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">$PKG</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">$SRV</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">figlet</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span><span class="w"></span>
 <span class="n">echo</span><span class="w"> </span><span class="s">&quot;Start &amp; Enabling the Services&quot;</span><span class="w"></span>
 <span class="n">echo</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">$SRV</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">$SRV</span><span class="w"></span>
 <span class="n">echo</span><span class="w"> </span><span class="s">&quot;Downloading the zip file from tooplate.com&quot;</span><span class="w"></span>
 <span class="n">echo</span><span class="w"></span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">webfiles</span><span class="w"></span>
-<span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">webfiles</span><span class="w"></span>
+<span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">webfiles</span><span class="w"></span>
+<span class="n">cd</span><span class="w"> </span><span class="n">webfiles</span><span class="w"></span>
 <span class="n">echo</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">$URL</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span><span class="w"></span>
 <span class="n">echo</span><span class="w"> </span><span class="s">&quot;extracting the files &quot;</span><span class="w"></span>
@@ -967,9 +971,11 @@
 <span class="n">sudo</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="n">$FILE</span><span class="cm">/* /var/www/html &gt;&gt; /dev/null</span>
 <span class="cm">echo &quot;Restarting the Services&quot;</span>
 <span class="cm">sudo systemctl restart $SRV</span>
-<span class="cm">sudo rm -rf /tmp/webfiles</span>
+<span class="cm">cd ..</span>
+<span class="cm">rm -rf webfiles</span>
 <span class="cm">sudo systemctl status $SRV | grep Active</span>
 <span class="cm">date</span>
+<span class="cm">figlet done</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -977,30 +983,33 @@
 <span class="n">apt</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span><span class="w"></span>
 <span class="k">if</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">$</span><span class="o">?</span><span class="w"> </span><span class="o">-</span><span class="n">eq</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
 <span class="n">then</span><span class="w"> </span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">net</span><span class="o">-</span><span class="n">tools</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">apache2</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"></span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">apache2</span><span class="w"></span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">apache2</span><span class="w"></span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">webfiles</span><span class="w"></span>
-<span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">webfiles</span><span class="w"></span>
-<span class="n">sudo</span><span class="w">  </span><span class="n">wget</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="c1">//www.tooplate.com/zip-templates/2118_chilling_cafe.zip</span>
-<span class="n">unzip</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="p">.</span><span class="n">zip</span><span class="w"></span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="cm">/* /var/www/html/</span>
-<span class="cm">sudo rm -r /tmp/webfiles</span>
-<span class="cm">sudo systemctl restart apache2</span>
-<span class="cm">sudo systemctl status apache2 | grep Active</span>
+<span class="w">   </span><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">figlet</span><span class="w"> </span><span class="n">net</span><span class="o">-</span><span class="n">tools</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">apache2</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"></span>
+<span class="w">   </span><span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">apache2</span><span class="w"></span>
+<span class="w">   </span><span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">apache2</span><span class="w"></span>
+<span class="w">   </span><span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">webfiles</span><span class="w"></span>
+<span class="w">   </span><span class="n">cd</span><span class="w"> </span><span class="n">webfiles</span><span class="w"></span>
+<span class="w">   </span><span class="n">sudo</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="c1">//www.tooplate.com/zip-templates/2118_chilling_cafe.zip</span>
+<span class="w">   </span><span class="n">unzip</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="p">.</span><span class="n">zip</span><span class="w"></span>
+<span class="w">   </span><span class="n">sudo</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="cm">/* /var/www/html/</span>
+<span class="cm">   cd ..</span>
+<span class="cm">   rm -rf webfiles</span>
+<span class="cm">   sudo systemctl restart apache2</span>
+<span class="cm">   sudo systemctl status apache2 | grep Active</span>
 <span class="cm">else</span>
-<span class="cm">sudo yum install wget net-tools unzip httpd -y</span>
-<span class="cm">sudo systemctl start httpd</span>
-<span class="cm">sudo systemctl enable httpd</span>
-<span class="cm">sudo mkdir -p /tmp/webfiles</span>
-<span class="cm">cd /tmp/webfiles</span>
-<span class="cm">sudo wget https://www.tooplate.com/zip-templates/2118_chilling_cafe.zip</span>
-<span class="cm">unzip 2118_chilling_cafe.zip</span>
-<span class="cm">sudo cp -r 2118_chilling_cafe/* /var/www/html/</span>
-<span class="cm">sudo rm -r /tmp/webfiles</span>
-<span class="cm">sudo systemctl restart httpd</span>
-<span class="cm">sudo systemctl status httpd | grep Active</span>
+<span class="cm">    sudo yum install wget net-tools figlet unzip httpd -y</span>
+<span class="cm">    sudo systemctl start httpd</span>
+<span class="cm">    sudo systemctl enable httpd</span>
+<span class="cm">    sudo mkdir -p /tmp/webfiles</span>
+<span class="cm">    cd webfiles</span>
+<span class="cm">    sudo wget https://www.tooplate.com/zip-templates/2118_chilling_cafe.zip</span>
+<span class="cm">    unzip 2118_chilling_cafe.zip</span>
+<span class="cm">    sudo cp -r 2118_chilling_cafe/* /var/www/html/</span>
+<span class="cm">    cd ..    </span>
+<span class="cm">    sudo rm -rf webfiles</span>
+<span class="cm">    sudo systemctl restart httpd</span>
+<span class="cm">    sudo systemctl status httpd | grep Active</span>
 <span class="cm">fi</span>
+<span class="cm">figlet done</span>
 </code></pre></div>
 </div>
 </div>
