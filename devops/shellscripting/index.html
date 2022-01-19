@@ -922,7 +922,7 @@
 <span class="n">sudo</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="p">.</span><span class="n">zip</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="cm">/* /var/www/html/</span>
 <span class="cm">cd ..</span>
-<span class="cm">sudo rm -rf webfiles</span>
+<span class="cm">rm -rf webfiles</span>
 <span class="cm">sudo systemctl restart apache2</span>
 <span class="cm">figlet done</span>
 </code></pre></div>
@@ -938,7 +938,7 @@
 <span class="n">sudo</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="p">.</span><span class="n">zip</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="cm">/* /var/www/html/</span>
 <span class="cm">cd ..</span>
-<span class="cm">sudo rm -rf webfiles</span>
+<span class="cm">rm -rf webfiles</span>
 <span class="cm">sudo systemctl restart httpd</span>
 <span class="cm">figlet done</span>
 </code></pre></div>
@@ -973,7 +973,7 @@
 <span class="cm">echo &quot;Restarting the Services&quot;</span>
 <span class="cm">sudo systemctl restart $SRV</span>
 <span class="cm">cd ..</span>
-<span class="cm">sudo rm -rf webfiles</span>
+<span class="cm">rm -rf webfiles</span>
 <span class="cm">sudo systemctl status $SRV | grep Active</span>
 <span class="cm">date</span>
 <span class="cm">figlet done</span>
@@ -994,7 +994,7 @@
 <span class="w">   </span><span class="n">sudo</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="p">.</span><span class="n">zip</span><span class="w"></span>
 <span class="w">   </span><span class="n">sudo</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="cm">/* /var/www/html/</span>
 <span class="cm">   cd ..</span>
-<span class="cm">   sudo rm -rf webfiles</span>
+<span class="cm">   rm -rf webfiles</span>
 <span class="cm">   sudo systemctl restart apache2</span>
 <span class="cm">   sudo systemctl status apache2 | grep Active</span>
 <span class="cm">else</span>
