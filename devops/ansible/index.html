@@ -660,8 +660,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" class="md-nav__link">
-    Creating Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine
+  <a href="#writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" class="md-nav__link">
+    Writing Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-playbook-for-setting-up-website-in-remote-machine" class="md-nav__link">
+    Writing Playbook for Setting Up Website in Remote Machine
   </a>
   
 </li>
@@ -855,8 +862,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" class="md-nav__link">
-    Creating Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine
+  <a href="#writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" class="md-nav__link">
+    Writing Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-playbook-for-setting-up-website-in-remote-machine" class="md-nav__link">
+    Writing Playbook for Setting Up Website in Remote Machine
   </a>
   
 </li>
@@ -1019,7 +1033,7 @@ Start &amp; Enable <mark>httpd</mark> in centos Remote machine
 To Execute the playbook
 <div class="highlight"><pre><span></span><code>ansible-playbook -i &lt;Inventory file path&gt; sample.yml
 </code></pre></div></p>
-<h2 id="creating-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine">Creating Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine<a class="headerlink" href="#creating-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" title="Permanent link">&para;</a></h2>
+<h2 id="writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine">Writing Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine<a class="headerlink" href="#writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install httpd and starting the service</span>
   <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
   <span class="nt">tasks</span><span class="p">:</span>
@@ -1044,6 +1058,52 @@ To Execute the playbook
        <span class="nt">service</span><span class="p">:</span>
          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
          <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restarted</span>
+</code></pre></div>
+<h2 id="writing-playbook-for-setting-up-website-in-remote-machine">Writing Playbook for Setting Up Website in Remote Machine<a class="headerlink" href="#writing-playbook-for-setting-up-website-in-remote-machine" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Setting up Website</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">websrv</span>
+  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+  <span class="nt">become</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+
+  <span class="nt">tasks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Installing Packages in CentOS</span>
+      <span class="nt">yum</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{item}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;CentOS&quot;</span>
+      <span class="nt">loop</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wget</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unzip</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Start &amp; Enable httpd</span>
+      <span class="nt">service</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>   
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Downloading Source code</span>
+      <span class="nt">get_url</span><span class="p">:</span>
+        <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://www.tooplate.com/zip-templates/2114_pixie.zip</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/opt</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Unarchive a file that is already on the remote machine</span>
+      <span class="nt">unarchive</span><span class="p">:</span>
+        <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/opt/2114_pixie.zip</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/opt</span>
+        <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deploy Website</span>
+      <span class="nt">copy</span><span class="p">:</span>
+        <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/opt/2114_pixie/</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/www/html/</span>
+        <span class="nt">remote_src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restarting httpd service</span>
+      <span class="nt">service</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restarted</span>
 </code></pre></div>
 <h2 id="ansible-configuration-file">Ansible Configuration File<a class="headerlink" href="#ansible-configuration-file" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
