@@ -961,7 +961,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="cp">#!/bin/bash</span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">yum</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">net</span><span class="o">-</span><span class="n">tools</span><span class="w"> </span><span class="n">figlet</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">httpd</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"></span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">yum</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">net</span><span class="o">-</span><span class="n">tools</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">httpd</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">httpd</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">httpd</span><span class="w"></span>
 <span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="n">webfiles</span><span class="w"></span>
@@ -972,7 +972,6 @@
 <span class="cm">cd ..</span>
 <span class="cm">sudo rm -rf webfiles</span>
 <span class="cm">sudo systemctl restart httpd</span>
-<span class="cm">figlet done</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -985,7 +984,7 @@
 <span class="kt">FILE</span><span class="o">=</span><span class="mi">2118</span><span class="n">_chilling_cafe</span><span class="w"></span>
 <span class="n">echo</span><span class="w"> </span><span class="s">&quot;  Installing the Services &amp; Extractors&quot;</span><span class="w"></span>
 <span class="n">echo</span><span class="w"></span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">$PKG</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">$SRV</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">figlet</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span><span class="w"></span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">$PKG</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">$SRV</span><span class="w"> </span><span class="n">wget</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span><span class="w"></span>
 <span class="n">echo</span><span class="w"> </span><span class="s">&quot;Start &amp; Enabling the Services&quot;</span><span class="w"></span>
 <span class="n">echo</span><span class="w"></span>
 <span class="n">sudo</span><span class="w"> </span><span class="n">systemctl</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">$SRV</span><span class="w"></span>
@@ -1008,7 +1007,6 @@
 <span class="cm">sudo rm -rf webfiles</span>
 <span class="cm">sudo systemctl status $SRV | grep Active</span>
 <span class="cm">date</span>
-<span class="cm">figlet done</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1029,8 +1027,9 @@
 <span class="cm">   sudo rm -rf webfiles</span>
 <span class="cm">   sudo systemctl restart apache2</span>
 <span class="cm">   sudo systemctl status apache2 | grep Active</span>
+<span class="cm">figlet done</span>
 <span class="cm">else</span>
-<span class="cm">    sudo yum install wget net-tools figlet unzip httpd -y</span>
+<span class="cm">    sudo yum install wget net-tools unzip httpd -y</span>
 <span class="cm">    sudo systemctl start httpd</span>
 <span class="cm">    sudo systemctl enable httpd</span>
 <span class="cm">    sudo mkdir -p webfiles</span>
@@ -1043,7 +1042,6 @@
 <span class="cm">    sudo systemctl restart httpd</span>
 <span class="cm">    sudo systemctl status httpd | grep Active</span>
 <span class="cm">fi</span>
-<span class="cm">figlet done</span>
 </code></pre></div>
 </div>
 </div>
