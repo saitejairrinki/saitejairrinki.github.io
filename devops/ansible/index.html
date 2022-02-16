@@ -662,6 +662,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#writing-playbook-for-setting-up-website-in-remote-machine-with-conditions-handlers" class="md-nav__link">
+    Writing Playbook for Setting Up Website in Remote Machine with Conditions &amp; Handlers.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file" class="md-nav__link">
+    Writing Playbook to Create VPC in AWS and Including Variables from different File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-configuration-file" class="md-nav__link">
     Ansible Configuration File
   </a>
@@ -844,6 +858,20 @@
         <li class="md-nav__item">
   <a href="#writing-playbook-for-setting-up-website-in-remote-machine" class="md-nav__link">
     Writing Playbook for Setting Up Website in Remote Machine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-playbook-for-setting-up-website-in-remote-machine-with-conditions-handlers" class="md-nav__link">
+    Writing Playbook for Setting Up Website in Remote Machine with Conditions &amp; Handlers.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file" class="md-nav__link">
+    Writing Playbook to Create VPC in AWS and Including Variables from different File
   </a>
   
 </li>
@@ -1078,6 +1106,294 @@ To Execute the playbook
         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
         <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restarted</span>
 </code></pre></div>
+<h2 id="writing-playbook-for-setting-up-website-in-remote-machine-with-conditions-handlers">Writing Playbook for Setting Up Website in Remote Machine with Conditions &amp; Handlers.<a class="headerlink" href="#writing-playbook-for-setting-up-website-in-remote-machine-with-conditions-handlers" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Writing playbook for loops and condtions</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install packages on centos</span>
+      <span class="nt">yum</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{item}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;CentOS&quot;</span>
+      <span class="nt">loop</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wget</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unzip</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">zip</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">git</span>           
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install packages on ubuntu</span> 
+      <span class="nt">apt</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{item}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+        <span class="nt">update_cache</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;Ubuntu&quot;</span>
+      <span class="nt">loop</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">apache2</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wget</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unzip</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">zip</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">git</span>
+
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Start &amp; enable service on CentOS</span>
+      <span class="nt">service</span><span class="p">:</span>
+       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+       <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
+       <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;CentOS&quot;</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Start &amp; enable service on Ubuntu</span>
+      <span class="nt">service</span><span class="p">:</span>
+       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apache2</span>
+       <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
+       <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;Ubuntu&quot;</span>
+
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Push ntp conf on centos</span>
+      <span class="nt">copy</span><span class="p">:</span>
+        <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">index.html</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/www/html/</span>
+        <span class="nt">backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;CentOS&quot;</span>
+      <span class="nt">notify</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Restart service on CentOS</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Push ntp conf on ubuntu</span>
+      <span class="nt">copy</span><span class="p">:</span>
+        <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">index.html</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/www/html/</span>
+        <span class="nt">backup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;Ubuntu&quot;</span>
+      <span class="nt">notify</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Restart service on Ubuntu</span>
+
+  <span class="nt">handlers</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restart service on CentOS</span>
+      <span class="nt">service</span><span class="p">:</span>
+       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+       <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restarted</span>
+       <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;CentOS&quot;</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restart service on Ubuntu</span>
+      <span class="nt">service</span><span class="p">:</span>
+       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apache2</span>
+       <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restarted</span>
+       <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+      <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;Ubuntu&quot;</span>
+</code></pre></div>
+<h2 id="writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file">Writing Playbook to Create VPC in AWS and Including Variables from different File<a class="headerlink" href="#writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file" title="Permanent link">&para;</a></h2>
+<p>Creating File to store Variables
+<div class="highlight"><pre><span></span><code>vim vpc_setup.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nl">vpc_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Vprofile-vpc&quot;</span><span class="w"></span>
+
+<span class="cp">#Vpc-range</span>
+<span class="nl">vpcrange</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">172.21.0.0</span><span class="o">/</span><span class="mi">16</span><span class="err">&#39;</span><span class="w"></span>
+
+<span class="cp">#subnet range</span>
+<span class="nl">pubip1</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">172.21.1.0</span><span class="o">/</span><span class="mi">24</span><span class="err">&#39;</span><span class="w"></span>
+<span class="nl">pubip2</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">172.21.2.0</span><span class="o">/</span><span class="mi">24</span><span class="err">&#39;</span><span class="w"></span>
+<span class="nl">pubip3</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">172.21.3.0</span><span class="o">/</span><span class="mi">24</span><span class="err">&#39;</span><span class="w"></span>
+<span class="nl">pvtip1</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">172.21.4.0</span><span class="o">/</span><span class="mi">24</span><span class="err">&#39;</span><span class="w"></span>
+<span class="nl">pvtip2</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">172.21.5.0</span><span class="o">/</span><span class="mi">24</span><span class="err">&#39;</span><span class="w"></span>
+<span class="nl">pvtip3</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">172.21.6.0</span><span class="o">/</span><span class="mi">24</span><span class="err">&#39;</span><span class="w"></span>
+
+<span class="cp">#region</span>
+<span class="nl">region</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="mi">-2</span><span class="err">&#39;</span><span class="w"></span>
+
+<span class="cp">#zone names</span>
+<span class="nl">zone1</span><span class="p">:</span><span class="w"> </span><span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="mi">-2</span><span class="n">a</span><span class="w"></span>
+<span class="nl">zone2</span><span class="p">:</span><span class="w"> </span><span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="mi">-2</span><span class="n">b</span><span class="w"></span>
+<span class="nl">zone3</span><span class="p">:</span><span class="w"> </span><span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="mi">-2</span><span class="n">c</span><span class="w"></span>
+
+
+<span class="nl">state</span><span class="p">:</span><span class="w"> </span><span class="n">present</span><span class="w"></span>
+</code></pre></div></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Playbook</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Import vpc variables</span>
+      <span class="nt">include_vars</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/home/ubuntu/Vprofile/vars/vpc_setup</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create Vprofile vpc</span>
+      <span class="nt">ec2_vpc_net</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{vpc_name}}&quot;</span>
+        <span class="nt">cidr_block</span><span class="p">:</span> <span class="s">&quot;{{vpcrange}}&quot;</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">dns_support</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">dns_hostnames</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">tenancy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vpcout</span>
+
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create public subnet for zone1</span>
+      <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
+        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone1}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pubip1}}&quot;</span>
+        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">tags</span><span class="p">:</span>
+          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub1</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pubsub1_out</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create public subnet for zone2</span>
+      <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
+        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone2}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pubip2}}&quot;</span>
+        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">tags</span><span class="p">:</span>
+          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub2</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pubsub2_out</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create public subnet for zone3</span>
+      <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
+        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone3}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pubip3}}&quot;</span>
+        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">tags</span><span class="p">:</span>
+          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub3</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pubsub3_out</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create private subnet for zone1</span>
+      <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
+        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone1}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pvtip1}}&quot;</span>
+        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">tags</span><span class="p">:</span>
+          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub1</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pvtsub1_out</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create private subnet for zone2</span>
+      <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
+        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone2}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pvtip2}}&quot;</span>
+        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">tags</span><span class="p">:</span>
+          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub2</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pvtsub2_out</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create private subnet for zone3</span>
+      <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
+        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone3}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pvtip3}}&quot;</span>
+        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">tags</span><span class="p">:</span>
+          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub3</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pvtsub3_out</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Internet gateway setup</span>
+      <span class="nt">ec2_vpc_igw</span><span class="p">:</span>
+        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+        <span class="nt">tags</span><span class="p">:</span>
+          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_IGW</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">igw_out</span>
+
+
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">public subnet route table</span>
+      <span class="nt">ec2_vpc_route_table</span><span class="p">:</span>
+        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">tags</span><span class="p">:</span>
+          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_Public</span>
+        <span class="nt">subnets</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pubsub1_out.subnet.id}}&quot;</span>
+          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pubsub2_out.subnet.id}}&quot;</span>
+          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pubsub3_out.subnet.id}}&quot;</span>
+        <span class="nt">routes</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
+            <span class="nt">gateway_id</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">igw_out.gateway_id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">public_route_table</span>
+
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create new nat gateway and allocate new EIP if a nat gateway does not yet exist in the subnet.</span>
+      <span class="nt">ec2_vpc_nat_gateway</span><span class="p">:</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+        <span class="nt">subnet_id</span><span class="p">:</span> <span class="s">&quot;{{pubsub1_out.subnet.id}}&quot;</span>
+        <span class="nt">wait</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">if_exist_do_not_create</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nat_out</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">private subnet route table</span>
+      <span class="nt">ec2_vpc_route_table</span><span class="p">:</span>
+        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+        <span class="nt">tags</span><span class="p">:</span>
+          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_Private</span>
+        <span class="nt">subnets</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pvtsub1_out.subnet.id}}&quot;</span>
+          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pvtsub2_out.subnet.id}}&quot;</span>
+          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pvtsub3_out.subnet.id}}&quot;</span>
+        <span class="nt">routes</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
+            <span class="nt">gateway_id</span><span class="p">:</span> <span class="s">&quot;{{nat_out.nat_gateway_id}}&quot;</span>
+      <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">private_route_table</span>
+
+
+    <span class="p p-Indicator">-</span> <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">var</span><span class="p">:</span> <span class="s">&quot;{{item}}&quot;</span>
+      <span class="nt">loop</span><span class="p">:</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">vpcout.vpc.id</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pubsub1_out.subnet.id</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pubsub2_out.subnet.id</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pubsub3_out.subnet.id</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pvtsub1_out.subnet.id</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pvtsub2_out.subnet.id</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pvtsub3_out.subnet.id</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">igw_out.gateway_id</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">public_route_table.route_table.id</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nat_out.nat_gateway_id</span>
+         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">private_route_table.route_table.id</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">set_fact</span><span class="p">:</span>
+        <span class="nt">vpcid</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+        <span class="nt">pubsublid</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">pubsub1_out.subnet.id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">pubsub2id</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">pubsub2_out.subnet.id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">pubsub3id</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">pubsub3_out.subnet.id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">privsublid</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">pvtsub1_out.subnet.id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">privsub2id</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">pvtsub2_out.subnet.id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">privsub3id</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">pvtsub3_out.subnet.id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">igwid</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">igw_out.gateway_id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">pubRTid</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">public_route_table.route_table.id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">NATGWid</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">nat_out.nat_gateway_id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">privRTid</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">private_route_table.route_table.id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">cacheable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">creating file for vpc output</span>
+      <span class="nt">copy</span><span class="p">:</span>
+        <span class="nt">content</span><span class="p">:</span> <span class="s">&quot;vpcid:</span><span class="nv"> </span><span class="s">{{vpcout.vpc.id}}\n</span><span class="nv"> </span><span class="s">pubsublid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pubsub1_out.subnet.id</span><span class="nv"> </span><span class="s">}}\npubsub2id:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pubsub2_out.subnet.id</span><span class="nv"> </span><span class="s">}}\npubsub3id:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pubsub3_out.subnet.id</span><span class="nv"> </span><span class="s">}}\nprivsublid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pvtsub1_out.subnet.id</span><span class="nv"> </span><span class="s">}}\nprivsub2id:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pvtsub2_out.subnet.id</span><span class="nv"> </span><span class="s">}}\nprivsub3id:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pvtsub3_out.subnet.id</span><span class="nv"> </span><span class="s">}}\nigwid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">igw_out.gateway_id</span><span class="nv"> </span><span class="s">}}\npubRTid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">public_route_table.route_table.id</span><span class="nv"> </span><span class="s">}}\nNATGWid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">nat_out.nat_gateway_id</span><span class="nv"> </span><span class="s">}}\nprivRTid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">private_route_table.route_table.id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/home/ubuntu/Vprofile/vars/output_vars</span>
+</code></pre></div>
 <h2 id="ansible-configuration-file">Ansible Configuration File<a class="headerlink" href="#ansible-configuration-file" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1085,7 +1401,7 @@ To Execute the playbook
 </div>
 <div class="highlight"><pre><span></span><code>vim ansible.cfg
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Ansible Configuration File</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Ansible Configuration File</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
