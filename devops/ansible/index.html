@@ -676,6 +676,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#launching-ec2-instance-in-aws-cloud" class="md-nav__link">
+    Launching Ec2 Instance in AWS Cloud
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ansible-configuration-file" class="md-nav__link">
     Ansible Configuration File
   </a>
@@ -872,6 +879,13 @@
         <li class="md-nav__item">
   <a href="#writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file" class="md-nav__link">
     Writing Playbook to Create VPC in AWS and Including Variables from different File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launching-ec2-instance-in-aws-cloud" class="md-nav__link">
+    Launching Ec2 Instance in AWS Cloud
   </a>
   
 </li>
@@ -1185,7 +1199,29 @@ To Execute the playbook
       <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;Ubuntu&quot;</span>
 </code></pre></div>
 <h2 id="writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file">Writing Playbook to Create VPC in AWS and Including Variables from different File<a class="headerlink" href="#writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file" title="Permanent link">&para;</a></h2>
-<p>Creating File to store Variables
+<details class="info" open="open">
+<summary>Requirements</summary>
+<ul>
+<li>
+<p>python &gt;= 3.6</p>
+</li>
+<li>
+<p>boto3 &gt;= 1.15.0</p>
+</li>
+<li>
+<p>botocore &gt;= 1.18.0</p>
+</li>
+</ul>
+</details>
+<p><div class="highlight"><pre><span></span><code>apt install python3-pip
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">boto</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">boto3</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">botocore</span><span class="w"></span>
+</code></pre></div>
+Creating File to store Variables
 <div class="highlight"><pre><span></span><code>vim vpc_setup.txt
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nl">vpc_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Vprofile-vpc&quot;</span><span class="w"></span>
@@ -1394,6 +1430,90 @@ To Execute the playbook
         <span class="nt">content</span><span class="p">:</span> <span class="s">&quot;vpcid:</span><span class="nv"> </span><span class="s">{{vpcout.vpc.id}}\n</span><span class="nv"> </span><span class="s">pubsublid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pubsub1_out.subnet.id</span><span class="nv"> </span><span class="s">}}\npubsub2id:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pubsub2_out.subnet.id</span><span class="nv"> </span><span class="s">}}\npubsub3id:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pubsub3_out.subnet.id</span><span class="nv"> </span><span class="s">}}\nprivsublid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pvtsub1_out.subnet.id</span><span class="nv"> </span><span class="s">}}\nprivsub2id:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pvtsub2_out.subnet.id</span><span class="nv"> </span><span class="s">}}\nprivsub3id:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">pvtsub3_out.subnet.id</span><span class="nv"> </span><span class="s">}}\nigwid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">igw_out.gateway_id</span><span class="nv"> </span><span class="s">}}\npubRTid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">public_route_table.route_table.id</span><span class="nv"> </span><span class="s">}}\nNATGWid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">nat_out.nat_gateway_id</span><span class="nv"> </span><span class="s">}}\nprivRTid:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">private_route_table.route_table.id</span><span class="nv"> </span><span class="s">}}&quot;</span>
         <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/home/ubuntu/Vprofile/vars/output_vars</span>
 </code></pre></div>
+<h2 id="launching-ec2-instance-in-aws-cloud">Launching Ec2 Instance in AWS Cloud<a class="headerlink" href="#launching-ec2-instance-in-aws-cloud" title="Permanent link">&para;</a></h2>
+<details class="info" open="open">
+<summary>Requirements</summary>
+<ul>
+<li>
+<p>python &gt;= 3.6</p>
+</li>
+<li>
+<p>boto3 &gt;= 1.15.0</p>
+</li>
+<li>
+<p>botocore &gt;= 1.18.0</p>
+</li>
+</ul>
+</details>
+<p><div class="highlight"><pre><span></span><code>apt install python3-pip
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">boto</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">boto3</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">botocore</span><span class="w"></span>
+</code></pre></div></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Launching Instance Playbook</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Launching Ec2 Instance</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Creating Key pair</span>
+       <span class="nt">amazon.aws.ec2_key</span><span class="p">:</span>
+         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">samplekey</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">us-west-1</span>
+       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">key</span>
+
+     <span class="p p-Indicator">-</span> <span class="nt">debug</span><span class="p">:</span>
+        <span class="nt">var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">key</span>
+
+     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Storing privatekey into a file</span>
+       <span class="nt">copy</span><span class="p">:</span>
+          <span class="nt">content</span><span class="p">:</span> <span class="s">&quot;{{key.key.private_key}}&quot;</span>
+          <span class="nt">dest</span><span class="p">:</span> <span class="s">&quot;./sample.pem&quot;</span>
+          <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0600</span>
+       <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">key.changed</span>
+
+
+     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Creating Security Group</span>
+       <span class="nt">amazon.aws.ec2_group</span><span class="p">:</span>
+         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysg</span>
+         <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Allowing 22 and 80</span>
+         <span class="nt">vpc_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vpc-0c8e70cf05b1342ac</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">us-west-1</span>
+         <span class="nt">rules</span><span class="p">:</span>
+           <span class="p p-Indicator">-</span> <span class="nt">proto</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tcp</span>
+             <span class="nt">from_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
+             <span class="nt">to_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
+             <span class="nt">cidr_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
+             <span class="nt">rule_desc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">allow all on port 80 &amp; 22</span>
+       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sg_out</span>
+
+     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Launching bastion_host</span>
+       <span class="nt">ec2</span><span class="p">:</span>
+          <span class="nt">key_name</span><span class="p">:</span> <span class="s">&quot;samplekey&quot;</span>
+          <span class="nt">region</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">us-west-1</span>
+          <span class="nt">instance_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">t2.micro</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ami-0573b70afecda915d</span>
+          <span class="nt">wait</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+          <span class="nt">wait_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+          <span class="nt">instance_tags</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Ansible</span><span class="nv"> </span><span class="s">Instance&quot;</span>
+            <span class="nt">project</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile</span>
+            <span class="nt">owner</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">devops team</span>
+          <span class="nt">exact_count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+          <span class="nt">count_tag</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;Ansible</span><span class="nv"> </span><span class="s">Instance&quot;</span>
+            <span class="nt">project</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile</span>
+            <span class="nt">owner</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">devops team</span>
+          <span class="nt">group_id</span><span class="p">:</span> <span class="s">&quot;{{sg_out.group_id}}&quot;</span>
+          <span class="nt">vpc_subnet_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">subnet-0c4734c845e549cda</span>
+       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">instance</span>
+</code></pre></div>
 <h2 id="ansible-configuration-file">Ansible Configuration File<a class="headerlink" href="#ansible-configuration-file" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1401,7 +1521,7 @@ To Execute the playbook
 </div>
 <div class="highlight"><pre><span></span><code>vim ansible.cfg
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Ansible Configuration File</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Ansible Configuration File</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
