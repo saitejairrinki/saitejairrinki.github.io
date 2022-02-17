@@ -1165,7 +1165,7 @@ To Execute the playbook
       <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;Ubuntu&quot;</span>
 
 
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Push ntp conf on centos</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Push index.html on centos</span>
       <span class="nt">copy</span><span class="p">:</span>
         <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">index.html</span>
         <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/www/html/</span>
@@ -1174,7 +1174,7 @@ To Execute the playbook
       <span class="nt">notify</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Restart service on CentOS</span>
 
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Push ntp conf on ubuntu</span>
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Push index.html on ubuntu</span>
       <span class="nt">copy</span><span class="p">:</span>
         <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">index.html</span>
         <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/www/html/</span>
