@@ -1186,16 +1186,16 @@ To Execute the playbook
   <span class="nt">handlers</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restart service on CentOS</span>
       <span class="nt">service</span><span class="p">:</span>
-       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
-       <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restarted</span>
-       <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restarted</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
       <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;CentOS&quot;</span>
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Restart service on Ubuntu</span>
       <span class="nt">service</span><span class="p">:</span>
-       <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apache2</span>
-       <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restarted</span>
-       <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apache2</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">restarted</span>
+        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
       <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;Ubuntu&quot;</span>
 </code></pre></div>
 <h2 id="writing-playbook-to-create-vpc-in-aws-cloud-and-including-variables-from-different-file">Writing Playbook to Create VPC in AWS Cloud and Including Variables from different File<a class="headerlink" href="#writing-playbook-to-create-vpc-in-aws-cloud-and-including-variables-from-different-file" title="Permanent link">&para;</a></h2>
@@ -1262,137 +1262,137 @@ Creating File to store Variables
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create Vprofile vpc</span>
       <span class="nt">ec2_vpc_net</span><span class="p">:</span>
-        <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{vpc_name}}&quot;</span>
-        <span class="nt">cidr_block</span><span class="p">:</span> <span class="s">&quot;{{vpcrange}}&quot;</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">dns_support</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-        <span class="nt">dns_hostnames</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-        <span class="nt">tenancy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+          <span class="nt">name</span><span class="p">:</span> <span class="s">&quot;{{vpc_name}}&quot;</span>
+          <span class="nt">cidr_block</span><span class="p">:</span> <span class="s">&quot;{{vpcrange}}&quot;</span>
+          <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+          <span class="nt">dns_support</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+          <span class="nt">dns_hostnames</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+          <span class="nt">tenancy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+          <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vpcout</span>
 
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create public subnet for zone1</span>
       <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
-        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone1}}&quot;</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
-        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pubip1}}&quot;</span>
-        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-        <span class="nt">tags</span><span class="p">:</span>
-          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub1</span>
+          <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+          <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+          <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone1}}&quot;</span>
+          <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+          <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pubip1}}&quot;</span>
+          <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+          <span class="nt">tags</span><span class="p">:</span>
+            <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub1</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pubsub1_out</span>
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create public subnet for zone2</span>
       <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
-        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone2}}&quot;</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
-        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pubip2}}&quot;</span>
-        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-        <span class="nt">tags</span><span class="p">:</span>
-          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub2</span>
+         <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+         <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone2}}&quot;</span>
+         <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+         <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pubip2}}&quot;</span>
+         <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+         <span class="nt">tags</span><span class="p">:</span>
+           <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub2</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pubsub2_out</span>
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create public subnet for zone3</span>
       <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
-        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone3}}&quot;</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
-        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pubip3}}&quot;</span>
-        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-        <span class="nt">tags</span><span class="p">:</span>
-          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub3</span>
+         <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+         <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone3}}&quot;</span>
+         <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+         <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pubip3}}&quot;</span>
+         <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+         <span class="nt">tags</span><span class="p">:</span>
+           <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub3</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pubsub3_out</span>
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create private subnet for zone1</span>
       <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
-        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone1}}&quot;</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
-        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pvtip1}}&quot;</span>
-        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-        <span class="nt">tags</span><span class="p">:</span>
-          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub1</span>
+         <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+         <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone1}}&quot;</span>
+         <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+         <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pvtip1}}&quot;</span>
+         <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+         <span class="nt">tags</span><span class="p">:</span>
+           <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub1</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pvtsub1_out</span>
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create private subnet for zone2</span>
       <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
-        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone2}}&quot;</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
-        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pvtip2}}&quot;</span>
-        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-        <span class="nt">tags</span><span class="p">:</span>
-          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub2</span>
+         <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+         <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone2}}&quot;</span>
+         <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+         <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pvtip2}}&quot;</span>
+         <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+         <span class="nt">tags</span><span class="p">:</span>
+           <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub2</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pvtsub2_out</span>
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create private subnet for zone3</span>
       <span class="nt">ec2_vpc_subnet</span><span class="p">:</span>
-        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone3}}&quot;</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
-        <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pvtip3}}&quot;</span>
-        <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-        <span class="nt">tags</span><span class="p">:</span>
-          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub3</span>
+         <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+         <span class="nt">az</span><span class="p">:</span> <span class="s">&quot;{{zone3}}&quot;</span>
+         <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+         <span class="nt">cidr</span><span class="p">:</span> <span class="s">&quot;{{pvtip3}}&quot;</span>
+         <span class="nt">map_public</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
+         <span class="nt">tags</span><span class="p">:</span>
+           <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub3</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pvtsub3_out</span>
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Internet gateway setup</span>
       <span class="nt">ec2_vpc_igw</span><span class="p">:</span>
-        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
-        <span class="nt">tags</span><span class="p">:</span>
-          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_IGW</span>
+         <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+         <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+         <span class="nt">tags</span><span class="p">:</span>
+           <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_IGW</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">igw_out</span>
 
 
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">public subnet route table</span>
       <span class="nt">ec2_vpc_route_table</span><span class="p">:</span>
-        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">tags</span><span class="p">:</span>
-          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_Public</span>
-        <span class="nt">subnets</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pubsub1_out.subnet.id}}&quot;</span>
-          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pubsub2_out.subnet.id}}&quot;</span>
-          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pubsub3_out.subnet.id}}&quot;</span>
-        <span class="nt">routes</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
-            <span class="nt">gateway_id</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">igw_out.gateway_id</span><span class="nv"> </span><span class="s">}}&quot;</span>
+         <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+         <span class="nt">tags</span><span class="p">:</span>
+           <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_Public</span>
+         <span class="nt">subnets</span><span class="p">:</span>
+           <span class="p p-Indicator">-</span> <span class="s">&quot;{{pubsub1_out.subnet.id}}&quot;</span>
+           <span class="p p-Indicator">-</span> <span class="s">&quot;{{pubsub2_out.subnet.id}}&quot;</span>
+           <span class="p p-Indicator">-</span> <span class="s">&quot;{{pubsub3_out.subnet.id}}&quot;</span>
+         <span class="nt">routes</span><span class="p">:</span>
+           <span class="p p-Indicator">-</span> <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
+             <span class="nt">gateway_id</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">igw_out.gateway_id</span><span class="nv"> </span><span class="s">}}&quot;</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">public_route_table</span>
 
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create new nat gateway and allocate new EIP if a nat gateway does not yet exist in the subnet.</span>
       <span class="nt">ec2_vpc_nat_gateway</span><span class="p">:</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
-        <span class="nt">subnet_id</span><span class="p">:</span> <span class="s">&quot;{{pubsub1_out.subnet.id}}&quot;</span>
-        <span class="nt">wait</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">if_exist_do_not_create</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+         <span class="nt">state</span><span class="p">:</span> <span class="s">&quot;{{state}}&quot;</span>
+         <span class="nt">subnet_id</span><span class="p">:</span> <span class="s">&quot;{{pubsub1_out.subnet.id}}&quot;</span>
+         <span class="nt">wait</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+         <span class="nt">if_exist_do_not_create</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nat_out</span>
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">private subnet route table</span>
       <span class="nt">ec2_vpc_route_table</span><span class="p">:</span>
-        <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
-        <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
-        <span class="nt">tags</span><span class="p">:</span>
-          <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_Private</span>
-        <span class="nt">subnets</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pvtsub1_out.subnet.id}}&quot;</span>
-          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pvtsub2_out.subnet.id}}&quot;</span>
-          <span class="p p-Indicator">-</span> <span class="s">&quot;{{pvtsub3_out.subnet.id}}&quot;</span>
-        <span class="nt">routes</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
-            <span class="nt">gateway_id</span><span class="p">:</span> <span class="s">&quot;{{nat_out.nat_gateway_id}}&quot;</span>
+         <span class="nt">vpc_id</span><span class="p">:</span> <span class="s">&quot;{{vpcout.vpc.id}}&quot;</span>
+         <span class="nt">region</span><span class="p">:</span> <span class="s">&quot;{{region}}&quot;</span>
+         <span class="nt">tags</span><span class="p">:</span>
+           <span class="nt">Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vprofile_Private</span>
+         <span class="nt">subnets</span><span class="p">:</span>
+           <span class="p p-Indicator">-</span> <span class="s">&quot;{{pvtsub1_out.subnet.id}}&quot;</span>
+           <span class="p p-Indicator">-</span> <span class="s">&quot;{{pvtsub2_out.subnet.id}}&quot;</span>
+           <span class="p p-Indicator">-</span> <span class="s">&quot;{{pvtsub3_out.subnet.id}}&quot;</span>
+         <span class="nt">routes</span><span class="p">:</span>
+           <span class="p p-Indicator">-</span> <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
+             <span class="nt">gateway_id</span><span class="p">:</span> <span class="s">&quot;{{nat_out.nat_gateway_id}}&quot;</span>
       <span class="nt">register</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">private_route_table</span>
 
 
