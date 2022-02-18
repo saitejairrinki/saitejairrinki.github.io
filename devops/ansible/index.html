@@ -669,8 +669,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file" class="md-nav__link">
-    Writing Playbook to Create VPC in AWS and Including Variables from different File
+  <a href="#writing-playbook-to-create-vpc-in-aws-cloud-and-including-variables-from-different-file" class="md-nav__link">
+    Writing Playbook to Create VPC in AWS Cloud and Including Variables from different File
   </a>
   
 </li>
@@ -877,8 +877,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file" class="md-nav__link">
-    Writing Playbook to Create VPC in AWS and Including Variables from different File
+  <a href="#writing-playbook-to-create-vpc-in-aws-cloud-and-including-variables-from-different-file" class="md-nav__link">
+    Writing Playbook to Create VPC in AWS Cloud and Including Variables from different File
   </a>
   
 </li>
@@ -1198,7 +1198,7 @@ To Execute the playbook
        <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
       <span class="nt">when</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_distribution == &quot;Ubuntu&quot;</span>
 </code></pre></div>
-<h2 id="writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file">Writing Playbook to Create VPC in AWS and Including Variables from different File<a class="headerlink" href="#writing-playbook-to-create-vpc-in-aws-and-including-variables-from-different-file" title="Permanent link">&para;</a></h2>
+<h2 id="writing-playbook-to-create-vpc-in-aws-cloud-and-including-variables-from-different-file">Writing Playbook to Create VPC in AWS Cloud and Including Variables from different File<a class="headerlink" href="#writing-playbook-to-create-vpc-in-aws-cloud-and-including-variables-from-different-file" title="Permanent link">&para;</a></h2>
 <details class="info" open="open">
 <summary>Requirements</summary>
 <ul>
@@ -1258,7 +1258,7 @@ Creating File to store Variables
   <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
   <span class="nt">tasks</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Import vpc variables</span>
-      <span class="nt">include_vars</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/home/ubuntu/Vprofile/vars/vpc_setup</span>
+      <span class="nt">include_vars</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/path/vpc_setup</span>
 
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create Vprofile vpc</span>
       <span class="nt">ec2_vpc_net</span><span class="p">:</span>
