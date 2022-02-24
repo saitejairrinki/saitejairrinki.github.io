@@ -599,6 +599,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jenkins-setup" class="md-nav__link">
+    Jenkins Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nexus-setup" class="md-nav__link">
     Nexus Setup
   </a>
@@ -774,6 +781,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jenkins-setup" class="md-nav__link">
+    Jenkins Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nexus-setup" class="md-nav__link">
     Nexus Setup
   </a>
@@ -805,6 +819,35 @@
 It is a java based web application server so we need to setup first java on the machine to run jenkins server.</p>
 <h2 id="jenkins-ci-cd-automation">Jenkins CI CD Automation<a class="headerlink" href="#jenkins-ci-cd-automation" title="Permanent link">&para;</a></h2>
 <p><img alt="image" src="../img/jenkins flow.png" /></p>
+<h2 id="jenkins-setup">Jenkins Setup<a class="headerlink" href="#jenkins-setup" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu</label><label for="__tabbed_1_2">CentOS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+sudo apt update
+sudo apt install openjdk-8-jdk -y
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key <span class="p">|</span> sudo tee <span class="se">\</span>
+  /usr/share/keyrings/jenkins-keyring.asc &gt; /dev/null
+<span class="nb">echo</span> deb <span class="o">[</span>signed-by<span class="o">=</span>/usr/share/keyrings/jenkins-keyring.asc<span class="o">]</span> <span class="se">\</span>
+   https://pkg.jenkins.io/debian-stable binary/ <span class="p">|</span> sudo tee <span class="se">\</span>
+  /etc/apt/sources.list.d/jenkins.list &gt; /dev/null
+sudo apt-get update
+sudo apt-get install jenkins -y
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+sudo wget -O /etc/yum.repos.d/jenkins.repo <span class="se">\</span>
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum upgrade -y
+<span class="c1"># Add required dependencies for the jenkins package</span>
+sudo yum install fontconfig java-11-openjdk -y
+sudo yum install jenkins -y
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="nexus-setup">Nexus Setup<a class="headerlink" href="#nexus-setup" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -820,7 +863,7 @@ It is a java based web application server so we need to setup first java on the 
 </tr>
 </tbody>
 </table>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Nexus Script</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Nexus Script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
@@ -876,7 +919,7 @@ systemctl <span class="nb">enable</span> nexus
 </tr>
 </tbody>
 </table>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">SonarQube Script</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">SonarQube Script</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
@@ -1000,7 +1043,7 @@ sudo ufw allow <span class="m">80</span>,9000,9001/tcp
 sleep <span class="m">30</span>
 reboot
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">SonarQube-Analysis-Properties</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">SonarQube-Analysis-Properties</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
