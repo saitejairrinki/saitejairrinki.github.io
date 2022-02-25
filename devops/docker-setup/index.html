@@ -938,7 +938,7 @@ Push an image to a registry.
 <p>Sample Dockerfile for Deploying a Staticwebsite.</p>
 <p><div class="highlight"><pre><span></span><code>vim Dockerfile
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>FROM centos:latest
+<div class="highlight"><pre><span></span><code>FROM centos:7
 LABEL <span class="s2">&quot;Author&quot;</span><span class="o">=</span><span class="s2">&quot;saiteja Irrinki&quot;</span>
 LABEL <span class="s2">&quot;Project&quot;</span><span class="o">=</span><span class="s2">&quot;Wave&quot;</span>
 RUN yum install httpd wget unzip -y
@@ -970,7 +970,30 @@ Now Access From the Browser, Make sure you have to allow the portnumber in my ca
 Now Access From the Browser, Make sure you have to allow the portnumber in my case 9999 in your security group if you are using cloud VM.
 <div class="highlight"><pre><span></span><code>Public-IPaddress:9999
 </code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Docker Volume</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Docker Compose</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<p>Creating Docker Compose for local Docker Images</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
+<span class="nt">services</span><span class="p">:</span>
+    <span class="nt">Wavecafe</span><span class="p">:</span>
+        <span class="nt">build</span><span class="p">:</span>
+            <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/Dockerfile_path/</span>
+        <span class="nt">ports</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="s">&quot;5555:80&quot;</span>
+        <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wavecafe</span>
+</code></pre></div>
+<p>Creating Docker Compose for DockerHub Images
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;3&#39;</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">website</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">saitejairrinki/wavecafe:v1</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;8085:80&quot;</span>
+</code></pre></div></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Docker Volume</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
