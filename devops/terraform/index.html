@@ -658,13 +658,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#varstf" class="md-nav__link">
-    vars.tf
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#to-store-state-remotely-in-s3-bucket" class="md-nav__link">
     To Store State Remotely in S3 Bucket
   </a>
@@ -847,13 +840,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#varstf" class="md-nav__link">
-    vars.tf
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#to-store-state-remotely-in-s3-bucket" class="md-nav__link">
     To Store State Remotely in S3 Bucket
   </a>
@@ -961,8 +947,9 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
 <h2 id="terraform-provider">Terraform Provider<a class="headerlink" href="#terraform-provider" title="Permanent link">&para;</a></h2>
+<p>Example for AWS
 <div class="highlight"><pre><span></span><code>vim provider.tf
-</code></pre></div>
+</code></pre></div></p>
 <div class="highlight"><pre><span></span><code><span class="err">provider</span><span class="w"> </span><span class="s2">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
 <span class="w">  </span><span class="err">regio</span><span class="kc">n</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">var.REGION</span><span class="w"></span>
@@ -993,7 +980,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="terraform-provisioning">Terraform Provisioning<a class="headerlink" href="#terraform-provisioning" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_key_pair&quot;</span><span class="w"> </span><span class="s2">&quot;testing007&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_key_pair&quot;</span><span class="w"> </span><span class="s2">&quot;testing007&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
 <span class="w">  </span><span class="err">key_</span><span class="kc">na</span><span class="err">me</span><span class="w">   </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;testing007&quot;</span><span class="w"></span>
 
@@ -1057,7 +1044,7 @@
 
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<h2 id="varstf">vars.tf<a class="headerlink" href="#varstf" title="Permanent link">&para;</a></h2>
+Variables file - vars.tf </p>
 <div class="highlight"><pre><span></span><code><span class="err">variable</span><span class="w"> </span><span class="s2">&quot;REGION&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
 <span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;us-east-2&quot;</span><span class="w"></span>
