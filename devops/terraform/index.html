@@ -883,15 +883,13 @@
 </div>
 </div>
 </div>
+<details class="note" open="open">
+<summary>Terraform Registry</summary>
+<p><a href="https://registry.terraform.io/">https://registry.terraform.io/</a></p>
+</details>
 <details class="tip" open="open">
 <summary>Terraform Commands Cheat sheet Reference Link</summary>
-<div class="highlight"><pre><span></span><code>  https://acloudguru.com/blog/engineering/the-ultimate-terraform-cheatsheet
-</code></pre></div>
-</details>
-<details class="link" open="open">
-<summary>Terraform Registry</summary>
-<div class="highlight"><pre><span></span><code>  https://registry.terraform.io/
-</code></pre></div>
+<p><a href="https://acloudguru.com/blog/engineering/the-ultimate-terraform-cheatsheet">https://acloudguru.com/blog/engineering/the-ultimate-terraform-cheatsheet</a></p>
 </details>
 <h2 id="terraform-sample-scripts">Terraform Sample Scripts<a class="headerlink" href="#terraform-sample-scripts" title="Permanent link">&para;</a></h2>
 <p>Launching Ec2 Instance</p>
@@ -990,13 +988,16 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="terraform-provisioning">Terraform Provisioning<a class="headerlink" href="#terraform-provisioning" title="Permanent link">&para;</a></h2>
-<p><div class="highlight"><pre><span></span><code><span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_key_pair&quot;</span><span class="w"> </span><span class="s2">&quot;testing007&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<p>Launching AWS Resources with Terraform Provisioning</p>
+<div class="highlight"><pre><span></span><code>vim instance_prov.tf
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_key_pair&quot;</span><span class="w"> </span><span class="s2">&quot;testing007&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
 <span class="w">  </span><span class="err">key_</span><span class="kc">na</span><span class="err">me</span><span class="w">   </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;testing007&quot;</span><span class="w"></span>
 
 <span class="w">  </span><span class="err">public_key</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="kc">f</span><span class="err">ile(</span><span class="s2">&quot;testing007.pub&quot;</span><span class="err">)</span><span class="w"></span>
 
-<span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
 
 <span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_instance&quot;</span><span class="w"> </span><span class="s2">&quot;Instance&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
@@ -1014,7 +1015,7 @@
 
 <span class="w">    </span><span class="err">Team</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;DevOps&quot;</span><span class="w"></span>
 
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">  </span><span class="err">provisio</span><span class="kc">ner</span><span class="w"> </span><span class="s2">&quot;file&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
@@ -1046,7 +1047,7 @@
 
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-<span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
 
 <span class="err">ou</span><span class="kc">t</span><span class="err">pu</span><span class="kc">t</span><span class="w"> </span><span class="s2">&quot;PublicIP&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
@@ -1054,7 +1055,7 @@
 
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-Variables file - vars.tf </p>
+<p>Variables file - vars.tf </p>
 <div class="highlight"><pre><span></span><code><span class="err">variable</span><span class="w"> </span><span class="s2">&quot;REGION&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
 <span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;us-east-2&quot;</span><span class="w"></span>
