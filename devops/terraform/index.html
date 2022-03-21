@@ -17,7 +17,7 @@
     
     
       
-        <title>Docker - SAITEJA IRRINKI</title>
+        <title>Terraform - SAITEJA IRRINKI</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker" class="md-skip">
+        <a href="#terraform" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Docker
+              Terraform
             
           </span>
         </div>
@@ -587,20 +587,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../terraform/" class="md-nav__link">
-        Terraform
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -613,12 +599,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Docker
+          Terraform
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Docker
+        Terraform
       </a>
       
         
@@ -637,15 +623,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-docker-engine-docker-compose-on-ubuntu-centos" class="md-nav__link">
-    Install Docker Engine &amp; Docker-Compose on Ubuntu &amp; CentOS
+  <a href="#terraform-installation" class="md-nav__link">
+    Terraform Installation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-commands" class="md-nav__link">
-    Docker Commands
+  <a href="#terraform-sample-scripts" class="md-nav__link">
+    Terraform Sample Scripts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-vars" class="md-nav__link">
+    Terraform Vars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-provider" class="md-nav__link">
+    Terraform Provider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-provisioning" class="md-nav__link">
+    Terraform Provisioning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#varstf" class="md-nav__link">
+    vars.tf
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-store-state-remotely-in-s3-bucket" class="md-nav__link">
+    To Store State Remotely in S3 Bucket
   </a>
   
 </li>
@@ -654,6 +675,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-setup/" class="md-nav__link">
+        Docker
+      </a>
     </li>
   
 
@@ -777,15 +812,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-docker-engine-docker-compose-on-ubuntu-centos" class="md-nav__link">
-    Install Docker Engine &amp; Docker-Compose on Ubuntu &amp; CentOS
+  <a href="#terraform-installation" class="md-nav__link">
+    Terraform Installation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-commands" class="md-nav__link">
-    Docker Commands
+  <a href="#terraform-sample-scripts" class="md-nav__link">
+    Terraform Sample Scripts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-vars" class="md-nav__link">
+    Terraform Vars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-provider" class="md-nav__link">
+    Terraform Provider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terraform-provisioning" class="md-nav__link">
+    Terraform Provisioning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#varstf" class="md-nav__link">
+    vars.tf
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-store-state-remotely-in-s3-bucket" class="md-nav__link">
+    To Store State Remotely in S3 Bucket
   </a>
   
 </li>
@@ -804,261 +874,246 @@
                 
 
 
-<h1 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h1>
-<p>Docker is a containirized tool designed to make it easier to create,deploy and run applications by using containers. Containers allow a developer to package up an application with libraries and other dependencies and deploy it as one package.Containers are OS virtualization.We don't need a OS in the container to install our application.It depends on Host OS kernel.</p>
-<h2 id="install-docker-engine-docker-compose-on-ubuntu-centos">Install Docker Engine &amp; Docker-Compose on Ubuntu &amp; CentOS<a class="headerlink" href="#install-docker-engine-docker-compose-on-ubuntu-centos" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Docker Setup</label></div>
+<h1 id="terraform">Terraform<a class="headerlink" href="#terraform" title="Permanent link">&para;</a></h1>
+<p>Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can help with multi-cloud by having one workflow for all clouds. The infrastructure Terraform manages can be hosted on public clouds like Amazon Web Services, Microsoft Azure, and Google Cloud Platform, or on-prem in private clouds such as VMWare vSphere.</p>
+<h2 id="terraform-installation">Terraform Installation<a class="headerlink" href="#terraform-installation" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu</label><label for="__tabbed_1_2">CentOs</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl -fsSL https://apt.releases.hashicorp.com/gpg <span class="p">|</span> sudo apt-key add -
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo apt-add-repository <span class="s2">&quot;deb [arch=amd64] https://apt.releases.hashicorp.com </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> main&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install terraform
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>sudo yum install -y yum-utils
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo yum -y install terraform
+</code></pre></div>
 </div>
 </div>
-<p>Create a file name docker_setup.sh and copy the below script
-<div class="highlight"><pre><span></span><code>vim docker_setup.sh
+</div>
+<h2 id="terraform-sample-scripts">Terraform Sample Scripts<a class="headerlink" href="#terraform-sample-scripts" title="Permanent link">&para;</a></h2>
+<p>Launching Ec2 Instance</p>
+<div class="highlight"><pre><span></span><code><span class="err">provider</span><span class="w"> </span><span class="s2">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">regio</span><span class="kc">n</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;us-east-2&quot;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_instance&quot;</span><span class="w"> </span><span class="s2">&quot;Instance&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">ami</span><span class="w">                    </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;ami-0fb653ca2d3203ac1&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">i</span><span class="kc">nstan</span><span class="err">ce_</span><span class="kc">t</span><span class="err">ype</span><span class="w">          </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;t2.micro&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">key_</span><span class="kc">na</span><span class="err">me</span><span class="w">               </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;terraform&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">vpc_securi</span><span class="kc">t</span><span class="err">y_group_ids</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sg-0138c7796472ac9a9&quot;</span><span class="p">]</span><span class="w"></span>
+
+<span class="w">  </span><span class="kc">ta</span><span class="err">gs</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">Name</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;IAAC&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">Team</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;DevOps&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-apt --help &gt;&gt;/dev/null
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span>
-   <span class="k">then</span> 
-<span class="nb">echo</span> <span class="s2">&quot; INSTALLING DOCKER IN UBUNTU&quot;</span>
-<span class="nb">echo</span>
-sudo apt update
-sudo apt-get remove docker docker-engine docker.io containerd runc
-sudo apt-get update
-sudo apt-get -y install <span class="se">\</span>
-    apt-transport-https <span class="se">\</span>
-    ca-certificates <span class="se">\</span>
-    curl <span class="se">\</span>
-    gnupg <span class="se">\</span>
-    lsb-release
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-<span class="nb">echo</span> <span class="se">\</span>
-  <span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \</span>
-<span class="s2">  </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io -y  
-sudo docker run hello-world
-    <span class="k">else</span>
-<span class="nb">echo</span> <span class="s2">&quot; INSTALLING DOCKER IN CENTOS&quot;</span>
-<span class="nb">echo</span>
-sudo yum remove docker <span class="se">\</span>
-                  docker-client <span class="se">\</span>
-                  docker-client-latest <span class="se">\</span>
-                  docker-common <span class="se">\</span>
-                  docker-latest <span class="se">\</span>
-                  docker-latest-logrotate <span class="se">\</span>
-                  docker-logrotate <span class="se">\</span>
-                  docker-engine
-sudo yum install -y yum-utils
-sudo yum-config-manager <span class="se">\</span>
-    --add-repo <span class="se">\</span>
-    https://download.docker.com/linux/centos/docker-ce.repo
-sudo yum install docker-ce docker-ce-cli containerd.io -y   
-sudo systemctl start docker
-sudo docker run hello-world
-<span class="k">fi</span>
-<span class="nb">echo</span> <span class="s2">&quot; Installing Docker Compose&quot;</span>
-sudo curl -L <span class="s2">&quot;https://github.com/docker/compose/releases/download/1.29.2/docker-compose-</span><span class="k">$(</span>uname -s<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">&quot;</span> -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
+<h2 id="terraform-vars">Terraform Vars<a class="headerlink" href="#terraform-vars" title="Permanent link">&para;</a></h2>
+<p>Using Variables</p>
+<p>Create a File vars.tf </p>
+<p><div class="highlight"><pre><span></span><code>vim vars.tf
 </code></pre></div>
-Give Execute permission for script
-<div class="highlight"><pre><span></span><code>sudo chmod +x docker_setup.sh
-</code></pre></div>
-Now run the Script
-<div class="highlight"><pre><span></span><code>./docker_setup.sh
+<div class="highlight"><pre><span></span><code><span class="err">variable</span><span class="w"> </span><span class="s2">&quot;REGION&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;us-east-2&quot;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+
+
+<span class="err">variable</span><span class="w"> </span><span class="s2">&quot;ZONE1&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;us-east-2a&quot;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="err">variable</span><span class="w"> </span><span class="s2">&quot;AMIS&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="kc">t</span><span class="err">ype</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">map(a</span><span class="kc">n</span><span class="err">y)</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">us</span><span class="mf">-e</span><span class="err">as</span><span class="kc">t</span><span class="mi">-2</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;ami-0fb653ca2d3203ac1&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">us</span><span class="mf">-e</span><span class="err">as</span><span class="kc">t</span><span class="mi">-1</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;ami-0e1d30f2c40c4c701&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
-<h2 id="docker-commands">Docker Commands<a class="headerlink" href="#docker-commands" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Docker Images</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>List all images that are locally stored with the Docker Engine
-<div class="highlight"><pre><span></span><code>docker image ls
+<h2 id="terraform-provider">Terraform Provider<a class="headerlink" href="#terraform-provider" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>vim provider.tf
 </code></pre></div>
-Build an image from the Dockerfile in the current directory and tag the image
-<div class="highlight"><pre><span></span><code>docker build -t &lt;imagename&gt;:&lt;tag&gt; 
+<div class="highlight"><pre><span></span><code><span class="err">provider</span><span class="w"> </span><span class="s2">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">regio</span><span class="kc">n</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">var.REGION</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-Delete an image from the local image store
-<div class="highlight"><pre><span></span><code>docker image rm &lt;imagename&gt;:&lt;tag&gt;
-</code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Containers</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>Run a container in interactive mode:
-<div class="highlight"><pre><span></span><code>docker run -it &lt;imagename&gt;:&lt;tag&gt;
+<p>Launching Instance with Vars File</p>
+<div class="highlight"><pre><span></span><code>vim Instance.tf
 </code></pre></div>
-Run a container from the Image nginx:latest, name the running container “web” and expose port 5000 externally, mapped to port 80 inside the container in detached mode.  </p>
-<p><div class="highlight"><pre><span></span><code>docker run --name web -d -p <span class="m">5000</span>:80 nginx:latest
+<div class="highlight"><pre><span></span><code><span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_instance&quot;</span><span class="w"> </span><span class="s2">&quot;Instance&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">ami</span><span class="w">                    </span><span class="err">=</span><span class="w"> </span><span class="err">var.AMIS</span><span class="p">[</span><span class="err">var.REGION</span><span class="p">]</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">i</span><span class="kc">nstan</span><span class="err">ce_</span><span class="kc">t</span><span class="err">ype</span><span class="w">          </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;t2.micro&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">key_</span><span class="kc">na</span><span class="err">me</span><span class="w">               </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;terraform&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">vpc_securi</span><span class="kc">t</span><span class="err">y_group_ids</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sg-0138c7796472ac9a9&quot;</span><span class="p">]</span><span class="w"></span>
+
+<span class="w">  </span><span class="kc">ta</span><span class="err">gs</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">Name</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;IAAC&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">Team</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;DevOps&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-Run a detached container in a previously created container network:
-<div class="highlight"><pre><span></span><code>docker network create &lt;mynetwork&gt;
+<h2 id="terraform-provisioning">Terraform Provisioning<a class="headerlink" href="#terraform-provisioning" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_key_pair&quot;</span><span class="w"> </span><span class="s2">&quot;testing007&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">key_</span><span class="kc">na</span><span class="err">me</span><span class="w">   </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;testing007&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">public_key</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="kc">f</span><span class="err">ile(</span><span class="s2">&quot;testing007.pub&quot;</span><span class="err">)</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="err">resource</span><span class="w"> </span><span class="s2">&quot;aws_instance&quot;</span><span class="w"> </span><span class="s2">&quot;Instance&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">ami</span><span class="w">                    </span><span class="err">=</span><span class="w"> </span><span class="err">var.AMIS</span><span class="p">[</span><span class="err">var.REGION</span><span class="p">]</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">i</span><span class="kc">nstan</span><span class="err">ce_</span><span class="kc">t</span><span class="err">ype</span><span class="w">          </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;t2.micro&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">key_</span><span class="kc">na</span><span class="err">me</span><span class="w">               </span><span class="err">=</span><span class="w"> </span><span class="err">aws_key_pair.</span><span class="kc">test</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="mf">007.</span><span class="err">key_</span><span class="kc">na</span><span class="err">me</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">vpc_securi</span><span class="kc">t</span><span class="err">y_group_ids</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sg-0138c7796472ac9a9&quot;</span><span class="p">]</span><span class="w"></span>
+
+<span class="w">  </span><span class="kc">ta</span><span class="err">gs</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">Name</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;IAAC&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">Team</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;DevOps&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">provisio</span><span class="kc">ner</span><span class="w"> </span><span class="s2">&quot;file&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">source</span><span class="w">      </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;./web.sh&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">des</span><span class="kc">t</span><span class="err">i</span><span class="kc">nat</span><span class="err">io</span><span class="kc">n</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;/tmp/web.sh&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">provisio</span><span class="kc">ner</span><span class="w"> </span><span class="s2">&quot;remote-exec&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">i</span><span class="kc">nl</span><span class="err">i</span><span class="kc">ne</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+
+<span class="w">      </span><span class="s2">&quot;chmod u+x /tmp/web.sh&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">      </span><span class="s2">&quot;sudo /tmp/web.sh&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">co</span><span class="kc">nne</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">user</span><span class="w">        </span><span class="err">=</span><span class="w"> </span><span class="err">var.USER</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">priva</span><span class="kc">te</span><span class="err">_key</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="kc">f</span><span class="err">ile(</span><span class="s2">&quot;testing007&quot;</span><span class="err">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">hos</span><span class="kc">t</span><span class="w">        </span><span class="err">=</span><span class="w"> </span><span class="err">sel</span><span class="kc">f</span><span class="err">.public_ip</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="err">ou</span><span class="kc">t</span><span class="err">pu</span><span class="kc">t</span><span class="w"> </span><span class="s2">&quot;PublicIP&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">value</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">aws_i</span><span class="kc">nstan</span><span class="err">ce.I</span><span class="kc">nstan</span><span class="err">ce.public_ip</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>docker run --name web -d --net mynetwork -p <span class="m">5000</span>:80 nginx:latest
+<h2 id="varstf">vars.tf<a class="headerlink" href="#varstf" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="err">variable</span><span class="w"> </span><span class="s2">&quot;REGION&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;us-east-2&quot;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+
+
+<span class="err">variable</span><span class="w"> </span><span class="s2">&quot;ZONE1&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;us-east-2a&quot;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+
+
+<span class="err">variable</span><span class="w"> </span><span class="s2">&quot;USER&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;ubuntu&quot;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+
+
+<span class="err">variable</span><span class="w"> </span><span class="s2">&quot;AMIS&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="kc">t</span><span class="err">ype</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">map(a</span><span class="kc">n</span><span class="err">y)</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">us</span><span class="mf">-e</span><span class="err">as</span><span class="kc">t</span><span class="mi">-2</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;ami-0fb653ca2d3203ac1&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">us</span><span class="mf">-e</span><span class="err">as</span><span class="kc">t</span><span class="mi">-1</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;ami-0e1d30f2c40c4c701&quot;</span><span class="w"></span>
+
+
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-Follow the logs of a specific container:
-<div class="highlight"><pre><span></span><code>docker logs -f &lt;container name or container container-id&gt;
+<h2 id="to-store-state-remotely-in-s3-bucket">To Store State Remotely in S3 Bucket<a class="headerlink" href="#to-store-state-remotely-in-s3-bucket" title="Permanent link">&para;</a></h2>
+<p>Create an S3 Bucket</p>
+<div class="highlight"><pre><span></span><code><span class="kc">terraf</span><span class="err">orm</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="err">backe</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="s2">&quot;s3&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">bucke</span><span class="kc">t</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;terraform-state-009&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">key</span><span class="w">    </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;terraform/remote&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">regio</span><span class="kc">n</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;us-east-1&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-List only active containers
-<div class="highlight"><pre><span></span><code>docker ps
-</code></pre></div>
-List all containers
-<div class="highlight"><pre><span></span><code>docker ps -a
-</code></pre></div>
-Stop a container
-<div class="highlight"><pre><span></span><code>docker stop &lt;container name or container container-id&gt;
-</code></pre></div>
-Stop a container (timeout = 1 second)
-<div class="highlight"><pre><span></span><code>docker stop -t1
-</code></pre></div>
-Remove a stopped container
-<div class="highlight"><pre><span></span><code>docker rm &lt;container name or container container-id&gt;
-</code></pre></div>
-Force stop and remove a container
-<div class="highlight"><pre><span></span><code>docker rm -f &lt;container name or container container-id&gt;
-</code></pre></div>
-Remove all containers
-<div class="highlight"><pre><span></span><code>docker rm -f <span class="k">$(</span>docker ps-aq<span class="k">)</span>
-</code></pre></div>
-Remove all stopped containers
-<div class="highlight"><pre><span></span><code>docker rm <span class="k">$(</span>docker ps -q -f “status<span class="o">=</span>exited”<span class="k">)</span>
-</code></pre></div>
-Execute a new process in an existing container:Execute and access bash inside a container
-<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -it &lt;container name or container-id&gt; bash
-</code></pre></div>
-To inspect the container
-<div class="highlight"><pre><span></span><code>docker inspect &lt;container name or container container-id&gt;
-</code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Share</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>To Establish Connection from local to Remote. login with your Dockerhub Credentials.
-<div class="highlight"><pre><span></span><code>docker login
-</code></pre></div>
-Pull an image from a registry</p>
-<p><div class="highlight"><pre><span></span><code>docker pull &lt;imagename&gt;:&lt;tag&gt;
-</code></pre></div>
-Retag a local image with a new image name and tag
-<div class="highlight"><pre><span></span><code>docker tag myimage:1.0 myrepo/myimage:2.0
-</code></pre></div>
-Push an image to a registry.
-<div class="highlight"><pre><span></span><code>docker push myrepo/myimage:2.0
-</code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Dockerfile</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>Sample Dockerfile for Deploying a Staticwebsite.</p>
-<p><div class="highlight"><pre><span></span><code>vim Dockerfile
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>FROM centos:7
-LABEL <span class="s2">&quot;Author&quot;</span><span class="o">=</span><span class="s2">&quot;saiteja Irrinki&quot;</span>
-LABEL <span class="s2">&quot;Project&quot;</span><span class="o">=</span><span class="s2">&quot;Wave&quot;</span>
-RUN yum install httpd wget unzip -y
-RUN wget https://www.tooplate.com/zip-templates/2121_wave_cafe.zip
-RUN unzip 2121_wave_cafe.zip
-RUN cp -r 2121_wave_cafe/* /var/www/html/
-CMD <span class="o">[</span><span class="s2">&quot;/usr/sbin/httpd&quot;</span>, <span class="s2">&quot;-D&quot;</span>, <span class="s2">&quot;FOREGROUND&quot;</span><span class="o">]</span>
-EXPOSE <span class="m">80</span>
-WORKDIR /var/www/html
-VOLUME /var/log/httpd
-</code></pre></div>
-Build the image from the Docker file , Here Change my Name with your registery name and Image.
-<div class="highlight"><pre><span></span><code>docker build -t saitejairrinki/wavecafe:v1 . 
-</code></pre></div>
-Run Container From the Image
-<div class="highlight"><pre><span></span><code>docker run --name wavecafe -d -p <span class="m">9699</span>:80 saitejairrinki/wavecafe:v1
-</code></pre></div>
-Now Access From the Browser, Make sure you have to allow the portnumber in my case 9699 in your security group if you are using cloud VM.
-<div class="highlight"><pre><span></span><code>Public-IPaddress:9699
-</code></pre></div></p>
-<div class="admonition tip">
-<p class="admonition-title">Docker Image</p>
-<p>You can pull my image and you can also run container from my image without creating Dockerfile.</p>
-</div>
-<div class="highlight"><pre><span></span><code>docker pull saitejairrinki/wavecafe:v1
-</code></pre></div>
-<p><div class="highlight"><pre><span></span><code>docker run --name wavecafe -d -p <span class="m">9999</span>:80 saitejairrinki/wavecafe:v1
-</code></pre></div>
-Now Access From the Browser, Make sure you have to allow the portnumber in my case 9999 in your security group if you are using cloud VM.
-<div class="highlight"><pre><span></span><code>Public-IPaddress:9999
-</code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Docker Compose</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>Creating Docker Compose for local Docker File</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="w"></span>
-<span class="nt">services</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">Wavecafe</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">build</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/Dockerfile_path/</span><span class="w"></span>
-<span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
-<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5555:80&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wavecafe</span><span class="w"></span>
-</code></pre></div>
-<p>Creating Docker Compose for DockerHub Images
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span><span class="w"></span>
-<span class="nt">services</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">website</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">saitejairrinki/wavecafe:v1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8085:80&quot;</span><span class="w"></span>
-</code></pre></div></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Docker Volume</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<p>Creating a Seperate Directory to Store Container data</p>
-<p><div class="highlight"><pre><span></span><code>mkdir mountbind
-</code></pre></div>
-Now link your Directory while running the container
-<div class="highlight"><pre><span></span><code>docker run --name db01 -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret123 -p <span class="m">3300</span>:3306 -v /root/mountbind:/var/lib/mysql -d mysql:5.7
-</code></pre></div>
-Now do ls to the Directory there you can see the containers data
-<div class="highlight"><pre><span></span><code>ls mountbind
-</code></pre></div>
-Creating docker Volume , use the below command to see all the available options of docker volume
-<div class="highlight"><pre><span></span><code>docker volume --help
-</code></pre></div>
-Creating a new docker volume with name <mark>datadb</mark>
-<div class="highlight"><pre><span></span><code>docker volume create datadb
-</code></pre></div>
-Now run your container with that volume
-<div class="highlight"><pre><span></span><code>docker run --name db02 -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret123 -p <span class="m">3301</span>:3306 -v datadb:/var/lib/mysql -d mysql:5.7
-</code></pre></div>
-Now check 
-<div class="highlight"><pre><span></span><code>ls /var/lib/docker/volumes/datadb/_data/
-</code></pre></div>
-Now for testing Create any file with anyname of your choice, here im creating a file with name milkyway
-<div class="highlight"><pre><span></span><code>touch /var/lib/docker/volumes/datadb/_data/milkyway
-</code></pre></div>
-Now Login into the container and Verify your file.
-<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -it db02 /bin/bash
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>ls /var/lib/mysql/
-</code></pre></div>
-Now exit from the container
-<div class="highlight"><pre><span></span><code>exit
-</code></pre></div>
-If you want to access mysql database with mysql client then follow the below steps</p>
-<p><div class="highlight"><pre><span></span><code>sudo apt update
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo apt install mysql-client
-</code></pre></div>
-Now fetch the container IP by doing Docker Inspect
-<div class="highlight"><pre><span></span><code>docker inspect db02 <span class="p">|</span>grep -i ipaddress
-</code></pre></div>
-Now Connect with that IP
-<div class="highlight"><pre><span></span><code>mysql -h <span class="m">172</span>.17.0.4 -u root -psecret123
-</code></pre></div></p>
 
               
             </article>
@@ -1077,7 +1132,7 @@ Now Connect with that IP
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../terraform/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Terraform" rel="prev">
+        <a href="../ansible/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ansible" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1086,20 +1141,20 @@ Now Connect with that IP
               <span class="md-footer__direction">
                 Previous
               </span>
-              Terraform
+              Ansible
             </div>
           </div>
         </a>
       
       
         
-        <a href="../kubernetes/" class="md-footer__link md-footer__link--next" aria-label="Next: Intro" rel="next">
+        <a href="../docker-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Docker" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Intro
+              Docker
             </div>
           </div>
           <div class="md-footer__button md-icon">
