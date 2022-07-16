@@ -17,7 +17,7 @@
     
     
       
-        <title>DevOps - SAITEJA IRRINKI</title>
+        <title>Kubernetes Dashboard - SAITEJA IRRINKI</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#devops" class="md-skip">
+        <a href="#deploy-the-latest-kubernetes-dashboard" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DevOps
+              Kubernetes Dashboard
             
           </span>
         </div>
@@ -246,7 +246,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../awsdevops/" class="md-tabs__link md-tabs__link--active">
         DevOps
       </a>
     </li>
@@ -505,21 +505,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../awsdevops/" class="md-nav__link">
         DevOps
       </a>
-      
     </li>
   
 
@@ -641,14 +631,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" type="checkbox" id="__nav_4_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" type="checkbox" id="__nav_4_10" checked>
       
       
       
@@ -737,11 +729,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../k8sdashboard/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Kubernetes Dashboard
       </a>
+      
     </li>
   
 
@@ -892,9 +894,190 @@
                 
 
 
-<h1 id="devops">DevOps<a class="headerlink" href="#devops" title="Permanent link">&para;</a></h1>
-<p>DevOps is the combination of cultural philosophies, practices, and tools that increases an organization’s ability to deliver applications and services at high velocity: evolving and improving products at a faster pace than organizations using traditional software development and infrastructure management processes. This speed enables organizations to better serve their customers and compete more effectively in the market.</p>
-<p><img alt="image" src="../img/jenkins flow.png" /></p>
+<h1 id="deploy-the-latest-kubernetes-dashboard">Deploy the latest Kubernetes dashboard<a class="headerlink" href="#deploy-the-latest-kubernetes-dashboard" title="Permanent link">&para;</a></h1>
+<p>Once you’ve set up your Kubernetes cluster or if you already had one running, we can get started.</p>
+<p>The first thing to know about the web UI is that it can only be accessed using localhost address on the machine it runs on. This means we need to have an SSH tunnel to the server. For most OS, you can create an SSH tunnel using this command. Replace the <user> and <master_public_IP> with the relevant details to your Kubernetes cluster.
+<div class="highlight"><pre><span></span><code>ssh -L localhost:8001:127.0.0.1:8001 &lt;user&gt;@&lt;master_public_IP&gt;
+</code></pre></div>
+After you’ve logged in, you can deploy the dashboard itself with the following single command.
+<div class="highlight"><pre><span></span><code>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+</code></pre></div>
+If your cluster is working correctly, you should see an output confirming the creation of a bunch of Kubernetes components like in the example below.</p>
+<details class="success">
+<summary>Output</summary>
+<div class="highlight"><pre><span></span><code><span class="n">namespace</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">serviceaccount</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">service</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">secret</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="o">-</span><span class="n">certs</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">secret</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="o">-</span><span class="n">csrf</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">secret</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="n">holder</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">configmap</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="o">-</span><span class="n">settings</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">role</span><span class="p">.</span><span class="n">rbac</span><span class="p">.</span><span class="n">authorization</span><span class="p">.</span><span class="n">k8s</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">clusterrole</span><span class="p">.</span><span class="n">rbac</span><span class="p">.</span><span class="n">authorization</span><span class="p">.</span><span class="n">k8s</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">rolebinding</span><span class="p">.</span><span class="n">rbac</span><span class="p">.</span><span class="n">authorization</span><span class="p">.</span><span class="n">k8s</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">clusterrolebinding</span><span class="p">.</span><span class="n">rbac</span><span class="p">.</span><span class="n">authorization</span><span class="p">.</span><span class="n">k8s</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">deployment</span><span class="p">.</span><span class="n">apps</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">service</span><span class="o">/</span><span class="n">dashboard</span><span class="o">-</span><span class="n">metrics</span><span class="o">-</span><span class="n">scraper</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">deployment</span><span class="p">.</span><span class="n">apps</span><span class="o">/</span><span class="n">dashboard</span><span class="o">-</span><span class="n">metrics</span><span class="o">-</span><span class="n">scraper</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+</code></pre></div>
+</details>
+<p>Afterwards, you should have two new pods running on your cluster.</p>
+<div class="highlight"><pre><span></span><code>kubectl get pods -A
+</code></pre></div>
+<details class="success">
+<summary>Output</summary>
+<div class="highlight"><pre><span></span><code><span class="p">...</span><span class="w"></span>
+<span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="w">   </span><span class="n">dashboard</span><span class="o">-</span><span class="n">metrics</span><span class="o">-</span><span class="n">scraper</span><span class="mi">-78u</span><span class="n">jd94gf7</span><span class="o">-</span><span class="n">ff6h8</span><span class="w">   </span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="w">     </span><span class="n">Running</span><span class="w">   </span><span class="mi">0</span><span class="w">          </span><span class="mi">30</span><span class="n">m</span><span class="w"></span>
+<span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="w">   </span><span class="n">kubernetes</span><span class="o">-</span><span class="n">dashboard</span><span class="o">-</span><span class="n">g6hujkirf7</span><span class="o">-</span><span class="n">df65g</span><span class="w">        </span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span><span class="w">     </span><span class="n">Running</span><span class="w">   </span><span class="mi">0</span><span class="w">          </span><span class="mi">30</span><span class="n">m</span><span class="w"></span>
+</code></pre></div>
+</details>
+<p>You can then continue ahead with creating the required user accounts.</p>
+<h1 id="creating-admin-user">Creating Admin user<a class="headerlink" href="#creating-admin-user" title="Permanent link">&para;</a></h1>
+<p>The Kubernetes dashboard supports a few ways to manage access control. In this example, we’ll be creating an admin user account with full privileges to modify the cluster and using tokens.</p>
+<p>Start by making a new directory for the dashboard configuration files.
+<div class="highlight"><pre><span></span><code>mkdir ~/dashboard <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/dashboard
+</code></pre></div>
+Create the following configuration and save it as dashboard-admin.yaml file. Note that indentation matters in the YAML files which should use two spaces in a regular text editor.</p>
+<div class="highlight"><pre><span></span><code>vim dashboard-admin.yaml
+</code></pre></div>
+<p><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin-user</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes-dashboard</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterRoleBinding</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin-user</span><span class="w"></span>
+<span class="nt">roleRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span><span class="w"></span>
+<span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterRole</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cluster-admin</span><span class="w"></span>
+<span class="nt">subjects</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin-user</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes-dashboard</span><span class="w"></span>
+</code></pre></div>
+Once set, save the file and exit the editor.</p>
+<p>Then deploy the admin user role with the next command.</p>
+<p><div class="highlight"><pre><span></span><code>kubectl apply -f dashboard-admin.yaml
+</code></pre></div>
+You should see a service account and a cluster role binding created.</p>
+<details class="success">
+<summary>Output</summary>
+<div class="highlight"><pre><span></span><code><span class="n">serviceaccount</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">user</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+<span class="n">clusterrolebinding</span><span class="p">.</span><span class="n">rbac</span><span class="p">.</span><span class="n">authorization</span><span class="p">.</span><span class="n">k8s</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">user</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
+</code></pre></div>
+</details>
+<p>Using this method doesn’t require setting up or memorising passwords, instead, accessing the dashboard will require a token.</p>
+<p>Get the admin token using the command below.
+<div class="highlight"><pre><span></span><code>kubectl get secret -n kubernetes-dashboard <span class="k">$(</span>kubectl get serviceaccount admin-user -n kubernetes-dashboard -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.secrets[0].name}&quot;</span><span class="k">)</span> -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data.token}&quot;</span> <span class="p">|</span> base64 --decode
+</code></pre></div>
+You’ll then see an output of a long string of seemingly random characters like in the example below.</p>
+<details class="success">
+<summary>Output</summary>
+<p>eyJhbGciOiJSUzI1NiIsImtpZCI6Ilk2eEd2QjJMVkhIRWNfN2xTMlA5N2RNVlR5N0o1REFET0dp
+dkRmel90aWMifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlc
+y5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1Y
+mVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuL
+XEyZGJzIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZ
+SI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb
+3VudC51aWQiOiI1ODI5OTUxMS1hN2ZlLTQzZTQtODk3MC0yMjllOTM1YmExNDkiLCJzdWIiOiJze
+XN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.GcUs
+MMx4GnSV1hxQv01zX1nxXMZdKO7tU2OCu0TbJpPhJ9NhEidttOw5ENRosx7EqiffD3zdLDptS22F
+gnDqRDW8OIpVZH2oQbR153EyP_l7ct9_kQVv1vFCL3fAmdrUwY5p1-YMC41OUYORy1JPo5wkpXrW
+OytnsfWUbZBF475Wd3Gq3WdBHMTY4w3FarlJsvk76WgalnCtec4AVsEGxM0hS0LgQ-cGug7iGbmf
+cY7odZDaz5lmxAflpE5S4m-AwsTvT42ENh_bq8PS7FsMd8mK9nELyQu_a-yocYUggju_m-BxLjgc
+2cLh5WzVbTH_ztW7COlKWvSVg7yhjikrew</p>
+</details>
+<p>The token is created each time the dashboard is deployed and is required to log into the dashboard. Note that the token will change if the dashboard is stopped and redeployed.</p>
+<h1 id="creating-read-only-user">Creating Read-Only user<a class="headerlink" href="#creating-read-only-user" title="Permanent link">&para;</a></h1>
+<p>If you wish to provide access to your Kubernetes dashboard, for example, for demonstrative purposes, you can create a read-only view for the cluster.</p>
+<p>Similarly to the admin account, save the following configuration in dashboard-read-only.yaml
+<div class="highlight"><pre><span></span><code>vim dashboard-read-only.yaml
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read-only-user</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes-dashboard</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterRole</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">rbac.authorization.kubernetes.io/autoupdate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read-only-clusterrole</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span><span class="w"></span>
+<span class="nt">rules</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">resources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;*&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">verbs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">list</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watch</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">extensions</span><span class="w"></span>
+<span class="w">  </span><span class="nt">resources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;*&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">verbs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">list</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watch</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps</span><span class="w"></span>
+<span class="w">  </span><span class="nt">resources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;*&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">verbs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">list</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watch</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterRoleBinding</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read-only-binding</span><span class="w"></span>
+<span class="nt">roleRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterRole</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read-only-clusterrole</span><span class="w"></span>
+<span class="w">  </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span><span class="w"></span>
+<span class="nt">subjects</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read-only-user</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes-dashboard</span><span class="w"></span>
+</code></pre></div></p>
+<p>Once set, save the file and exit the editor.</p>
+<p>Then deploy the read-only user account with the command below.</p>
+<p><div class="highlight"><pre><span></span><code>kubectl apply -f dashboard-read-only.yaml
+</code></pre></div>
+To allow users to log in via the read-only account, you’ll need to provide a token which can be fetched using the next command.
+<div class="highlight"><pre><span></span><code>kubectl get secret -n kubernetes-dashboard <span class="k">$(</span>kubectl get serviceaccount read-only-user -n kubernetes-dashboard -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.secrets[0].name}&quot;</span><span class="k">)</span> -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data.token}&quot;</span> <span class="p">|</span> base64 --decode
+</code></pre></div>
+The toke will be a long series of characters and unique to the dashboard currently running.</p>
+<h1 id="accessing-the-dashboard">Accessing the dashboard<a class="headerlink" href="#accessing-the-dashboard" title="Permanent link">&para;</a></h1>
+<p>We’ve now deployed the dashboard and created user accounts for it. Next, we can get started managing the Kubernetes cluster itself.</p>
+<p>However, before we can log in to the dashboard, it needs to be made available by creating a proxy service on the localhost. Run the next command on your Kubernetes cluster.
+<div class="highlight"><pre><span></span><code>kubectl proxy
+</code></pre></div>
+This will start the server at 127.0.0.1:8001 as shown by the output.</p>
+<details class="success">
+<summary>Output</summary>
+<p>Starting to serve on 127.0.0.1:8001</p>
+</details>
+<p>Now, assuming that we have already established an SSH tunnel binding to the localhost port 8001 at both ends, open a browser to the link below.</p>
+<div class="admonition tip">
+<p class="admonition-title">Link</p>
+<p><a href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/">http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/</a></p>
+</div>
+<p>If everything is running correctly, you should see the dashboard login window.</p>
+<p><img alt="image" src="../../img/kd01.png" /></p>
+<p>Select the token authentication method and copy your admin token into the field below. Then click the Sign in button.</p>
+<p>You will then be greeted by the overview of your Kubernetes cluster.</p>
+<p><img alt="image" src="../img/kdb01.PNG" /></p>
+<p>While signed in as an admin, you can deploy new pods and services quickly and easily by clicking the plus icon at the top right corner of the dashboard.</p>
+<p><img alt="image" src="../../img/kd03.png" /></p>
+<p>Then either copy in any configuration file you wish, select the file directly from your machine or create a new configuration from a form.</p>
 
               
             </article>
@@ -913,7 +1096,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../project/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Projects" rel="prev">
+        <a href="../k3s/" class="md-footer__link md-footer__link--prev" aria-label="Previous: k3s" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -922,20 +1105,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Projects
+              k3s
             </div>
           </div>
         </a>
       
       
         
-        <a href="../vagrant/" class="md-footer__link md-footer__link--next" aria-label="Next: Vagrant" rel="next">
+        <a href="../../miscellaneous/activedir/" class="md-footer__link md-footer__link--next" aria-label="Next: Active Directory" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Vagrant
+              Active Directory
             </div>
           </div>
           <div class="md-footer__button md-icon">

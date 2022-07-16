@@ -649,6 +649,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4_10">
@@ -719,6 +721,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/k8sdashboard/" class="md-nav__link">
+        Kubernetes Dashboard
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -749,6 +765,10 @@
       
       
       
+        
+          
+        
+          
         
           
         
@@ -898,6 +918,34 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nexus/" class="md-nav__link">
+        Nexus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sonarqube/" class="md-nav__link">
+        SonarQube
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1031,9 +1079,9 @@ Add the IP and FQDN to file <mark>/etc/hosts</mark>
 <div class="highlight"><pre><span></span><code>sudo apt -y install slapd ldap-utils
 </code></pre></div>
 During the installation, you’ll be prompted to set LDAP admin password, provide your desired password, then press <OK></p>
-<p><img alt="image" src="../img/ldap01.PNG" /></p>
+<p><img alt="image" src="../../img/ldap01.PNG" /></p>
 <p>Confirm the password and continue installation by selecting <ok> 
-<img alt="image" src="../img/ldap02.PNG" /></p>
+<img alt="image" src="../../img/ldap02.PNG" /></p>
 <p>You can confirm that your installation was successful using the commandslapcat  to output SLAPD database contents.</p>
 <p><div class="highlight"><pre><span></span><code>sudo slapcat
 </code></pre></div>
@@ -1171,36 +1219,36 @@ Install LDAP Account Manager
 Configure LDAP Account Manager
 <div class="highlight"><pre><span></span><code>http://&lt; IP address &gt;/lam
 </code></pre></div>
-<img alt="image" src="../img/ldap03.PNG" /></p>
+<img alt="image" src="../../img/ldap03.PNG" /></p>
 <p>The LDAP Account Manager Login form will be shown. We need to set our LDAP server profile by clicking on[LAM configuration] at the upper right corner.
-<img alt="image" src="../img/ldap04.PNG" /></p>
+<img alt="image" src="../../img/ldap04.PNG" /></p>
 <p>Then click on,Edit server profiles</p>
 <p>This will ask you for LAM Profile name Password</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Default password is lam</p>
 </div>
-<p><img alt="image" src="../img/ldap05.PNG" />  </p>
+<p><img alt="image" src="../../img/ldap05.PNG" />  </p>
 <p>The first thing to change is Profile Password, this is at the end of General Settings page.</p>
-<p><img alt="image" src="../img/ldap06.PNG" /></p>
+<p><img alt="image" src="../../img/ldap06.PNG" /></p>
 <p>Next is to set LDAP Server address and Tree suffix. Mine looks like below, you need to use your Domain components as set in server hostname.</p>
-<p><img alt="image" src="../img/ldap07.PNG" /></p>
+<p><img alt="image" src="../../img/ldap07.PNG" /></p>
 <p>Set Dashboard login by specifying the admin user account and domain components under “Security settings” section</p>
-<p><img alt="image" src="../img/ldap08.PNG" /></p>
+<p><img alt="image" src="../../img/ldap08.PNG" /></p>
 <p>Switch to “Account types” page and set Active account types LDAP suffix and List attributes.</p>
-<p><img alt="image" src="../img/ldap09.PNG" /></p>
+<p><img alt="image" src="../../img/ldap09.PNG" /></p>
 <h3 id="add-user-accounts-and-groups-with-ldap-account-manager">Add user accounts and groups with LDAP Account Manager<a class="headerlink" href="#add-user-accounts-and-groups-with-ldap-account-manager" title="Permanent link">&para;</a></h3>
 <p>Login with the accountadmin to LAM dashboard to start managing user accounts and groups.</p>
-<p><img alt="image" src="../img/ldap10.PNG" /></p>
+<p><img alt="image" src="../../img/ldap10.PNG" /></p>
 <p>Add User Group</p>
 <p>Give the group a name, optional group ID and description.
-<img alt="image" src="../img/ldap12.PNG" /></p>
+<img alt="image" src="../../img/ldap12.PNG" /></p>
 <p>Add User Accounts
 Once you have the groups for user accounts to be added, click on Users &gt; New user to add a new user account to your LDAP server. You have three sections for user management:</p>
 <ul>
 <li>Personal – This contains user’s personal information like the first name, last name, email, phone, department, address e.t.c</li>
 </ul>
-<p><img alt="image" src="../img/ldap11.PNG" /></p>
+<p><img alt="image" src="../../img/ldap11.PNG" /></p>
 <h2 id="configure-your-ubuntu-220420041804-as-ldap-client">Configure your Ubuntu 22.04|20.04|18.04 as LDAP Client<a class="headerlink" href="#configure-your-ubuntu-220420041804-as-ldap-client" title="Permanent link">&para;</a></h2>
 <h3 id="the-last-step-is-to-configure-the-systems-in-your-network-to-authenticate-against-the-ldap-server-weve-just-configured">The last step is to configure the systems in your network to authenticate against the LDAP server we’ve just configured:<a class="headerlink" href="#the-last-step-is-to-configure-the-systems-in-your-network-to-authenticate-against-the-ldap-server-weve-just-configured" title="Permanent link">&para;</a></h3>
 <p>Add LDAP server address to /etc/hosts file if you don’t have an active DNS server in your network.
@@ -1213,11 +1261,11 @@ Install LDAP client utilities on your Ubuntu system:</p>
 </code></pre></div>
 Begin configuring the settings to look like below
 * Set LDAP URI- This can be IP address or hostname
-<img alt="image" src="../img/ldap13.PNG" /></p>
+<img alt="image" src="../../img/ldap13.PNG" /></p>
 <ul>
 <li>
 <p>Set a Distinguished name of the search base
-<img alt="image" src="../img/ldap14.PNG" /></p>
+<img alt="image" src="../../img/ldap14.PNG" /></p>
 </li>
 <li>
 <p>Select LDAP version 3</p>
@@ -1243,7 +1291,7 @@ shadow: compat
 <div class="highlight"><pre><span></span><code>session optional pam_mkhomedir.so <span class="nv">skel</span><span class="o">=</span>/etc/skel <span class="nv">umask</span><span class="o">=</span><span class="m">077</span>
 </code></pre></div>
 See below screenshot:
-<img alt="image" src="../img/ldap15.PNG" /></p>
+<img alt="image" src="../../img/ldap15.PNG" /></p>
 <p>Test by switching to a user account on LDAP</p>
 <div class="highlight"><pre><span></span><code>sudo su - &lt;username&gt;
 </code></pre></div>
@@ -1279,6 +1327,21 @@ See below screenshot:
           </div>
         </a>
       
+      
+        
+        <a href="../nexus/" class="md-footer__link md-footer__link--next" aria-label="Next: Nexus" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Nexus
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
