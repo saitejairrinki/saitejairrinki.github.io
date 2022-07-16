@@ -625,15 +625,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nexus-setup" class="md-nav__link">
-    Nexus Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sonarqube-setup" class="md-nav__link">
-    SonarQube Setup
+  <a href="#cicd-setup" class="md-nav__link">
+    CICD Setup
   </a>
   
 </li>
@@ -953,15 +946,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nexus-setup" class="md-nav__link">
-    Nexus Setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sonarqube-setup" class="md-nav__link">
-    SonarQube Setup
+  <a href="#cicd-setup" class="md-nav__link">
+    CICD Setup
   </a>
   
 </li>
@@ -1014,215 +1000,9 @@ sudo yum install jenkins -y
 </div>
 </div>
 </div>
-<h2 id="nexus-setup">Nexus Setup<a class="headerlink" href="#nexus-setup" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Instance Details</th>
-<th>Resources</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CentOS - t2.medium</td>
-<td>4GB Ram , 2 CPU</td>
-</tr>
-</tbody>
-</table>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Nexus Script</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-yum install java-1.8.0-openjdk.x86_64 wget -y   
-mkdir -p /opt/nexus/   
-mkdir -p /tmp/nexus/                           
-<span class="nb">cd</span> /tmp/nexus
-<span class="nv">NEXUSURL</span><span class="o">=</span><span class="s2">&quot;https://download.sonatype.com/nexus/3/latest-unix.tar.gz&quot;</span>
-wget <span class="nv">$NEXUSURL</span> -O nexus.tar.gz
-<span class="nv">EXTOUT</span><span class="o">=</span><span class="sb">`</span>tar xzvf nexus.tar.gz<span class="sb">`</span>
-<span class="nv">NEXUSDIR</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$EXTOUT</span> <span class="p">|</span> cut -d <span class="s1">&#39;/&#39;</span> -f1<span class="sb">`</span>
-rm -rf /tmp/nexus/nexus.tar.gz
-rsync -avzh /tmp/nexus/ /opt/nexus/
-useradd nexus
-chown -R nexus.nexus /opt/nexus 
-cat <span class="s">&lt;&lt;EOT&gt;&gt; /etc/systemd/system/nexus.service</span>
-<span class="s">[Unit]                                                                          </span>
-<span class="s">Description=nexus service                                                       </span>
-<span class="s">After=network.target                                                            </span>
-
-<span class="s">[Service]                                                                       </span>
-<span class="s">Type=forking                                                                    </span>
-<span class="s">LimitNOFILE=65536                                                               </span>
-<span class="s">ExecStart=/opt/nexus/$NEXUSDIR/bin/nexus start                                  </span>
-<span class="s">ExecStop=/opt/nexus/$NEXUSDIR/bin/nexus stop                                    </span>
-<span class="s">User=nexus                                                                      </span>
-<span class="s">Restart=on-abort                                                                </span>
-
-<span class="s">[Install]                                                                       </span>
-<span class="s">WantedBy=multi-user.target                                                      </span>
-
-<span class="s">EOT</span>
-
-<span class="nb">echo</span> <span class="s1">&#39;run_as_user=&quot;nexus&quot;&#39;</span> &gt; /opt/nexus/<span class="nv">$NEXUSDIR</span>/bin/nexus.rc
-systemctl daemon-reload
-systemctl start nexus
-systemctl <span class="nb">enable</span> nexus
-</code></pre></div>
-<h2 id="sonarqube-setup">SonarQube Setup<a class="headerlink" href="#sonarqube-setup" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Instance Details</th>
-<th>Resources</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ubuntu - t2.medium</td>
-<td>4GB Ram , 2 CPU</td>
-</tr>
-</tbody>
-</table>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">SonarQube Script</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-cp /etc/sysctl.conf /root/sysctl.conf_backup
-cat <span class="s">&lt;&lt;EOT&gt; /etc/sysctl.conf</span>
-<span class="s">vm.max_map_count=262144</span>
-<span class="s">fs.file-max=65536</span>
-<span class="s">ulimit -n 65536</span>
-<span class="s">ulimit -u 4096</span>
-<span class="s">EOT</span>
-cp /etc/security/limits.conf /root/sec_limit.conf_backup
-cat <span class="s">&lt;&lt;EOT&gt; /etc/security/limits.conf</span>
-<span class="s">sonarqube   -   nofile   65536</span>
-<span class="s">sonarqube   -   nproc    409</span>
-<span class="s">EOT</span>
-
-sudo apt-get update -y
-sudo apt-get install openjdk-11-jdk -y
-sudo update-alternatives --config java
-java -version
-
-sudo apt update
-wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - <span class="p">|</span> sudo apt-key add -
-
-sudo sh -c <span class="s1">&#39;echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main&quot; &gt;&gt; /etc/apt/sources.list.d/pgdg.list&#39;</span>
-sudo apt install postgresql postgresql-contrib -y
-<span class="c1">#sudo -u postgres psql -c &quot;SELECT version();&quot;</span>
-sudo systemctl <span class="nb">enable</span> postgresql.service
-sudo systemctl start  postgresql.service
-sudo <span class="nb">echo</span> <span class="s2">&quot;postgres:admin123&quot;</span> <span class="p">|</span> chpasswd
-runuser -l postgres -c <span class="s2">&quot;createuser sonar&quot;</span>
-sudo -i -u postgres psql -c <span class="s2">&quot;ALTER USER sonar WITH ENCRYPTED PASSWORD &#39;admin123&#39;;&quot;</span>
-sudo -i -u postgres psql -c <span class="s2">&quot;CREATE DATABASE sonarqube OWNER sonar;&quot;</span>
-sudo -i -u postgres psql -c <span class="s2">&quot;GRANT ALL PRIVILEGES ON DATABASE sonarqube to sonar;&quot;</span>
-systemctl restart  postgresql
-<span class="c1">#systemctl status -l   postgresql</span>
-netstat -tulpena <span class="p">|</span> grep postgres
-sudo mkdir -p /sonarqube/
-<span class="nb">cd</span> /sonarqube/
-sudo curl -O https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.3.0.34182.zip
-sudo apt-get install zip -y
-sudo unzip -o sonarqube-8.3.0.34182.zip -d /opt/
-sudo mv /opt/sonarqube-8.3.0.34182/ /opt/sonarqube
-sudo groupadd sonar
-sudo useradd -c <span class="s2">&quot;SonarQube - User&quot;</span> -d /opt/sonarqube/ -g sonar sonar
-sudo chown sonar:sonar /opt/sonarqube/ -R
-cp /opt/sonarqube/conf/sonar.properties /root/sonar.properties_backup
-cat <span class="s">&lt;&lt;EOT&gt; /opt/sonarqube/conf/sonar.properties</span>
-<span class="s">sonar.jdbc.username=sonar</span>
-<span class="s">sonar.jdbc.password=admin123</span>
-<span class="s">sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube</span>
-<span class="s">sonar.web.host=0.0.0.0</span>
-<span class="s">sonar.web.port=9000</span>
-<span class="s">sonar.web.javaAdditionalOpts=-server</span>
-<span class="s">sonar.search.javaOpts=-Xmx512m -Xms512m -XX:+HeapDumpOnOutOfMemoryError</span>
-<span class="s">sonar.log.level=INFO</span>
-<span class="s">sonar.path.logs=logs</span>
-<span class="s">EOT</span>
-
-cat <span class="s">&lt;&lt;EOT&gt; /etc/systemd/system/sonarqube.service</span>
-<span class="s">[Unit]</span>
-<span class="s">Description=SonarQube service</span>
-<span class="s">After=syslog.target network.target</span>
-
-<span class="s">[Service]</span>
-<span class="s">Type=forking</span>
-
-<span class="s">ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start</span>
-<span class="s">ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop</span>
-
-<span class="s">User=sonar</span>
-<span class="s">Group=sonar</span>
-<span class="s">Restart=always</span>
-
-<span class="s">LimitNOFILE=65536</span>
-<span class="s">LimitNPROC=4096</span>
-
-
-<span class="s">[Install]</span>
-<span class="s">WantedBy=multi-user.target</span>
-<span class="s">EOT</span>
-
-systemctl daemon-reload
-systemctl <span class="nb">enable</span> sonarqube.service
-<span class="c1">#systemctl start sonarqube.service</span>
-<span class="c1">#systemctl status -l sonarqube.service</span>
-apt-get install nginx -y
-rm -rf /etc/nginx/sites-enabled/default
-rm -rf /etc/nginx/sites-available/default
-cat <span class="s">&lt;&lt;EOT&gt; /etc/nginx/sites-available/sonarqube</span>
-<span class="s">server{</span>
-<span class="s">    listen      80;</span>
-<span class="s">    server_name sonarqube.groophy.in;</span>
-
-<span class="s">    access_log  /var/log/nginx/sonar.access.log;</span>
-<span class="s">    error_log   /var/log/nginx/sonar.error.log;</span>
-
-<span class="s">    proxy_buffers 16 64k;</span>
-<span class="s">    proxy_buffer_size 128k;</span>
-
-<span class="s">    location / {</span>
-<span class="s">        proxy_pass  http://127.0.0.1:9000;</span>
-<span class="s">        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;</span>
-<span class="s">        proxy_redirect off;</span>
-
-<span class="s">        proxy_set_header    Host            \$host;</span>
-<span class="s">        proxy_set_header    X-Real-IP       \$remote_addr;</span>
-<span class="s">        proxy_set_header    X-Forwarded-For \$proxy_add_x_forwarded_for;</span>
-<span class="s">        proxy_set_header    X-Forwarded-Proto http;</span>
-<span class="s">    }</span>
-<span class="s">}</span>
-<span class="s">EOT</span>
-ln -s /etc/nginx/sites-available/sonarqube /etc/nginx/sites-enabled/sonarqube
-systemctl <span class="nb">enable</span> nginx.service
-<span class="c1">#systemctl restart nginx.service</span>
-sudo ufw allow <span class="m">80</span>,9000,9001/tcp
-
-<span class="nb">echo</span> <span class="s2">&quot;System reboot in 30 sec&quot;</span>
-sleep <span class="m">30</span>
-reboot
-</code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">SonarQube-Analysis-Properties</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<div class="highlight"><pre><span></span><code><span class="n">sonar</span><span class="p">.</span><span class="n">projectKey</span><span class="o">=</span><span class="n">vprofile</span><span class="w"></span>
-<span class="n">sonar</span><span class="p">.</span><span class="n">projectName</span><span class="o">=</span><span class="n">vprofile</span><span class="o">-</span><span class="n">repo</span><span class="w"></span>
-<span class="n">sonar</span><span class="p">.</span><span class="n">projectVersion</span><span class="o">=</span><span class="mf">1.0</span><span class="w"></span>
-<span class="n">sonar</span><span class="p">.</span><span class="n">sources</span><span class="o">=</span><span class="n">src</span><span class="o">/</span><span class="w"></span>
-<span class="n">sonar</span><span class="p">.</span><span class="n">java</span><span class="p">.</span><span class="n">binaries</span><span class="o">=</span><span class="n">target</span><span class="o">/</span><span class="n">test</span><span class="o">-</span><span class="n">classes</span><span class="o">/</span><span class="n">com</span><span class="o">/</span><span class="n">visualpathit</span><span class="o">/</span><span class="n">account</span><span class="o">/</span><span class="n">controllerTest</span><span class="o">/</span><span class="w"></span>
-<span class="n">sonar</span><span class="p">.</span><span class="n">junit</span><span class="p">.</span><span class="n">reportsPath</span><span class="o">=</span><span class="n">target</span><span class="o">/</span><span class="n">surefire</span><span class="o">-</span><span class="n">reports</span><span class="o">/</span><span class="w"></span>
-<span class="n">sonar</span><span class="p">.</span><span class="n">jacoco</span><span class="p">.</span><span class="n">reportsPath</span><span class="o">=</span><span class="n">target</span><span class="o">/</span><span class="n">jacoco</span><span class="p">.</span><span class="n">exec</span><span class="w"></span>
-<span class="n">sonar</span><span class="p">.</span><span class="n">java</span><span class="p">.</span><span class="n">checkstyle</span><span class="p">.</span><span class="n">reportPaths</span><span class="o">=</span><span class="n">target</span><span class="o">/</span><span class="n">checkstyle</span><span class="o">-</span><span class="n">result</span><span class="p">.</span><span class="n">xml</span><span class="w"></span>
-</code></pre></div>
+<h2 id="cicd-setup">CICD Setup<a class="headerlink" href="#cicd-setup" title="Permanent link">&para;</a></h2>
+<p>You can find my Jenkins CICD pipeline jobs which are saved in an HTML format, please download and extract to see the jobs </p>
+<p>To View My Jenkins CICD Jobs <a href="https://drive.google.com/drive/folders/1sb3zuvmq7gNcecrkJYYoi75dEpVbRx5c?usp=sharing">Click here</a></p>
 
               
             </article>
