@@ -909,7 +909,7 @@
 <div class="highlight"><pre><span></span><code>apt install awscli -y
 </code></pre></div>
 <img alt="image" src="../img/installing Aws-cli.png" /></p>
-<h3 id="configure-aws-cli-with-iam-user-credentials-with-specific-region">Configure AWS CLI with IAM user Credentials with specific Region<a class="headerlink" href="#configure-aws-cli-with-iam-user-credentials-with-specific-region" title="Permanent link">&para;</a></h3>
+<h3 id="configure-aws-cli-with-iam-user-credentials-with-a-specific-region">Configure AWS CLI with IAM user Credentials with a specific Region<a class="headerlink" href="#configure-aws-cli-with-iam-user-credentials-with-a-specific-region" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws configure
 </code></pre></div>
 <img alt="image" src="../img/aws configure.png" />
@@ -947,7 +947,7 @@ To view the initial information for my-sg, run the aws ec2 describe-security-gro
 <img alt="image" src="../img/delete sg.png" /></p>
 <h3 id="launch-instance">Launch Instance<a class="headerlink" href="#launch-instance" title="Permanent link">&para;</a></h3>
 <p>You can use the following command to launch a t2.micro instance in EC2-Classic. Replace the italicized parameter values with your own.
-You can get the ami Id’s from documentation or console for your required Instance.
+You can get the AMI IDs from documentation or console for your required Instance.
 <div class="highlight"><pre><span></span><code> aws ec2 run-instances --image-id &lt;ami-Id&gt; --count <span class="m">1</span> --instance-type &lt;type&gt; --key-name &lt;keypair-Name&gt; --security-groups &lt;security grp Name&gt;
 </code></pre></div>
 <img alt="image" src="../img/launch instance1.png" /></p>
@@ -1023,7 +1023,7 @@ You can get the ami Id’s from documentation or console for your required Insta
 <div class="highlight"><pre><span></span><code>aws elbv2 create-load-balancer --name &lt;Load balancer Name&gt;--type &lt;type&gt; --subnets &lt;subnet-Id&gt; &lt;subnet-Id&gt;
 </code></pre></div>
 <img alt="image" src="../img/create app ELB.png" /></p>
-<h3 id="to-create-an-network-load-balancer">To create an Network load balancer<a class="headerlink" href="#to-create-an-network-load-balancer" title="Permanent link">&para;</a></h3>
+<h3 id="to-create-a-network-load-balancer">To create a Network load balancer<a class="headerlink" href="#to-create-a-network-load-balancer" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>aws elbv2 create-load-balancer --name &lt;Load balancer Name&gt;--type &lt;type&gt; --subnets &lt;subnet-Id&gt;
 </code></pre></div>
 <img alt="image" src="../img/create ntw ELB.png" />

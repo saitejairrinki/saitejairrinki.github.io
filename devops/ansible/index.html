@@ -667,8 +667,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" class="md-nav__link">
-    Writing Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine
+  <a href="#writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-the-remote-machine" class="md-nav__link">
+    Writing Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to the remote machine
   </a>
   
 </li>
@@ -1037,8 +1037,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" class="md-nav__link">
-    Writing Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine
+  <a href="#writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-the-remote-machine" class="md-nav__link">
+    Writing Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to the remote machine
   </a>
   
 </li>
@@ -1093,7 +1093,7 @@
 
 
 <h1 id="ansible">Ansible<a class="headerlink" href="#ansible" title="Permanent link">&para;</a></h1>
-<p>Ansible is an open source IT Configuration Management, Deployment &amp; Orchestration tool. It aims to provide large productivity gains to a wide variety of automation challenges. This tool is very simple to use yet powerful enough to automate complex multi-tier IT application environments.</p>
+<p>Ansible is an open-source IT Configuration Management, Deployment &amp; Orchestration tool. It aims to provide large productivity gains to a wide variety of automation challenges. This tool is very simple to use yet powerful enough to automate complex multi-tier IT application environments.</p>
 <h2 id="installing-ansible">Installing Ansible<a class="headerlink" href="#installing-ansible" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu</label><label for="__tabbed_1_2">CentOS</label></div>
 <div class="tabbed-content">
@@ -1120,14 +1120,14 @@
 </div>
 </div>
 <h2 id="scp-commands">SCP Commands<a class="headerlink" href="#scp-commands" title="Permanent link">&para;</a></h2>
-<p>To Copy files From Localmachine to Remotemachine
+<p>To Copy files From Localmachine to Remote machine
 <div class="highlight"><pre><span></span><code>scp -i &lt;private-key-file-path&gt; &lt;files to copy&gt; &lt;user&gt;@&lt;IP&gt;:&lt;Remote-machine-path&gt;
 </code></pre></div></p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>scp -i Downloads/control.pem sample.txt ubuntu@54.165.128.104:/home/ubuntu/</p>
 </div>
-<p>To Copy Files from Remotemachine to Localmachine
+<p>To Copy Files from Remotemachine to Local machine
 <div class="highlight"><pre><span></span><code>scp -i &lt;private-key-file-path&gt; &lt;user&gt;@&lt;IP&gt;:&lt;remote-files-path&gt; &lt;Localmachine-path&gt;
 </code></pre></div></p>
 <div class="admonition example">
@@ -1173,13 +1173,13 @@
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Host level has the Highest priority , If you mention anything like username or Keyfile etc. It will take only which are mentioned in the host level.</p>
+<p>Host level has the highest priority, If you mention anything like username or Keyfile etc. It will take only, which are mentioned at the host level.</p>
 </div>
 <h2 id="ansible-commands">Ansible Commands<a class="headerlink" href="#ansible-commands" title="Permanent link">&para;</a></h2>
-<p>To test the connection of particular Remote Machine
+<p>To test the connection of a particular Remote Machine
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m ping &lt;hostname&gt;
 </code></pre></div>
-To test the connection of particular Group of Remote Machines
+To test the connection of a particular Group of Remote Machines
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m ping &lt;Groupname&gt;
 </code></pre></div>
 To test the connection of All Remote Machine
@@ -1194,8 +1194,8 @@ To see details about the machine
 <div class="tabbed-block"></div>
 </div>
 </div>
-<p>Copy files to Remote machines name starts with web
-<div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m copy -a <span class="s2">&quot;src=index,html dest=/var/www/html/index.html&quot;</span> <span class="s1">&#39;web*&#39;</span> --become
+<p>Copy files to Remote machines name start with web
+<div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m copy -a <span class="s2">&quot;src=index.html dest=/var/www/html/index.html&quot;</span> <span class="s1">&#39;web*&#39;</span> --become
 </code></pre></div>
 Installing <mark>httpd</mark> in centos Remote machine 
 <div class="highlight"><pre><span></span><code>ansible -i &lt;Inventoryfile path&gt; -m yum -a <span class="s2">&quot;name=httpd state=present&quot;</span> websrvgrp --become
@@ -1230,8 +1230,8 @@ Start &amp; Enable <mark>httpd</mark> in centos Remote machine
 To Execute the playbook
 <div class="highlight"><pre><span></span><code>ansible-playbook -i &lt;Inventory file path&gt; sample.yml
 </code></pre></div></p>
-<h2 id="writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine">Writing Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to remote machine<a class="headerlink" href="#writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-remote-machine" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install httpd and starting the service</span><span class="w"></span>
+<h2 id="writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-the-remote-machine">Writing Playbook For Installing Httpd service in remote machines with start and enable and copying index.html files from local machine to the remote machine<a class="headerlink" href="#writing-playbook-for-installing-httpd-service-in-remote-machines-with-start-and-enable-and-copying-indexhtml-files-from-local-machine-to-the-remote-machine" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install httpd and start the service</span><span class="w"></span>
 <span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span><span class="w"></span>
 <span class="w">  </span><span class="nt">tasks</span><span class="p">:</span><span class="w"></span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Installing the Apache package</span><span class="w"></span>
@@ -1303,7 +1303,7 @@ To Execute the playbook
 <span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restarted</span><span class="w"></span>
 </code></pre></div>
 <h2 id="writing-playbook-for-setting-up-website-in-remote-machine-with-conditions-handlers">Writing Playbook for Setting Up Website in Remote Machine with Conditions &amp; Handlers.<a class="headerlink" href="#writing-playbook-for-setting-up-website-in-remote-machine-with-conditions-handlers" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Writing playbook for loops and condtions</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Writing playbook for loops and conditions</span><span class="w"></span>
 <span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span><span class="w"></span>
 <span class="w">  </span><span class="nt">tasks</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install packages on centos</span><span class="w"></span>
@@ -1318,7 +1318,7 @@ To Execute the playbook
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zip</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git</span><span class="w">           </span>
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install packages on ubuntu</span><span class="w"> </span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install packages on Ubuntu</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">apt</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{item}}&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span><span class="w"></span>
@@ -1442,7 +1442,7 @@ Creating File to store Variables
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Import vpc variables</span><span class="w"></span>
 <span class="w">      </span><span class="nt">include_vars</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/vpc_setup</span><span class="w"></span>
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create Vprofile vpc</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create vpc</span><span class="w"></span>
 <span class="w">      </span><span class="nt">ec2_vpc_net</span><span class="p">:</span><span class="w"></span>
 <span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{vpc_name}}&quot;</span><span class="w"></span>
 <span class="w">          </span><span class="nt">cidr_block</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{vpcrange}}&quot;</span><span class="w"></span>
@@ -1454,7 +1454,7 @@ Creating File to store Variables
 <span class="w">      </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vpcout</span><span class="w"></span>
 
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create public subnet for zone1</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a public subnet for zone1</span><span class="w"></span>
 <span class="w">      </span><span class="nt">ec2_vpc_subnet</span><span class="p">:</span><span class="w"></span>
 <span class="w">          </span><span class="nt">vpc_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{vpcout.vpc.id}}&quot;</span><span class="w"></span>
 <span class="w">          </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{region}}&quot;</span><span class="w"></span>
@@ -1466,7 +1466,7 @@ Creating File to store Variables
 <span class="w">            </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub1</span><span class="w"></span>
 <span class="w">      </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pubsub1_out</span><span class="w"></span>
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create public subnet for zone2</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a public subnet for zone2</span><span class="w"></span>
 <span class="w">      </span><span class="nt">ec2_vpc_subnet</span><span class="p">:</span><span class="w"></span>
 <span class="w">         </span><span class="nt">vpc_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{vpcout.vpc.id}}&quot;</span><span class="w"></span>
 <span class="w">         </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{region}}&quot;</span><span class="w"></span>
@@ -1478,7 +1478,7 @@ Creating File to store Variables
 <span class="w">           </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub2</span><span class="w"></span>
 <span class="w">      </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pubsub2_out</span><span class="w"></span>
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create public subnet for zone3</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a public subnet for zone3</span><span class="w"></span>
 <span class="w">      </span><span class="nt">ec2_vpc_subnet</span><span class="p">:</span><span class="w"></span>
 <span class="w">         </span><span class="nt">vpc_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{vpcout.vpc.id}}&quot;</span><span class="w"></span>
 <span class="w">         </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{region}}&quot;</span><span class="w"></span>
@@ -1490,7 +1490,7 @@ Creating File to store Variables
 <span class="w">           </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vprofile_pubsub3</span><span class="w"></span>
 <span class="w">      </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pubsub3_out</span><span class="w"></span>
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create private subnet for zone1</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a private subnet for zone1</span><span class="w"></span>
 <span class="w">      </span><span class="nt">ec2_vpc_subnet</span><span class="p">:</span><span class="w"></span>
 <span class="w">         </span><span class="nt">vpc_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{vpcout.vpc.id}}&quot;</span><span class="w"></span>
 <span class="w">         </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{region}}&quot;</span><span class="w"></span>
@@ -1502,7 +1502,7 @@ Creating File to store Variables
 <span class="w">           </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub1</span><span class="w"></span>
 <span class="w">      </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pvtsub1_out</span><span class="w"></span>
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create private subnet for zone2</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a private subnet for zone2</span><span class="w"></span>
 <span class="w">      </span><span class="nt">ec2_vpc_subnet</span><span class="p">:</span><span class="w"></span>
 <span class="w">         </span><span class="nt">vpc_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{vpcout.vpc.id}}&quot;</span><span class="w"></span>
 <span class="w">         </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{region}}&quot;</span><span class="w"></span>
@@ -1514,7 +1514,7 @@ Creating File to store Variables
 <span class="w">           </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vprofile_pvtsub2</span><span class="w"></span>
 <span class="w">      </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pvtsub2_out</span><span class="w"></span>
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create private subnet for zone3</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a private subnet for zone3</span><span class="w"></span>
 <span class="w">      </span><span class="nt">ec2_vpc_subnet</span><span class="p">:</span><span class="w"></span>
 <span class="w">         </span><span class="nt">vpc_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{vpcout.vpc.id}}&quot;</span><span class="w"></span>
 <span class="w">         </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{region}}&quot;</span><span class="w"></span>
@@ -1553,7 +1553,7 @@ Creating File to store Variables
 <span class="w">      </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public_route_table</span><span class="w"></span>
 
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create new nat gateway and allocate new EIP if a nat gateway does not yet exist in the subnet.</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create a new nat gateway and allocate a new EIP if a nat gateway does not yet exist in the subnet.</span><span class="w"></span>
 <span class="w">      </span><span class="nt">ec2_vpc_nat_gateway</span><span class="p">:</span><span class="w"></span>
 <span class="w">         </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{state}}&quot;</span><span class="w"></span>
 <span class="w">         </span><span class="nt">subnet_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{pubsub1_out.subnet.id}}&quot;</span><span class="w"></span>
@@ -1653,7 +1653,7 @@ Creating File to store Variables
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">debug</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="nt">var</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">key</span><span class="w"></span>
 
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storing privatekey into a file</span><span class="w"></span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storing private key into a file</span><span class="w"></span>
 <span class="w">       </span><span class="nt">copy</span><span class="p">:</span><span class="w"></span>
 <span class="w">          </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{key.key.private_key}}&quot;</span><span class="w"></span>
 <span class="w">          </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./sample.pem&quot;</span><span class="w"></span>

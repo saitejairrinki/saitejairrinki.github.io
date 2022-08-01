@@ -1080,9 +1080,9 @@ Add the IP and FQDN to file <mark>/etc/hosts</mark>
 </code></pre></div>
 During the installation, you’ll be prompted to set LDAP admin password, provide your desired password, then press <OK></p>
 <p><img alt="image" src="../../img/ldap01.PNG" /></p>
-<p>Confirm the password and continue installation by selecting <ok> 
+<p>Confirm the password and continue the installation by selecting <ok> 
 <img alt="image" src="../../img/ldap02.PNG" /></p>
-<p>You can confirm that your installation was successful using the commandslapcat  to output SLAPD database contents.</p>
+<p>You can confirm that your installation was successful using the commandslapcat to output SLAPD database contents.</p>
 <p><div class="highlight"><pre><span></span><code>sudo slapcat
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>dn: <span class="nv">dc</span><span class="o">=</span>k8sengineers,dc<span class="o">=</span>com
@@ -1114,7 +1114,7 @@ modifiersName: <span class="nv">cn</span><span class="o">=</span>admin,dc<span c
 modifyTimestamp: 20211213045057Z  
 </code></pre></div></p>
 <h2 id="add-base-dn-for-users-and-groups">Add base dn for Users and Groups<a class="headerlink" href="#add-base-dn-for-users-and-groups" title="Permanent link">&para;</a></h2>
-<p>The next step is adding a base DN for users and groups. Create a file named basedn.ldif with below contents:</p>
+<p>The next step is adding a base DN for users and groups. Create a file named basedn.ldif with the below contents:</p>
 <p><div class="highlight"><pre><span></span><code>vim basedn.ldif
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>dn: <span class="nv">ou</span><span class="o">=</span>people,dc<span class="o">=</span>k8sengineers,dc<span class="o">=</span>com
@@ -1146,7 +1146,7 @@ Set the Password</p>
 <div class="highlight"><pre><span></span><code>{SSHA}ls2kqhrLiMuKg9w3JcMq4y1Cefi0amAx
 </code></pre></div>
 </details>
-<p>Create ldif file for adding users.</p>
+<p>Create a ldif file for adding users.</p>
 <p><div class="highlight"><pre><span></span><code>vim ldapusers.ldif
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>dn: <span class="nv">uid</span><span class="o">=</span>admin,ou<span class="o">=</span>people,dc<span class="o">=</span>k8sengineers,dc<span class="o">=</span>com
@@ -1167,7 +1167,7 @@ homeDirectory: /home/admin
 <li>cn &amp; sn with your Username Values</li>
 <li>{SSHA}ls2kqhrLiMuKg9w3JcMq4y1Cefi0amAx with your hashed password</li>
 </ul>
-<p>When done with edit, add account by running.</p>
+<p>When done with the edit, add an account by running.</p>
 <div class="highlight"><pre><span></span><code>ldapadd -x -D <span class="nv">cn</span><span class="o">=</span>admin,dc<span class="o">=</span>k8sengineers,dc<span class="o">=</span>com -W -f ldapusers.ldif 
 </code></pre></div>
 <details class="success" open="open">
@@ -1175,7 +1175,7 @@ homeDirectory: /home/admin
 <div class="highlight"><pre><span></span><code><span class="n">adding</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="s">&quot;uid=admin,ou=people,dc=k8sengineers,dc=com&quot;</span><span class="w"></span>
 </code></pre></div>
 </details>
-<p>Do the same of group. Create ldif file:</p>
+<p>Do the same for the group. Create a ldif file:</p>
 <p><div class="highlight"><pre><span></span><code>vim ldapgroups.ldif
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>dn: <span class="nv">cn</span><span class="o">=</span>admin,ou<span class="o">=</span>groups,dc<span class="o">=</span>k8sengineers,dc<span class="o">=</span>com
@@ -1208,7 +1208,7 @@ Add group:</p>
 <p>For Ubuntu 18.04: sudo a2enconf php7.2-cgi</p>
 </li>
 </ul>
-<p>Here Im using Ubuntu 20.04:</p>
+<p>Here I'm using Ubuntu 20.04:</p>
 <p><div class="highlight"><pre><span></span><code>sudo a2enconf php7.4-cgi
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo systemctl reload apache2
@@ -1222,31 +1222,31 @@ Configure LDAP Account Manager
 <img alt="image" src="../../img/ldap03.PNG" /></p>
 <p>The LDAP Account Manager Login form will be shown. We need to set our LDAP server profile by clicking on[LAM configuration] at the upper right corner.
 <img alt="image" src="../../img/ldap04.PNG" /></p>
-<p>Then click on,Edit server profiles</p>
-<p>This will ask you for LAM Profile name Password</p>
+<p>Then click on, Edit server profiles</p>
+<p>This will ask you for the LAM Profile name Password</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Default password is lam</p>
+<p>The default password is lam</p>
 </div>
 <p><img alt="image" src="../../img/ldap05.PNG" />  </p>
-<p>The first thing to change is Profile Password, this is at the end of General Settings page.</p>
+<p>The first thing to change is Profile Password, this is at the end of the General Settings page.</p>
 <p><img alt="image" src="../../img/ldap06.PNG" /></p>
-<p>Next is to set LDAP Server address and Tree suffix. Mine looks like below, you need to use your Domain components as set in server hostname.</p>
+<p>Next is to set the LDAP Server address and Tree suffix. Mine looks like below, you need to use your Domain components as set in the server hostname.</p>
 <p><img alt="image" src="../../img/ldap07.PNG" /></p>
-<p>Set Dashboard login by specifying the admin user account and domain components under “Security settings” section</p>
+<p>Set Dashboard login by specifying the admin user account and domain components under the “Security settings” section</p>
 <p><img alt="image" src="../../img/ldap08.PNG" /></p>
-<p>Switch to “Account types” page and set Active account types LDAP suffix and List attributes.</p>
+<p>Switch to the “Account types” page and set Active account types LDAP suffix and List attributes.</p>
 <p><img alt="image" src="../../img/ldap09.PNG" /></p>
 <h3 id="add-user-accounts-and-groups-with-ldap-account-manager">Add user accounts and groups with LDAP Account Manager<a class="headerlink" href="#add-user-accounts-and-groups-with-ldap-account-manager" title="Permanent link">&para;</a></h3>
-<p>Login with the accountadmin to LAM dashboard to start managing user accounts and groups.</p>
+<p>Log in with the account admin to the LAM dashboard to start managing user accounts and groups.</p>
 <p><img alt="image" src="../../img/ldap10.PNG" /></p>
 <p>Add User Group</p>
-<p>Give the group a name, optional group ID and description.
+<p>Give the group a name, optional group ID, and description.
 <img alt="image" src="../../img/ldap12.PNG" /></p>
 <p>Add User Accounts
 Once you have the groups for user accounts to be added, click on Users &gt; New user to add a new user account to your LDAP server. You have three sections for user management:</p>
 <ul>
-<li>Personal – This contains user’s personal information like the first name, last name, email, phone, department, address e.t.c</li>
+<li>Personal – This contains the user’s personal information like the first name, last name, email, phone, department, address e.t.c</li>
 </ul>
 <p><img alt="image" src="../../img/ldap11.PNG" /></p>
 <h2 id="configure-your-ubuntu-220420041804-as-ldap-client">Configure your Ubuntu 22.04|20.04|18.04 as LDAP Client<a class="headerlink" href="#configure-your-ubuntu-220420041804-as-ldap-client" title="Permanent link">&para;</a></h2>
@@ -1264,7 +1264,7 @@ Begin configuring the settings to look like below
 <img alt="image" src="../../img/ldap13.PNG" /></p>
 <ul>
 <li>
-<p>Set a Distinguished name of the search base
+<p>Set a Distinguished name for the search base
 <img alt="image" src="../../img/ldap14.PNG" /></p>
 </li>
 <li>
@@ -1287,10 +1287,10 @@ shadow: compat
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>password <span class="o">[</span><span class="nv">success</span><span class="o">=</span><span class="m">1</span> <span class="nv">user_unknown</span><span class="o">=</span>ignore <span class="nv">default</span><span class="o">=</span>die<span class="o">]</span> pam_ldap.so try_first_pass
 </code></pre></div></p>
-<p>Enable creation of home directory on first login by adding the following line to the end of file /etc/pam.d/common-session
+<p>Enable creation of home directory on the first login by adding the following line to the end of file /etc/pam.d/common-session
 <div class="highlight"><pre><span></span><code>session optional pam_mkhomedir.so <span class="nv">skel</span><span class="o">=</span>/etc/skel <span class="nv">umask</span><span class="o">=</span><span class="m">077</span>
 </code></pre></div>
-See below screenshot:
+See the below screenshot:
 <img alt="image" src="../../img/ldap15.PNG" /></p>
 <p>Test by switching to a user account on LDAP</p>
 <div class="highlight"><pre><span></span><code>sudo su - &lt;username&gt;

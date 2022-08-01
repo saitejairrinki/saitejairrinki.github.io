@@ -896,7 +896,7 @@
 
 <h1 id="deploy-the-latest-kubernetes-dashboard">Deploy the latest Kubernetes dashboard<a class="headerlink" href="#deploy-the-latest-kubernetes-dashboard" title="Permanent link">&para;</a></h1>
 <p>Once you’ve set up your Kubernetes cluster or if you already had one running, we can get started.</p>
-<p>The first thing to know about the web UI is that it can only be accessed using localhost address on the machine it runs on. This means we need to have an SSH tunnel to the server. For most OS, you can create an SSH tunnel using this command. Replace the <user> and <master_public_IP> with the relevant details to your Kubernetes cluster.
+<p>The first thing to know about the web UI is that it can only be accessed using the localhost address on the machine it runs on. This means we need to have an SSH tunnel to the server. For most OS, you can create an SSH tunnel using this command. Replace the <user> and <master_public_IP> with the relevant details to your Kubernetes cluster.
 <div class="highlight"><pre><span></span><code>ssh -L localhost:8001:127.0.0.1:8001 &lt;user&gt;@&lt;master_public_IP&gt;
 </code></pre></div>
 After you’ve logged in, you can deploy the dashboard itself with the following single command.
@@ -921,7 +921,7 @@ If your cluster is working correctly, you should see an output confirming the cr
 <span class="n">deployment</span><span class="p">.</span><span class="n">apps</span><span class="o">/</span><span class="n">dashboard</span><span class="o">-</span><span class="n">metrics</span><span class="o">-</span><span class="n">scraper</span><span class="w"> </span><span class="n">created</span><span class="w"></span>
 </code></pre></div>
 </details>
-<p>Afterwards, you should have two new pods running on your cluster.</p>
+<p>Afterward, you should have two new pods running on your cluster.</p>
 <div class="highlight"><pre><span></span><code>kubectl get pods -A
 </code></pre></div>
 <details class="success">
@@ -933,11 +933,11 @@ If your cluster is working correctly, you should see an output confirming the cr
 </details>
 <p>You can then continue ahead with creating the required user accounts.</p>
 <h1 id="creating-admin-user">Creating Admin user<a class="headerlink" href="#creating-admin-user" title="Permanent link">&para;</a></h1>
-<p>The Kubernetes dashboard supports a few ways to manage access control. In this example, we’ll be creating an admin user account with full privileges to modify the cluster and using tokens.</p>
+<p>The Kubernetes dashboard supports a few ways to manage access control. In this example, we’ll be creating an admin user account with full privileges to modify the cluster and use tokens.</p>
 <p>Start by making a new directory for the dashboard configuration files.
 <div class="highlight"><pre><span></span><code>mkdir ~/dashboard <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/dashboard
 </code></pre></div>
-Create the following configuration and save it as dashboard-admin.yaml file. Note that indentation matters in the YAML files which should use two spaces in a regular text editor.</p>
+Create the following configuration and save it as a dashboard-admin.yaml file. Note that indentation matters in the YAML files which should use two spaces in a regular text editor.</p>
 <div class="highlight"><pre><span></span><code>vim dashboard-admin.yaml
 </code></pre></div>
 <p><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
@@ -1051,7 +1051,7 @@ cY7odZDaz5lmxAflpE5S4m-AwsTvT42ENh_bq8PS7FsMd8mK9nELyQu_a-yocYUggju_m-BxLjgc
 <p>Then deploy the read-only user account with the command below.</p>
 <p><div class="highlight"><pre><span></span><code>kubectl apply -f dashboard-read-only.yaml
 </code></pre></div>
-To allow users to log in via the read-only account, you’ll need to provide a token which can be fetched using the next command.
+To allow users to log in via the read-only account, you’ll need to provide a token that can be fetched using the next command.
 <div class="highlight"><pre><span></span><code>kubectl get secret -n kubernetes-dashboard <span class="k">$(</span>kubectl get serviceaccount read-only-user -n kubernetes-dashboard -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.secrets[0].name}&quot;</span><span class="k">)</span> -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data.token}&quot;</span> <span class="p">|</span> base64 --decode
 </code></pre></div>
 The toke will be a long series of characters and unique to the dashboard currently running.</p>
@@ -1077,7 +1077,7 @@ This will start the server at 127.0.0.1:8001 as shown by the output.</p>
 <p><img alt="image" src="../../img/kdb01.png" /></p>
 <p>While signed in as an admin, you can deploy new pods and services quickly and easily by clicking the plus icon at the top right corner of the dashboard.</p>
 <p><img alt="image" src="../../img/kd03.png" /></p>
-<p>Then either copy in any configuration file you wish, select the file directly from your machine or create a new configuration from a form.</p>
+<p>Then either copy in any configuration file you wish, select the file directly from your machine, or create a new configuration from a form.</p>
 
               
             </article>
