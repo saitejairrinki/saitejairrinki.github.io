@@ -19,7 +19,7 @@
         <link rel="next" href="../ansible/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.7">
     
     
       
@@ -122,6 +122,8 @@
       <form class="md-header__option" data-md-component="palette">
         
           
+          
+          
           <input class="md-option" data-md-color-media="(preifers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to Dark mode" for="__palette_2" hidden>
@@ -129,6 +131,8 @@
             </label>
           
         
+          
+          
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -1196,10 +1200,10 @@ It is a java based web application server so we need to set up first java on the
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openjdk-8-jdk<span class="w"> </span>-y
-curl<span class="w"> </span>-fsSL<span class="w"> </span>https://pkg.jenkins.io/debian-stable/jenkins.io.key<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span><span class="se">\</span>
+curl<span class="w"> </span>-fsSL<span class="w"> </span>https://pkg.jenkins.io/debian/jenkins.io-2023.key<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>/usr/share/keyrings/jenkins-keyring.asc<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 <span class="nb">echo</span><span class="w"> </span>deb<span class="w"> </span><span class="o">[</span>signed-by<span class="o">=</span>/usr/share/keyrings/jenkins-keyring.asc<span class="o">]</span><span class="w"> </span><span class="se">\</span>
-<span class="w">   </span>https://pkg.jenkins.io/debian-stable<span class="w"> </span>binary/<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://pkg.jenkins.io/debian<span class="w"> </span>binary/<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>/etc/apt/sources.list.d/jenkins.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>jenkins<span class="w"> </span>-y
