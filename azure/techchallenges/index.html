@@ -1207,10 +1207,10 @@
 <p>Enable OAuth Token in Agent: The agent running the script should have an OAuth token enabled to access the code repository. This can be done by following the steps in the Azure DevOps documentation.</p>
 </details>
 <h2 id="now-lets-take-a-closer-look-at-the-script-and-what-each-line-does">Now let's take a closer look at the script and what each line does:<a class="headerlink" href="#now-lets-take-a-closer-look-at-the-script-and-what-each-line-does" title="Permanent link">&para;</a></h2>
-<p><strong><em>git pull origin $(Build.SourceBranch):</em></strong> This command pulls the latest changes from the source branch into the local repository.</p>
-<p><strong><em>git checkout $(Build.SourceBranch):</em></strong> This command switches to the source branch.</p>
-<p><strong><em>git commit -m "Syncing updates with the code repository NO_CI":</em></strong> This  command commits the changes made to the repository and adds a commit message. The NO_CI flag in the commit message disables the continuous integration (CI) trigger for subsequent commits. This means that if there are further changes made to the code repository, the pipeline won't trigger a build, preventing the pipeline from running in a loop.</p>
-<p><strong><em>git push origin HEAD:$(Build.SourceBranch):</em></strong> This command pushes the changes to the same branch in the remote repository.</p>
+<p><strong><em>git pull origin $(Build.SourceBranch):</em></strong>  This command pulls the latest changes from the source branch into the local repository.</p>
+<p><strong><em>git checkout $(Build.SourceBranch):</em></strong>  This command switches to the source branch.</p>
+<p><strong><em>git commit -m "Syncing updates with the code repository NO_CI":</em></strong>  This  command commits the changes made to the repository and adds a commit message. The NO_CI flag in the commit message disables the continuous integration (CI) trigger for subsequent commits. This means that if there are further changes made to the code repository, the pipeline won't trigger a build, preventing the pipeline from running in a loop.</p>
+<p><strong><em>git push origin HEAD:$(Build.SourceBranch):</em></strong>  This command pushes the changes to the same branch in the remote repository.</p>
 <p>The next block of code is an if statement that checks if the previous command executed successfully:</p>
 <p><div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="nv">$?</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>Write-Host<span class="w"> </span><span class="s2">&quot;Syncing Changes Back to Repo&quot;</span><span class="o">}</span>
 <span class="k">else</span><span class="w"> </span><span class="o">{</span>Write-Host<span class="w"> </span><span class="s2">&quot;Pushing Changes Anyway&quot;</span>
@@ -1218,6 +1218,9 @@ git<span class="w"> </span>push<span class="w"> </span>-f<span class="w"> </span
 </code></pre></div>
 If the previous command was successful, it displays "Syncing Changes Back to Repo". If the command failed, it displays "Pushing Changes Anyway" and then forces a push to the same branch in the remote repository.</p>
 <p>Overall, this script automates the process of syncing changes back to the same branch in a code repository using Azure DevOps.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">PowerShell</label><label for="__tabbed_2_2">Shell</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span><span class="k">$(</span>Build.SourceBranch<span class="k">)</span>
 git<span class="w"> </span>checkout<span class="w"> </span><span class="k">$(</span>Build.SourceBranch<span class="k">)</span>
 git<span class="w"> </span>merge<span class="w"> </span>%sourceBranch%<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Merge to </span><span class="k">$(</span>Build.SourceBranch<span class="k">)</span><span class="s2">&quot;</span>
@@ -1233,12 +1236,36 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <span class="o">}</span><span class="w"> </span>
 <span class="k">else</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span>Write-Host<span class="w"> </span><span class="s2">&quot;Pushing Changes Anyway&quot;</span>
-<span class="w">    </span>git<span class="w"> </span>push<span class="w"> </span>-f<span class="w"> </span>origin<span class="w"> </span>HEAD:<span class="k">$(</span>Build.SourceBranch<span class="k">)</span>
+git<span class="w"> </span>push<span class="w"> </span>-f<span class="w"> </span>origin<span class="w"> </span>HEAD:<span class="k">$(</span>Build.SourceBranch<span class="k">)</span>
 <span class="o">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span><span class="k">$(</span>Build.SourceBranch<span class="k">)</span>
+git<span class="w"> </span>checkout<span class="w"> </span><span class="k">$(</span>Build.SourceBranch<span class="k">)</span>
+git<span class="w"> </span>merge<span class="w"> </span>%sourceBranch%<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Merge to </span><span class="k">$(</span>Build.SourceBranch<span class="k">)</span><span class="s2">&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>Build.RequestedForEmail<span class="k">)</span><span class="s2">&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>Build.RequestedFor<span class="k">)</span><span class="s2">&quot;</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>status
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Syncing updates with the code repository ***NO_CI***&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>HEAD:<span class="k">$(</span>Build.SourceBranch<span class="k">)</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span>
+<span class="k">then</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Syncing Changes Back to Repo&quot;</span>
+<span class="k">else</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Pulling before pushing Changes Back to Repo&quot;</span>
+<span class="w">  </span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span><span class="nv">$BUILD_SOURCEBRANCH</span>
+<span class="w">  </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>HEAD:<span class="nv">$BUILD_SOURCEBRANCH</span>
+<span class="k">fi</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="pre-merge-validation-from-variable-source-branches-to-fixed-target-branch">Pre-Merge Validation from Variable Source Branches to Fixed Target Branch<a class="headerlink" href="#pre-merge-validation-from-variable-source-branches-to-fixed-target-branch" title="Permanent link">&para;</a></h2>
 <p>When there is a pull request from a variable feature branch, such as <code>Feature-A</code>, <code>Feature-B</code>, or <code>Feature-C</code> to the <code>Development</code> branch, we must determine whether the code in the feature branch is buildable or not. When the feature branch is good, we must only merge it with the development branch. However, in Azure Classic pipelines, we are unable to automatically change the source branch name. The script below will get the variable feature branch name whenever there is a PR and  it will run the Build Validation pipeline by changing the branch name.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Pre-Merge Validation from Feature-Dev Branch</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Pre-Merge Validation from Feature-Dev Branch</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
