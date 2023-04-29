@@ -970,6 +970,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#syncs-changes-back-to-the-same-branch-in-azure-devops" class="md-nav__link">
+    syncs changes back to the same branch in Azure DevOps:
+  </a>
+  
+    <nav class="md-nav" aria-label="syncs changes back to the same branch in Azure DevOps:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#now-lets-take-a-closer-look-at-the-script-and-what-each-line-does" class="md-nav__link">
+    Now let's take a closer look at the script and what each line does:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-merge-validation-from-variable-source-branches-to-fixed-target-branch" class="md-nav__link">
+    Pre-Merge Validation from Variable Source Branches to Fixed Target Branch
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1147,6 +1174,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#syncs-changes-back-to-the-same-branch-in-azure-devops" class="md-nav__link">
+    syncs changes back to the same branch in Azure DevOps:
+  </a>
+  
+    <nav class="md-nav" aria-label="syncs changes back to the same branch in Azure DevOps:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#now-lets-take-a-closer-look-at-the-script-and-what-each-line-does" class="md-nav__link">
+    Now let's take a closer look at the script and what each line does:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pre-merge-validation-from-variable-source-branches-to-fixed-target-branch" class="md-nav__link">
+    Pre-Merge Validation from Variable Source Branches to Fixed Target Branch
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1200,13 +1254,13 @@
 <p class="admonition-title">Example</p>
 <p>git commit -m " Commit Message ***No_CI*** "</p>
 </div>
-<h1 id="syncs-changes-back-to-the-same-branch-in-azure-devops">syncs changes back to the same branch in Azure DevOps:<a class="headerlink" href="#syncs-changes-back-to-the-same-branch-in-azure-devops" title="Permanent link">&para;</a></h1>
+<h2 id="syncs-changes-back-to-the-same-branch-in-azure-devops">syncs changes back to the same branch in Azure DevOps:<a class="headerlink" href="#syncs-changes-back-to-the-same-branch-in-azure-devops" title="Permanent link">&para;</a></h2>
 <p>The script provided below is a PowerShell script that is used in Azure DevOps to sync changes back to the same branch in the code repository. This script assumes that you have already cloned the repository in the pipeline and are working in the same branch.</p>
 <details class="note" open="open">
 <summary>Pre-Requsites</summary>
 <p>Enable OAuth Token in Agent: The agent running the script should have an OAuth token enabled to access the code repository. This can be done by following the steps in the Azure DevOps documentation.</p>
 </details>
-<h2 id="now-lets-take-a-closer-look-at-the-script-and-what-each-line-does">Now let's take a closer look at the script and what each line does:<a class="headerlink" href="#now-lets-take-a-closer-look-at-the-script-and-what-each-line-does" title="Permanent link">&para;</a></h2>
+<h3 id="now-lets-take-a-closer-look-at-the-script-and-what-each-line-does">Now let's take a closer look at the script and what each line does:<a class="headerlink" href="#now-lets-take-a-closer-look-at-the-script-and-what-each-line-does" title="Permanent link">&para;</a></h3>
 <p><strong><em>git pull origin $(Build.SourceBranch):</em></strong>  This command pulls the latest changes from the source branch into the local repository.</p>
 <p><strong><em>git checkout $(Build.SourceBranch):</em></strong>  This command switches to the source branch.</p>
 <p><strong><em>git commit -m "Syncing updates with the code repository NO_CI":</em></strong>  This  command commits the changes made to the repository and adds a commit message. The NO_CI flag in the commit message disables the continuous integration (CI) trigger for subsequent commits. This means that if there are further changes made to the code repository, the pipeline won't trigger a build, preventing the pipeline from running in a loop.</p>
