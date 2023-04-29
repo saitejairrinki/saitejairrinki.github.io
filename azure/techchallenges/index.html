@@ -975,19 +975,6 @@
     syncs changes back to the same branch in Azure DevOps:
   </a>
   
-    <nav class="md-nav" aria-label="syncs changes back to the same branch in Azure DevOps:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#now-lets-take-a-closer-look-at-the-script-and-what-each-line-does" class="md-nav__link">
-    Now let's take a closer look at the script and what each line does:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1179,19 +1166,6 @@
     syncs changes back to the same branch in Azure DevOps:
   </a>
   
-    <nav class="md-nav" aria-label="syncs changes back to the same branch in Azure DevOps:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#now-lets-take-a-closer-look-at-the-script-and-what-each-line-does" class="md-nav__link">
-    Now let's take a closer look at the script and what each line does:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1260,11 +1234,13 @@
 <summary>Pre-Requsites</summary>
 <p>Enable OAuth Token in Agent: The agent running the script should have an OAuth token enabled to access the code repository. This can be done by following the steps in the Azure DevOps documentation.</p>
 </details>
-<h3 id="now-lets-take-a-closer-look-at-the-script-and-what-each-line-does">Now let's take a closer look at the script and what each line does:<a class="headerlink" href="#now-lets-take-a-closer-look-at-the-script-and-what-each-line-does" title="Permanent link">&para;</a></h3>
+<p>Now let's take a closer look at the script and what each line does:</p>
+<blockquote>
 <p><strong><em>git pull origin $(Build.SourceBranch):</em></strong>  This command pulls the latest changes from the source branch into the local repository.</p>
 <p><strong><em>git checkout $(Build.SourceBranch):</em></strong>  This command switches to the source branch.</p>
 <p><strong><em>git commit -m "Syncing updates with the code repository NO_CI":</em></strong>  This  command commits the changes made to the repository and adds a commit message. The NO_CI flag in the commit message disables the continuous integration (CI) trigger for subsequent commits. This means that if there are further changes made to the code repository, the pipeline won't trigger a build, preventing the pipeline from running in a loop.</p>
 <p><strong><em>git push origin HEAD:$(Build.SourceBranch):</em></strong>  This command pushes the changes to the same branch in the remote repository.</p>
+</blockquote>
 <p>The next block of code is an if statement that checks if the previous command executed successfully:</p>
 <p><div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">(</span><span class="nv">$?</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>Write-Host<span class="w"> </span><span class="s2">&quot;Syncing Changes Back to Repo&quot;</span><span class="o">}</span>
 <span class="k">else</span><span class="w"> </span><span class="o">{</span>Write-Host<span class="w"> </span><span class="s2">&quot;Pushing Changes Anyway&quot;</span>
