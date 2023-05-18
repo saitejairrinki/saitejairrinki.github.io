@@ -1300,15 +1300,15 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="cp">#For loop example for adding users with name alpha beta gamma</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#For loop example for Creating Files with name alpha beta gamma</span>
 
 <span class="cp">#!/bin/bash</span>
 
-<span class="k">for</span><span class="w"> </span><span class="n">USER</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="n">beta</span><span class="w"> </span><span class="n">gamma</span><span class="w"> </span>
+<span class="k">for</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="n">beta</span><span class="w"> </span><span class="n">gamma</span><span class="w"> </span>
 <span class="k">do</span>
-<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="s">&quot;adding user $USER to system&quot;</span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="s">&quot;Creating file $FILE in system&quot;</span>
 
-<span class="w">   </span><span class="n">sudo</span><span class="w"> </span><span class="n">useradd</span><span class="w"> </span><span class="n">$USER</span>
+<span class="w">   </span><span class="n">sudo</span><span class="w"> </span><span class="n">touch</span><span class="w"> </span><span class="n">$FILE</span>
 
 <span class="n">done</span>
 </code></pre></div>
