@@ -41,7 +41,7 @@
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li>
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">Education</a></li> 
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#certifications">CERTIFICATIONS</a></li> 
                 <li class="nav-item"><a class="nav-link smooth-scroll" href="#reference">References</a></li> 
               </ul>
             </div>
@@ -231,14 +231,18 @@
     <div class="h4 mb-4 text-center title">Certificates & Accomplishments</div>
     <div class="card" data-aos="zoom-in">
       <!-- Start of Certificate Carousel -->
-      <div class="carousel slide" id="cc-Indicators" data-ride="carousel">
+      <div class="carousel slide" id="certificationCarousel" data-ride="carousel">
         <!-- Carousel Indicators -->
-        <ol class="carousel-indicators">
+        <!-- <ol class="carousel-indicators">
           <li class="active" data-target="#cc-Indicators" data-slide-to="0"></li>
           <li data-target="#cc-Indicators" data-slide-to="1"></li>
           <li data-target="#cc-Indicators" data-slide-to="2"></li>
+        </ol> -->
+        <ol class="carousel-indicators">
+          <li data-target="#certificationCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#certificationCarousel" data-slide-to="1"></li>
+          <!-- Add more indicators if needed -->
         </ol>
-
         <!-- Carousel Inner Content -->
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -256,6 +260,21 @@
             </div>
           </div>
 
+            <div class="carousel-item">
+              <div class="row">
+                <!-- Certificate Image and Information -->
+                <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/az400.gif" alt="Image" />
+                  <div class="h5 pt-2">DevOps</div>
+                  <p class="category">Microsoft</p>
+                </div>
+  
+                <!-- Certificate Description -->
+                <div class="col-lg-10 col-md-9">
+                  <p class="justified">I am a Microsoft-certified DevOps Engineer holding the prestigious AZ-400 certification. My expertise in DevOps practices and tools allows me to effectively streamline software development and deployment processes, ensuring efficient collaboration between development and operations teams. With a strong foundation in Azure DevOps, I am well-equipped to design and implement automated pipelines, enhance application reliability, and drive continuous improvement in software development lifecycles. My commitment to staying current with the latest industry trends and best practices ensures that I deliver value-driven solutions for optimizing software delivery and deployment.</p>
+                </div>
+              </div>
+            </div>
+
           <!-- Similar sections for other certificates can be added here -->
         </div>
       </div>
@@ -264,6 +283,7 @@
   </div>
 </div>
 <!-- End of Certificates & Accomplishments Section -->
+
 
 <!-- Start of Portfolio Section -->
 <div class="section" id="portfolio">
@@ -600,6 +620,8 @@
   </div>
 </div>
 <!-- End of Education Section -->
+
+
 
 <!-- Start of References Section -->
 <div class="section" id="reference">

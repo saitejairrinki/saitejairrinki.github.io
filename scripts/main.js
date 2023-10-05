@@ -41,3 +41,9 @@ $('a.smooth-scroll')
     }
   }
 });
+
+//
+$(document).ready(function () {
+  // Initialize the carousel
+  $('#certificationCarousel').carousel();
+});
