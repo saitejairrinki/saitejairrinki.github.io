@@ -2015,6 +2015,11 @@ textarea.form-control {
     color: #888;
     font-size: 0.8571em;
     text-transform: uppercase; }
+
+  .progress-container .progress-sm-badge {
+    color: #888;
+    font-size: 0.8571em;
+     }  
   .progress-container .progress {
     height: 1px;
     border-radius: 0;
