@@ -1,4 +1,4 @@
-Directory Structure 
+Directory Structure  
 -------------------
 css\              - Stylesheets CSS files for the template.
 images\           - Images used in template.

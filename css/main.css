@@ -1224,11 +1224,8 @@
       min-width: 1.875rem;
       width: 1.875rem; }
       .btn.btn-icon.btn-sm i.fa,
-      .btn.btn-icon.btn-sm i.fa-brands,
       .btn.btn-icon.btn-sm i.now-ui-icons,
       .navbar .navbar-nav > a.btn.btn-icon.btn-sm i.fa,
-      .navbar .navbar-nav > a.btn.btn-icon.btn-sm i.fa-brands,
-
       .navbar .navbar-nav > a.btn.btn-icon.btn-sm i.now-ui-icons {
         font-size: 0.6875rem; }
     .btn.btn-icon.btn-lg,
@@ -1238,15 +1235,11 @@
       width: 3.6rem; }
       .btn.btn-icon.btn-lg i.now-ui-icons,
       .btn.btn-icon.btn-lg i.fa,
-      .btn.btn-icon.btn-lg i.fa-brands,
       .navbar .navbar-nav > a.btn.btn-icon.btn-lg i.now-ui-icons,
       .navbar .navbar-nav > a.btn.btn-icon.btn-lg i.fa {
         font-size: 1.325rem; }
-        .navbar .navbar-nav > a.btn.btn-icon.btn-lg i.fa-brands {
-          font-size: 1.325rem; }
     .btn.btn-icon:not(.btn-footer) i.now-ui-icons,
     .btn.btn-icon:not(.btn-footer) i.fa,
-    .btn.btn-icon:not(.btn-footer) i.fa-brands,
     .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) i.now-ui-icons,
     .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) i.fa {
       position: absolute;
@@ -1255,13 +1248,6 @@
       transform: translate(-12px, -12px);
       line-height: 1.5626rem;
       width: 25px; }
-      .navbar .navbar-nav > a.btn.btn-icon:not(.btn-footer) i.fa-brands {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-12px, -12px);
-        line-height: 1.5626rem;
-        width: 25px; }
   .btn:not(.btn-icon) .now-ui-icons,
   .navbar .navbar-nav > a.btn:not(.btn-icon) .now-ui-icons {
     position: relative;
