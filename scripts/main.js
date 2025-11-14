@@ -86,6 +86,8 @@ $(document).ready(function() {
     const previewImage = preview.querySelector('img');
     const portfolioItems = document.querySelectorAll('.portfolio-grid .portfolio-item');
     let hideTimeout = null;
+    let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    let activeItem = null;
  
     function showPreview(src, altText) {
       if (!src) {
@@ -95,6 +97,10 @@ $(document).ready(function() {
       previewImage.alt = altText || 'Portfolio preview';
       preview.classList.add('visible');
       preview.setAttribute('aria-hidden', 'false');
+      // Prevent body scroll when preview is visible on mobile
+      if (isTouchDevice) {
+        document.body.style.overflow = 'hidden';
+      }
     }
  
     function hidePreview() {
@@ -102,6 +108,11 @@ $(document).ready(function() {
       preview.setAttribute('aria-hidden', 'true');
       previewImage.removeAttribute('src');
       previewImage.alt = '';
+      activeItem = null;
+      // Restore body scroll
+      if (isTouchDevice) {
+        document.body.style.overflow = '';
+      }
     }
  
     portfolioItems.forEach(item => {
@@ -109,33 +120,74 @@ $(document).ready(function() {
       if (!img) {
         return;
       }
-
-      item.addEventListener('mouseenter', () => {
+ 
+      // Desktop: hover events
+      if (!isTouchDevice) {
+        item.addEventListener('mouseenter', () => {
+          if (hideTimeout) {
+            clearTimeout(hideTimeout);
+          }
+          const fullSrc = img.dataset.full || img.src;
+          showPreview(fullSrc, img.alt);
+          activeItem = item;
+        });
+ 
+        item.addEventListener('mouseleave', () => {
+          hideTimeout = setTimeout(hidePreview, 120);
+        });
+      } else {
+        // Mobile/Tablet: touch events
+        item.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          if (hideTimeout) {
+            clearTimeout(hideTimeout);
+          }
+          const fullSrc = img.dataset.full || img.src;
+          showPreview(fullSrc, img.alt);
+          activeItem = item;
+        }, { passive: false });
+ 
+        item.addEventListener('click', (e) => {
+          // Only trigger if not already showing (for tap to show)
+          if (activeItem !== item) {
+            e.preventDefault();
+            const fullSrc = img.dataset.full || img.src;
+            showPreview(fullSrc, img.alt);
+            activeItem = item;
+          }
+        });
+      }
+    });
+ 
+    // Desktop: keep preview visible when hovering over it
+    if (!isTouchDevice) {
+      preview.addEventListener('mouseenter', () => {
         if (hideTimeout) {
           clearTimeout(hideTimeout);
         }
-        const fullSrc = img.dataset.full || img.src;
-        showPreview(fullSrc, img.alt);
       });
-
-      item.addEventListener('mouseleave', () => {
-        hideTimeout = setTimeout(hidePreview, 120);
+ 
+      preview.addEventListener('mouseleave', () => {
+        hidePreview();
       });
-    });
-
-    preview.addEventListener('mouseenter', () => {
-      if (hideTimeout) {
-        clearTimeout(hideTimeout);
+    }
+ 
+    // Close preview on click/tap
+    preview.addEventListener('click', (e) => {
+      // Only close if clicking the background, not the image
+      if (e.target === preview) {
+        hidePreview();
       }
     });
-
-    preview.addEventListener('mouseleave', () => {
-      hidePreview();
-    });
-
-    preview.addEventListener('click', () => {
-      hidePreview();
-    });
+ 
+    // Close on touch outside (mobile)
+    if (isTouchDevice) {
+      preview.addEventListener('touchstart', (e) => {
+        if (e.target === preview) {
+          hidePreview();
+        }
+      });
+    }
  
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
@@ -144,6 +196,22 @@ $(document).ready(function() {
     });
  
     window.addEventListener('scroll', hidePreview, { passive: true });
+    
+    // Handle orientation change
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        if (preview.classList.contains('visible')) {
+          // Refresh preview on orientation change
+          const currentSrc = previewImage.src;
+          if (currentSrc) {
+            previewImage.src = '';
+            setTimeout(() => {
+              previewImage.src = currentSrc;
+            }, 50);
+          }
+        }
+      }, 100);
+    });
   }
  
   // Initialize theme on page load

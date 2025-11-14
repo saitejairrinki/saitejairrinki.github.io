@@ -814,13 +814,17 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s var(--transition-smooth);
   z-index: 3000;
+  padding: var(--spacing-md);
+  box-sizing: border-box;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .portfolio-preview.visible {
@@ -832,24 +836,80 @@ a:hover {
 .portfolio-preview img {
   max-width: min(90vw, 1200px);
   max-height: 90vh;
-  border-radius: 24px;
+  width: auto;
+  height: auto;
+  border-radius: 16px;
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.45);
   object-fit: contain;
-  transition: transform 0.35s var(--transition-smooth);
+  transition: transform 0.35s var(--transition-smooth), opacity 0.3s var(--transition-smooth);
+  margin: auto;
+  display: block;
 }
 
 .portfolio-preview.visible img {
   transform: scale(1);
+  opacity: 1;
+}
+
+[data-theme="dark"] .portfolio-preview {
+  background: rgba(0, 0, 0, 0.92);
 }
 
 [data-theme="dark"] .portfolio-preview img {
-  box-shadow: 0 40px 140px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 40px 140px rgba(0, 0, 0, 0.8);
 }
 
-@media (max-width: 768px) {
+/* Tablet and smaller desktop */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .portfolio-preview {
+    padding: var(--spacing-sm);
+  }
+  
   .portfolio-preview img {
-    max-width: 92vw;
-    max-height: 80vh;
+    max-width: min(85vw, 1000px);
+    max-height: 85vh;
+    border-radius: 12px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .portfolio-preview {
+    padding: var(--spacing-sm);
+    background: rgba(0, 0, 0, 0.95);
+    align-items: flex-start;
+    padding-top: var(--spacing-md);
+  }
+  
+  .portfolio-preview img {
+    max-width: 95vw;
+    max-height: 85vh;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-top: var(--spacing-sm);
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .portfolio-preview {
+    padding: var(--spacing-xs);
+    padding-top: var(--spacing-sm);
+  }
+  
+  .portfolio-preview img {
+    max-width: 98vw;
+    max-height: 90vh;
+    border-radius: 8px;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .portfolio-preview img {
+    max-height: 95vh;
+    max-width: 90vw;
   }
 }
 
